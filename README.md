@@ -5,8 +5,9 @@ Groupe 1:
 - 
 
 Groupe 2:
-- 
-- 
+- Shami THIRION SEN 
+- Liza FRETEL
+- Kenza AHMIA
 
 Groupe 3:
 - 
