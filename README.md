@@ -1,8 +1,8 @@
 # Projet de classe du cours Programmation Itérative et Récursive
 
 ### Groupe 1:
-- 
-- 
+- Valentina OSETROV
+- Sandra JAGODZINSKA
 
 ### Groupe 2:
 - Shami THIRION SEN 
