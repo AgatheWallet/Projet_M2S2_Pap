@@ -1,15 +1,50 @@
 import spacy
 import time
-from pprint import pprint
+import pprint
+import glob
 
+nlp = spacy.load("fr_core_news_sm")
 # initialiser les variables globales
 global memo
 memo = {}
-global cmpx
-cmpx = 0
 
 
-nlp = spacy.load('fr_core_news_sm')
+def preprocess_gp1(inputFile):
+    """
+    files = glob.glob(inputFile + "/*.txt")
+    textes = []
+    for inputFile in files:
+        with open(inputFile, 'r', encoding='utf-8') as file:
+            textes.extend(file.readlines())
+            textes = [texte.replace('\n', '') for texte in textes]
+    return textes
+    """
+    with open(inputFile, 'r') as file:
+        textes = file.readlines()
+        textes = [text.replace('\n', '') for text in textes]   
+        return textes
+
+
+def process_gp1(textes):
+    res = list(nlp.pipe(textes, disable=["parser", "ner", "lemmatizer", "attribute_ruler"]))
+    return res
+
+
+def recursive_pos_tagging(docs, index_doc=0, all_tags=None):
+    if all_tags == None : 
+        all_tags=[]
+
+    if index_doc >= len(docs) : 
+        return all_tags
+    
+    doc = docs[index_doc]
+    tags = spacy_pos_tag_recursive(doc)
+    all_tags.append(tags)
+    index_doc += 1
+
+    ajout_dico("all_tags", all_tags)
+    return recursive_pos_tagging(docs, index_doc, all_tags)
+
 
 def ajout_dico(nm, ele):
     global memo
@@ -19,55 +54,40 @@ def ajout_dico(nm, ele):
         memo[nm].append(len(ele))
 
 
-def spacy_pos_tag_recursive(texte, index_tok=0, tags=None, doc=None):
-    global cmpx
-    cmpx += 1
-
+def spacy_pos_tag_recursive(doc, index_tok=0, tags=None):
     #initialiser s'il n'ya pas de tags, initialiser également doc
     if tags is None:
         tags = {}
-        ajout_dico("tags", tags)
-
-    if doc is None:
-        #pour ne pas initialiser à chaque appel récursif
-        doc = nlp(texte) #appliquer spacy
-        ajout_dico("doc", doc)
-
-    #print(len(doc)) --> 447
-    #len(texte) compte les caractères pas des mots donc environ 2028
-    #le script crachait à index 446 car on retourn tags selon len texte on essaye d'acceder aux mots qui n'existen pas
-    #il faut initialiser doc avant
+        # ajout_dico("tags", tags)
 
     #si l'index arrive à la fin de la phrase
     if index_tok >= len(doc):
+        ajout_dico("tags", tags)
         return tags
     
     token = doc[index_tok] #token
     ajout_dico("token", token)
     token_index_dic = index_tok + 1 #index du token
-    tags[token_index_dic] = {token.text: token.pos_} #ajouter le token avec son pos tag dans le dictionnaire
-    #tagged_word = (token.text, token.pos_) #token avec pos
-    #ajout_dico("tagged_word", tagged_word)
-    #tags.append(tagged_word) #rajouter token avec son pos tag dans la liste des tags
-    ajout_dico("tags", tags)
 
-    # print(tagged_word) #pour voir
+    tags[token_index_dic] = {token.text: token.pos_} 
+    #ajouter le token avec son pos tag dans le dictionnaire
 
-    return spacy_pos_tag_recursive(texte, index_tok + 1, tags, doc) #appel récursif pour itérer sur les mots
+    return spacy_pos_tag_recursive(doc, index_tok + 1, tags) #appel récursif pour itérer sur les mots
 
-#test
-with open('petit_test.txt', 'r') as file:
-    texte = file.read().replace('\n', '')
+if __name__ == "__main__" :
+    start = time.time()
+    res = recursive_pos_tagging(process_gp1(preprocess_gp1('petit_test.txt')))
+    print(res)
+    end = time.time()
+    tot = end - start
+    print("compléxité en temps : ", tot)
 
-start = time.time()
-res = spacy_pos_tag_recursive(texte)
-pprint(res)
-end = time.time()
-tot = end - start
-print("compléxité en temps : ", tot)
 
-memo_tot=0
-for key, values in memo.items():
-    memo_tot += max(values)
-#l'espace maximal alloué lors traitement
-print("compléxité en espace : ", memo_tot, "bytes max. utilisés lors traitement")
+    memo_f = 0
+    for key, values in memo.items():
+        if key == "tags":
+            memo_f += sum(values)
+    memo_f2 = memo_f*2
+
+    print("compléxité en espace :", memo_f, "tuples de pos tag")
+    print("compléxité en espace :", memo_f2, "elements dans la mémoire")
