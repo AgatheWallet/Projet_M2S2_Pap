@@ -42,7 +42,6 @@ def recursive_pos_tagging(docs, index_doc=0, all_tags=None):
 
 	# index pour la récursivité
     if index_doc >= len(docs) :
-        ajout_dico("all_tags", all_tags) 
         return all_tags
     
     #récupèration d'un doc
@@ -80,7 +79,6 @@ def spacy_pos_tag_recursive(doc, index_tok=0, tags=None):
         return tags
     
     token = doc[index_tok] #token
-    ajout_dico("token", token)
     token_index_dic = index_tok + 1 #index du token
 
 	#ajouter le token avec son pos tag dans le dictionnaire
@@ -106,5 +104,6 @@ if __name__ == "__main__" :
         if key == "tags":
             memo_f += sum(values)
     memo_f2 = memo_f*2
+
     print("compléxité en espace :", memo_f, "tuples de pos tag")
     print("compléxité en espace :", memo_f2, "elements dans la mémoire")
