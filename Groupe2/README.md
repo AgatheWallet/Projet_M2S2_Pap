@@ -1,4 +1,6 @@
 ### Analyse syntaxique 
 #### Calcul de complexite en temps et en espace 
 
-**tracemalloc** necessite l'installation ```pip install pymemtrace```
+[**tracemalloc**](https://docs.python.org/3/library/tracemalloc.html) necessite l'installation ```pip install pymemtrace```
+
+
