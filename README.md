@@ -14,8 +14,9 @@
 - Alice
 
 ### Groupe 4:
-- 
-- 
+- Clément BUON
+- Fanny BACHEY
+- Tifanny NGUYEN
 
 ### Groupe 5:
 - Florian Jacquot
