@@ -1,0 +1,28 @@
+### IDÉE ALGORITHME
+
+QUESTION: comment sont représentés les groupes nominaux en spacy
+Plus précisement : quelle est la tête (au sens de la syntaxe) des groupes nominaux ? Un nom, un déterminant ?
+
+une fois muni de l'arbre :
+    liste_groupes_nominaux = []
+    - on parcourt RÉCURSIVEMENT l'arbre de haut en bas (ou pas ?)
+    - à chaque fois qu'on rencontre un nœud où on a une tête (par exemple un déterminant), on "stoppe"
+    le parcourt RÉCURSIVEMENT et on explore le sous-arbre qui a cette tête comme racine.
+
+        groupe_nominal_courant = []
+        for noeud in sous-arbre:
+            groupe_nominal_courant.append(noeud.token)
+        liste_groupes_nominaux.append(groupe_nominal_courant)
+
+    - une fois ce sous-arbre parcouru, inutile de descendre plus bas. 
+    Si il existe un sibling non exploré, on passe au "sibling",
+    Sinon, on remonte au parent du nœud, et on regarde son sibling,
+    etc. jusqu'à la fin du parcours
+
+Finalement on obtient une liste de listes, par exemple :
+
+[ 
+    [‘la’, ‘chaussure’, ‘noire’, ‘de’, ‘papa’],
+    [‘un’, ‘petit’, ‘chien’],
+    etc... 
+]
