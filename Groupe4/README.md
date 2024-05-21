@@ -2,6 +2,7 @@
 
 À partir de la sortie du groupe 2, nous détectons les groupes nominaux en parcourant récursivement l'arbre syntaxique.
 
-Fanny BACHEY
-Clément BUON
+Membres du groupe 4 : 
+Fanny BACHEY,
+Clément BUON,
 Tifanny NGUYEN
