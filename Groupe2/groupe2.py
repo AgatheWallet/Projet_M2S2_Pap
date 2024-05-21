@@ -85,13 +85,14 @@ def process_gp2(docs):
 
 # Ne s'exécute pas dans le cas d'import de module
 if __name__ == "__main__":
-	input_files = glob.glob('./Corpus/*.txt') # tout les fichiers dans le dossier Corpus
-	for input_file in input_files:
-	    process_gp2(process_gp1(preprocess_gp1(input_file)))
-	    print(f"Processing {input_file}...")
+    input_files = glob.glob('../Corpus/*.txt') # tout les fichiers dans le dossier Corpus
+    for input_file in input_files:
+        process_gp2(process_gp1(preprocess_gp1(input_file)))
+        print(f"Processing {input_file}...")
 
-	print(f"Total number of tokens: {n}")
-	print("Time data:", time_data)
-	print("Memory data:", memory_data)
+    print(f"Total number of tokens: {n}")
+    print("Time data:", time_data)
+    print("Memory data:", memory_data)
 
-	plot_complexity()
+    plot_complexity()
+                
