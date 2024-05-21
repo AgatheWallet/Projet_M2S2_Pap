@@ -42,6 +42,7 @@ def write_tsv(annotations: List[Tuple[spacy.tokens.token.Token, str]], output_fi
     """
         Écrit la sortie du script précédent dans un fichier .tsv
         dans un fichier nommé output_file
+        situé dans le dossier annotations_GN/
     """
     with open(output_file, 'w') as tsv_file:
         writer = csv.writer(tsv_file, delimiter='\t')
