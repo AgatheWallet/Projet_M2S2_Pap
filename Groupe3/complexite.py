@@ -115,5 +115,8 @@ def process_line(i: int, dicos: list[dict], doc: spacy.tokens.doc.Doc, cpt_proce
 
 
 if __name__ == "__main__":
-	print(preprocess_file("petit_test.txt", cpt_analyse_spacy=0, cpt_process_file=0, cpt_process_line=0, cpt_espace=0, cpt_temps=0))
-	#print(preprocess_file("../Corpus/JV-5_semaines_ballon.txt"))
+	
+	dicos, espace, temps = preprocess_file("../Corpus/JV-5_semaines_ballon.txt", cpt_analyse_spacy=0, cpt_process_file=0, cpt_process_line=0, cpt_espace=0, cpt_temps=0)
+
+	print(espace)
+	print(temps)

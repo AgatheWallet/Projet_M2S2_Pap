@@ -7,6 +7,7 @@ Il y a deux manières de résoudre ce problème:
 - transformer le code pour passer d'un code récursif à un code itératif (ce qui n'est pas le but de ce projet)
 """
 
+import time
 import spacy
 nlp = spacy.load("fr_core_news_sm")
 
@@ -14,7 +15,7 @@ import sys
 sys.setrecursionlimit(6000)
 
 
-def preprocess_file(inputFile: str) -> list[dict]:
+def preprocess_file(inputFile: str, cpt_temps) -> list[dict]:
     """ ouvre le fichier texte, le découpe au niveau des '\n'
     et appelle la fonction analyse_spacy() pour analyser le texte
 
@@ -27,11 +28,11 @@ def preprocess_file(inputFile: str) -> list[dict]:
     with open(inputFile, 'r') as file:
         texte = [line.rstrip() for line in file.readlines()]
         if len(texte) == 0:
-            return []
-        return analyse_spacy(texte)
+            return [], cpt_temps
+        return analyse_spacy(texte, cpt_temps+1)
 
 
-def analyse_spacy(texte: list[str]) -> list[dict]:
+def analyse_spacy(texte: list[str], cpt_temps) -> list[dict]:
     """ on analyse le texte avec spacy
 
     Args:
@@ -41,10 +42,10 @@ def analyse_spacy(texte: list[str]) -> list[dict]:
         list[dict]: chaque dico correspond à une phrase analysé
     """
     docs = list(nlp.pipe(texte, disable=["parser", "lemmatizer", "attribute_ruler"]))
-    return process_file([], docs)
+    return process_file([], docs, cpt_temps+1)
 
 
-def process_file(dicos: list[dict], docs: list[spacy.tokens.doc.Doc]) -> list[dict]:
+def process_file(dicos: list[dict], docs: list[spacy.tokens.doc.Doc], cpt_temps) -> list[dict]:
     """ traite le texte ligne par ligne jusqu'à renvoyer
 
     Args:
@@ -54,15 +55,16 @@ def process_file(dicos: list[dict], docs: list[spacy.tokens.doc.Doc]) -> list[di
     Returns:
         list[dict]: chaque dico correspond à une phrase analysé
     """
+    # print("docs", len(docs), cpt_temps)
     if len(docs) == 0:
-        return dicos
+        return dicos, cpt_temps
     else:
         dicos.append({})
-        dicos = process_line(0, dicos, docs[0])
-        return process_file(dicos, docs[1:])
+        dicos, cpt_temps = process_line(0, dicos, docs[0], cpt_temps+1)
+        return process_file(dicos, docs[1:], cpt_temps+1)
 
 
-def process_line(i: int, dicos: list[dict], doc: spacy.tokens.doc.Doc) -> list[dict]:
+def process_line(i: int, dicos: list[dict], doc: spacy.tokens.doc.Doc, cpt_temps) -> list[dict]:
     """ traite la ligne analysé par spacy pour créer un dico avec comme clé l'index
     du token et comme valeur un tuple (le token, son annotation)
 
@@ -74,15 +76,22 @@ def process_line(i: int, dicos: list[dict], doc: spacy.tokens.doc.Doc) -> list[d
     Returns:
         list[dict]: chaque dico correspond à une phrase analysé
     """
+    # print("doc", len(doc), cpt_temps)
     if len(doc) == 0:
-        return dicos
+        return dicos, cpt_temps
     else:
         if doc[0].ent_iob_ != "O":
             dicos[-1][i] = (doc[0].text, doc[0].ent_iob_+"-"+doc[0].ent_type_)
         else:
             dicos[-1][i] = (doc[0].text, "O")
-        return process_line(i+1, dicos, doc[1:])
+        return process_line(i+1, dicos, doc[1:], cpt_temps+1)
 
 
 if __name__ == "__main__":
-    print(preprocess_file("../Corpus/JV-5_semaines_ballon.txt"))
+    
+    start_time = time.time() # début du calcul du temps d'execution
+    dicos, temps = preprocess_file("../Corpus/JV-5_semaines_ballon.txt", cpt_temps=1) # on commencence compteur temps à 1 car la fonction est appelé
+    end_time = time.time() # fin du calcul du temps d'execution 
+    
+    print("Les fonctions de ce fichier ont été appelées", temps, "fois pour le fichier 'JV-5_semaines_ballon.txt'.")
+    print("Ce fichier python a tourné", round(end_time - start_time, 3), "secondes pour le fichier 'JV-5_semaines_ballon.txt'.")
