@@ -2,6 +2,7 @@ import spacy
 import time
 import pprint
 import glob
+import json
 
 nlp = spacy.load("fr_core_news_sm")
 
@@ -94,6 +95,11 @@ if __name__ == "__main__" :
     start = time.time()
     res = recursive_objet_doc(process_gp1(preprocess_gp1('petit_test.txt')))
     print(res)
+
+    # sauvegarder les résultats dans un fichier json
+    with open('resultat_groupe1.json', 'w') as sortie_json:
+        json.dump(res, sortie_json, indent=6, ensure_ascii=False)
+
     end = time.time()
     tot = end - start
     print("compléxité en temps : ", tot)
