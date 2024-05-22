@@ -60,6 +60,9 @@ def process_file(dicos: list[dict], docs: list[spacy.tokens.doc.Doc], cpt_def, c
 		tuple (list[dict[i:(tok,label)]] , cpt_espace, cpt_temps)
 	"""
 	print(f'cpt_espace dans process_file : {cpt_espace}')
+	# LAURA : tu commences par définir cpt_def = len(docs) + len(dicos) même si len(docs) == 0 ou len(dicos) == 0
+	# LAURA : et tu vérifies si cpt_def est plus grand que cpt_espace ce qui devrait être le cas uniquement
+	# LAURA : pour le premier appel de la fonction quand len(dicos) = 0
 	if len(docs) == 0: 
 		cpt_def = len(dicos) # qd plus de docs (SpacyDoc) on a rempli la liste des dicos
 		print(f'cpt_def in process_file() ajout len(dicos) : {cpt_def}')
@@ -88,6 +91,14 @@ def process_line(i: int, dicos: list[dict], doc: spacy.tokens.doc.Doc, cpt_def, 
 	"""
 	if i == 0: # on est au 1er tok , else : on a commencé à enlever des élé de la liste
 		cpt_def += len(doc) # nbre de toks
+		# LAURA : c'est ça !
+		# LAURA : maintenant tu vérifies si cpt_def est plus grand que cpt_espace
+		# LAURA : tu n'as pas besoin de le faire ailleurs dans la fonction car len(doc)
+		# LAURA : ne fait que baisser après ça donc cpt_def ne peux plus être plus grand 
+		# LAURA : que cpt_espace
+		# LAURA : je dirais même que tu n'est plus obligé de faire -1 à chaque appel de fonction
+		# LAURA : car de toute façon la taille de l'espace mémore de doc disparait au
+		# LAURA : début de la fonction process_file
 		print(f'cpt_def = len(doc) : {len(doc)}')
 	if len(doc) == 0: # fin lecture du SpacyDoc
 	# 		cpt_def = len(dicos) #nbre de phrases
