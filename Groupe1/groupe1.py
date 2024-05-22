@@ -34,7 +34,7 @@ def process_gp1(textes) :
 
 
 def recursive_objet_doc(docs, index_doc=0, all_tags=None):
-    """Une fonction qui récupère tous les annotations"""
+    """Une fonction qui récupère toutes les annotations des objets doc"""
 	
 	# initialisation d'une liste qui va contenir des dictionnaires d'annotation
     if all_tags == None : 
@@ -48,7 +48,7 @@ def recursive_objet_doc(docs, index_doc=0, all_tags=None):
     doc = docs[index_doc]
     
     # appel de fonction récursive pour obtenir des annotations dans le doc
-    tags = spacy_pos_tag_recursive(doc)
+    tags = recursive_tokens_pos(doc)
     
     # ajout des annotations
     all_tags.append(tags)
@@ -57,7 +57,7 @@ def recursive_objet_doc(docs, index_doc=0, all_tags=None):
 
 
 def ajout_dico(nm, ele):
-    """Une fonction pour ajouter des elements et leur longueurs dans le dictionnaire pour facilité la calcul de compléxité"""
+    """Une fonction pour ajouter des éléments et leur longueurs dans le dictionnaire pour faciliter le calcul de compléxité"""
     global memo
     if nm not in memo : 
         memo[nm] = [len(ele)]
@@ -66,7 +66,7 @@ def ajout_dico(nm, ele):
 
 
 def recursive_tokens_pos(doc, index_tok=0, tags=None):
-    """Spacy récursive pos tagger"""
+    """Une fonction qui récupère les pos tags des tokens"""
 
     #initialiser s'il n'ya pas de tags, initialiser également doc
     if tags is None:
@@ -98,7 +98,7 @@ if __name__ == "__main__" :
     tot = end - start
     print("compléxité en temps : ", tot)
 
-
+    # calcul de compexité en espace
     memo_f = 0
     for key, values in memo.items():
         if key == "tags":
@@ -106,4 +106,4 @@ if __name__ == "__main__" :
     memo_f2 = memo_f*2
 
     print("compléxité en espace :", memo_f, "tuples de pos tag")
-    print("compléxité en espace :", memo_f2, "elements dans la mémoire")
+    print("compléxité en espace :", memo_f2, "éléments dans la mémoire")
