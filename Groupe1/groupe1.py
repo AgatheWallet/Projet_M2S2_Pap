@@ -3,6 +3,9 @@ import time
 import pprint
 import glob
 import json
+import sys 
+
+sys.setrecursionlimit(10000)
 
 nlp = spacy.load("fr_core_news_sm")
 
@@ -97,11 +100,11 @@ if __name__ == "__main__" :
 	
 	# calcul de complexité en temps
     start = time.time()
-    res = recursive_objet_doc(process_gp1(preprocess_gp1('petit_test.txt')))
+    res = recursive_objet_doc(process_gp1(preprocess_gp1('../Corpus/JV-Tour_monde.txt')))
     print(res)
 
     # sauvegarder les résultats dans un fichier json
-    with open('resultat_groupe1.json', 'w') as sortie_json:
+    with open('./resultat_groupe1_JV-Tour_monde.json', 'w') as sortie_json:
         json.dump(res, sortie_json, indent=6, ensure_ascii=False)
 
     end = time.time()
@@ -109,6 +112,7 @@ if __name__ == "__main__" :
     print("compléxité en temps : ", tot)
 
     # calcul de compexité en espace
+    global memo_f
     memo_f = 0
     for key, values in memo.items():
         if key == "tags":
