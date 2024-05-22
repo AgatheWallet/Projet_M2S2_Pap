@@ -33,7 +33,7 @@ def process_gp1(textes) :
     return res
 
 
-def recursive_pos_tagging(docs, index_doc=0, all_tags=None):
+def recursive_objet_doc(docs, index_doc=0, all_tags=None):
     """Une fonction qui récupère tous les annotations"""
 	
 	# initialisation d'une liste qui va contenir des dictionnaires d'annotation
@@ -53,7 +53,7 @@ def recursive_pos_tagging(docs, index_doc=0, all_tags=None):
     # ajout des annotations
     all_tags.append(tags)
     
-    return recursive_pos_tagging(docs, index_doc + 1, all_tags)
+    return recursive_objet_doc(docs, index_doc + 1, all_tags)
 
 
 def ajout_dico(nm, ele):
@@ -65,7 +65,7 @@ def ajout_dico(nm, ele):
         memo[nm].append(len(ele))
 
 
-def spacy_pos_tag_recursive(doc, index_tok=0, tags=None):
+def recursive_tokens_pos(doc, index_tok=0, tags=None):
     """Spacy récursive pos tagger"""
 
     #initialiser s'il n'ya pas de tags, initialiser également doc
@@ -84,7 +84,7 @@ def spacy_pos_tag_recursive(doc, index_tok=0, tags=None):
 	#ajouter le token avec son pos tag dans le dictionnaire
     tags[token_index_dic] = {token.text: token.pos_} 
 
-    return spacy_pos_tag_recursive(doc, index_tok + 1, tags) #appel récursif pour itérer sur les mots
+    return recursive_tokens_pos(doc, index_tok + 1, tags) #appel récursif pour itérer sur les mots
 
 
 
@@ -92,7 +92,7 @@ if __name__ == "__main__" :
 	
 	# calcul de complexité en temps
     start = time.time()
-    res = recursive_pos_tagging(process_gp1(preprocess_gp1('petit_test.txt')))
+    res = recursive_objet_doc(process_gp1(preprocess_gp1('petit_test.txt')))
     print(res)
     end = time.time()
     tot = end - start
