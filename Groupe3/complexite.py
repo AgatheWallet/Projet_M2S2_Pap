@@ -106,7 +106,7 @@ def process_line(i: int, dicos: list[dict], doc: spacy.tokens.doc.Doc, cpt_def, 
 		# LAURA : car de toute façon la taille de l'espace mémore de doc disparait au
 		# LAURA : début de la fonction process_file
 	if len(doc) == 0: # fin lecture du SpacyDoc
-	return dicos, cpt_def, cpt_espace, cpt_temps
+		return dicos, cpt_def, cpt_espace, cpt_temps
 	else:
 		if doc[0].ent_iob_ != "O":
 			dicos[-1][i] = (doc[0].text, doc[0].ent_iob_+"-"+doc[0].ent_type_)
@@ -118,5 +118,5 @@ def process_line(i: int, dicos: list[dict], doc: spacy.tokens.doc.Doc, cpt_def, 
 
 
 if __name__ == "__main__":
-	print(preprocess_file("petit_test.txt", cpt_def=0, cpt_espace=0, cpt_temps=0))
+	print(preprocess_file("mini_test.txt", cpt_def=0, cpt_espace=0, cpt_temps=0))
 	#print(preprocess_file("../Corpus/JV-5_semaines_ballon.txt"))
