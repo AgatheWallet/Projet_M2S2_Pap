@@ -87,6 +87,10 @@ def recursive_tokens_pos(doc, index_tok=0, tags=None):
     return recursive_tokens_pos(doc, index_tok + 1, tags) #appel récursif pour itérer sur les mots
 
 
+def get_complexity():
+    global memo_f
+    global tot
+    return memo_f, tot
 
 if __name__ == "__main__" :
 	
