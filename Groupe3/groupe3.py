@@ -179,7 +179,7 @@ def make_plot(liste_res:list):
 	# Titre et légendes
 	fig.tight_layout() # Ajuste la mise en page pour éviter les chevauchements
 	plt.title('Complexité en temps et espace vs nb de tokens pour entités nommées')
-
+	ax1.annotate('Terre_Lune', xy=(66466, 6.497), xytext=(87000, 5), arrowprops=dict(width=3, facecolor='blue', shrink=0.05),)
 	# Affichage
 	plt.grid()
 	plt.show()
