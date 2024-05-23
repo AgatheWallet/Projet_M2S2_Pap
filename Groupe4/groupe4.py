@@ -1,10 +1,37 @@
 import sys, os, glob, spacy, csv
 from typing import List, Dict, Tuple
+import time
+import psutil
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../Groupe2')))
 from groupe2 import process_gp2
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../Groupe1')))
 from groupe1 import process_gp1, preprocess_gp1
 
+
+def measure_complexity(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        start_memory = psutil.Process(os.getpid()).memory_info().rss
+
+        result = func(*args, **kwargs)
+
+        end_time = time.time()
+        end_memory = psutil.Process(os.getpid()).memory_info().rss
+
+        time_complexity = end_time - start_time
+        space_complexity = end_memory - start_memory
+
+        complexity_info = {
+            'time_complexity': time_complexity,
+            'space_complexity': space_complexity
+        }
+
+        return result, complexity_info
+
+    return wrapper
+
+
+@measure_complexity
 def process_gp4(filename:str) -> List[Dict[int, Tuple[spacy.tokens.token.Token, str]]]:
     """
         À partir du nom du fichier texte donné en entrée,
@@ -49,7 +76,7 @@ def process_gp4(filename:str) -> List[Dict[int, Tuple[spacy.tokens.token.Token, 
         res_final.append(res_intermediaire)
     
     # on a traité toutes les phrases
-    return res_final
+    return res_final 
 
 def write_tsv(annotations: List[Tuple[spacy.tokens.token.Token, str]], output_file: str = 'annotation_GN.tsv'):
     """
@@ -75,15 +102,17 @@ if __name__ == "__main__":
 
     print(f"Lecture du fichier {test}...")
 
-    res = process_gp4(test)
+    res, complexity_info = process_gp4(test)
 
     for elt in res[0:10]:
         print(elt)
 
+    print(f"Temps d'exécution : {complexity_info['time_complexity']:.4f} secondes")
+    print(f"Mémoire utilisée : {complexity_info['space_complexity'] / 131072:.4f} Mb")
+    
     #for fichier_texte in txt_files:
     #    print(f"Lecture du fichier {fichier_texte.split('/')[-1]}...")
     #    nom_fichier_tsv = "annotations_GN/" + fichier_texte.split('/')[-1].split('.')[0] + "_annotations_GN.tsv"
     #    annotations = process_gp4(str(fichier_texte))
     #    print(f"Écriture du fichier {nom_fichier_tsv}...")
     #    write_tsv(annotations, nom_fichier_tsv)
-
