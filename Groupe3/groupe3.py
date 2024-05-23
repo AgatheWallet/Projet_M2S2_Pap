@@ -12,6 +12,7 @@ Le formatage des résultats a été discuté et approuvé par le groupe 5
 import time
 import spacy
 import json
+from glob import glob
 nlp = spacy.load("fr_core_news_sm")
 
 import sys
@@ -115,19 +116,16 @@ def process_line(i: int, dicos: list[dict], doc: spacy.tokens.doc.Doc, cpt_temps
             dicos[-1][f"token_{i}"] = { "form": doc[0].text, "ner": "O"}
         return process_line(i+1, dicos, doc[1:], cpt_temps+1, cpt_espace)
     
-def get_complexities():
+def get_complexities(files):
     """ Cette fonction permet d'obtenir les complexités pour chacun des fichiers du corpus.
         Il renvoie une liste de trois listes pour les tokens, la complexité en temps, la complexité en espace 
     """
     # chemins relatifs pour que le groupe 5 puisse facilement appelé sans bug
-    files = ["JV-5_semaines_ballon.txt", "JV-Begum.txt", "JV-Forceurs_blocus.txt", 
-             "JV-Revoltes_Bounty.txt", "JV-Robur.txt", "JV-Terre_Lune.txt", "JV-Tour_monde.txt"
-             ]
     complexities = [[], [], []]
-    for file in files:
+    for file in glob(f"{files}*.txt"):
         
         start_time = time.time() # début du calcul du temps d'execution
-        (dicos, temps, espace), nb_tokens = preprocess_file("../Corpus/"+file, cpt_temps=1, cpt_espace=0) # on commencence compteur temps à 1 car la fonction est appelé
+        (dicos, temps, espace), nb_tokens = preprocess_file(file, cpt_temps=1, cpt_espace=0) # on commencence compteur temps à 1 car la fonction est appelé
         end_time = time.time() # fin du calcul du temps d'execution
         
         complexities[0].append(nb_tokens)
@@ -142,27 +140,24 @@ def get_complexities():
         
     return complexities
 
-def get_annotations():
+def get_annotations(files):
     """ Cette fonction print dans des fichiers le résultat de notre traitement
     """
-    files = ["JV-5_semaines_ballon", "JV-Begum", "JV-Forceurs_blocus", 
-             "JV-Revoltes_Bounty", "JV-Robur", "JV-Terre_Lune", "JV-Tour_monde"
-             ]
     all_dicos = {}
-    for file in files:
-        (dicos, temps, espace), nb_tokens = preprocess_file("../Corpus/"+file+".txt", cpt_temps=1, cpt_espace=0)
-        all_dicos[file+".txt"] = {}
+    for file in glob(f"{files}*.txt"):
+        (dicos, temps, espace), nb_tokens = preprocess_file(file, cpt_temps=1, cpt_espace=0)
+        all_dicos[file] = {}
         for i, dico in enumerate(dicos):
-            all_dicos[file+".txt"]["phrase_"+str(i)] = dico
+            all_dicos[file]["phrase_"+str(i)] = dico
 
     return all_dicos
 
 if __name__ == "__main__":
     
-    complex = get_complexities()
+    complex = get_complexities(sys.argv[1])
     print(complex)
     
-    all_dicos = get_annotations()
+    all_dicos = get_annotations(sys.argv[1])
     with open('annotations_EN.json', 'w', encoding='utf-8') as file:
         json.dump(all_dicos, file, ensure_ascii=False, indent=4)
     
