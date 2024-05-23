@@ -13,6 +13,8 @@ import time
 import spacy
 import json
 from glob import glob
+import matplotlib.pyplot as plt
+
 nlp = spacy.load("fr_core_news_sm")
 
 import sys
@@ -152,6 +154,37 @@ def get_annotations(files):
 
     return all_dicos
 
+def make_plot(liste_res:list):
+
+	# Préparation des données : tri par rapport au nbre de tokens
+	combined = list(zip(liste_res[0], liste_res[1], liste_res[2]))
+	sorted_on_ntokens = sorted(combined, key=lambda x: x[0])
+	nb_toks, temps, espace = zip(*sorted_on_ntokens)
+
+	# Création de la figure et de l'axe principal
+	fig,ax1=plt.subplots()
+
+	# Axe des x et premier axe y (temps)
+	ax1.set_xlabel('Nombre de tokens')
+	ax1.set_ylabel('Temps (s)', color='green')
+	ax1.plot(nb_toks, temps, color='green', marker='o', label='Temps (s)')
+	ax1.tick_params(axis='y', labelcolor='green')
+
+	#Création d'un second axe y (espace)
+	ax2=ax1.twinx()
+	ax2.set_ylabel('Espace mémoire (unités)', color='purple')
+	ax2.plot(nb_toks,espace, color='purple', linestyle='-', label='Espace mémoire (unités)')
+	ax2.tick_params(axis='y', labelcolor='purple')
+
+	# Titre et légendes
+	fig.tight_layout() # Ajuste la mise en page pour éviter les chevauchements
+	plt.title('Complexité en temps et espace vs nb de tokens pour entités nommées')
+
+	# Affichage
+	plt.grid()
+	plt.show()
+	plt.savefig("plot.png")
+
 if __name__ == "__main__":
     
     complex = get_complexities(sys.argv[1])
@@ -160,4 +193,6 @@ if __name__ == "__main__":
     all_dicos = get_annotations(sys.argv[1])
     with open('annotations_EN.json', 'w', encoding='utf-8') as file:
         json.dump(all_dicos, file, ensure_ascii=False, indent=4)
+	
+	make_plot(complex)
     
