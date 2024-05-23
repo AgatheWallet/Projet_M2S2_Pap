@@ -46,8 +46,11 @@ def time_and_memory_wrapper(func):
         mem_diff = snapshot_id1.compare_to(snapshot_id0, 'lineno')
         time_data.append(end_time - start_time)
         memory_data.append(sum(block.size for block in mem_diff)/10**6)
-        n_tokens.append(len(result))
-        n += len(result) # à corriger
+
+        # maj nombre de tokens
+        token_count = sum(len(doc) for doc in result)
+        n_tokens.append(token_count)
+        n += token_count
 
         # Affiche les informations de performance pour la fonction
         print(f"Function {func.__name__} took {end_time - start_time} seconds\n and used {sum(block.size for block in mem_diff)/10**6} MB of memory")
