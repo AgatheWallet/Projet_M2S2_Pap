@@ -38,7 +38,7 @@ def time_and_memory_wrapper(func):
         snapshot_id0 = tracemalloc.take_snapshot()
         start_time = time.time()
         result = func(*args, **kwargs)
-        result = str([item for sublist in result for item in sublist]).split()
+        # result = str([item for sublist in result for item in sublist]).split()
         snapshot_id1 = tracemalloc.take_snapshot()
         end_time = time.time()
 
@@ -47,7 +47,7 @@ def time_and_memory_wrapper(func):
         time_data.append(end_time - start_time)
         memory_data.append(sum(block.size for block in mem_diff)/10**6)
         n_tokens.append(len(result))
-        n += len(result) # maj
+        n += len(result) # à corriger
 
         # Affiche les informations de performance pour la fonction
         print(f"Function {func.__name__} took {end_time - start_time} seconds\n and used {sum(block.size for block in mem_diff)/10**6} MB of memory")
