@@ -23,7 +23,7 @@ def get_pos_dep(corpus: str, dico_global: defaultdict) -> defaultdict:
 	Output :
 	- Dictionnaire avec la structure suivante : 
 	  {"nom_fichier.txt":
-	    {"phrase_1":
+	    {"phrase_0":
 		  {"text": texte de la phrase,
 		   "tokens_decomp":
 		    {"token_1":
@@ -67,10 +67,14 @@ def get_named_entities(corpus: str, dico_global: defaultdict) -> defaultdict:
 	for fichier, dico_phrase in dico_groupe3.items():
 		for phrase_id, token_dec in dico_phrase.items():
 			for tok_id, analyse in token_dec.items():
-				if analyse['form'] == dico_global[fichier.split('/')[-1]][phrase_id]["tokens_decomp"][tok_id]["form"]:
-					dico_global[fichier.split('/')[-1]][phrase_id]["tokens_decomp"][tok_id].update({"ner":analyse["ner"]})
-				else:
-					print("erreur !")
+				if analyse['form'].strip() != "":
+					print(analyse['form'])
+					print(dico_global[fichier.split('/')[-1]][phrase_id]["tokens_decomp"][tok_id]["form"])
+					print("blabla")
+					if analyse['form'] == dico_global[fichier.split('/')[-1]][phrase_id]["tokens_decomp"][tok_id]["form"]:
+						dico_global[fichier.split('/')[-1]][phrase_id]["tokens_decomp"][tok_id].update({"ner":analyse["ner"]})
+					else:
+						print("erreur !")
 	return dico_global
 
 
@@ -131,4 +135,4 @@ if __name__ == "__main__":
 	dico = get_pos_dep(corpus_path, dico)
 	dico = get_named_entities(corpus_path, dico)
 	dico, dico_complexity_g4 = get_noun_phrase(corpus_path, dico)
-	build_conll(dico, sys.argv[2])
+	# build_conll(dico, sys.argv[2])
