@@ -9,7 +9,7 @@ Il y a deux manières de résoudre ce problème:
 Le formatage des résultats a été discuté avec et approuvé par le groupe 5.
 
 Le fichier peut-être appelé de cette manière dans le terminal
-	$ python groupe3.py [chemin vers le dossier du corpus]
+	$ python groupe3.py [chemin/vers/dossier_corpus/]
 """
 
 import sys
@@ -22,7 +22,6 @@ nlp = spacy.load("fr_core_news_sm")
 import json
 from glob import glob
 import matplotlib.pyplot as plt
-
 
 
 def preprocess_file(inputFile: str, cpt_temps: int, cpt_espace: int) -> tuple:
@@ -147,7 +146,7 @@ def get_complexities(chemin: str) -> list:
 		start_time = time.time() # début du calcul du temps d'exécution
 		(dicos, temps, espace), nb_tokens = preprocess_file(file, cpt_temps=1, cpt_espace=0) # on commence ce compteur temps à 1 car la fonction est appelée
 		end_time = time.time() # fin du calcul du temps d'exécution
-		
+
 		complexities[0].append(nb_tokens)
 		complexities[1].append(round(end_time - start_time, 3))
 		complexities[2].append(espace)
@@ -191,8 +190,9 @@ def make_plot(liste_res:list):
 	sorted_on_ntokens = sorted(combined, key=lambda x: x[0])
 	nb_toks, temps, espace, appels = zip(*sorted_on_ntokens)
 
-	# Création de la figure et de l'axe principal
-	fig, ax1= plt.subplots()
+	# Création de la première figure et de l'axe principal
+	# espace x temps (avec module time)
+	fig, ax1 = plt.subplots()
 	
 	# Axe des x et premier axe y (temps)
 	ax1.set_xlabel('Nombre de tokens')
@@ -203,42 +203,52 @@ def make_plot(liste_res:list):
 	#Création d'un second axe y (espace)
 	ax2 = ax1.twinx()
 	ax2.set_ylabel('Espace mémoire (unités)', color='purple')
-	ax2.plot(nb_toks,espace, color='purple', marker='o', linestyle='-', label='Espace mémoire (unités)')
+	ax2.plot(nb_toks, espace, color='purple', marker='o', linestyle='-', label='Espace mémoire (unités)')
 	ax2.tick_params(axis='y', labelcolor='purple')
+ 
 	# Titre et légendes
 	fig.tight_layout() # Ajuste la mise en page pour éviter les chevauchements
-	plt.title('Complexité en temps et espace memoire vs nb de tokens')
+	plt.title('Complexité en temps(s) et espace selon le nombre de tokens')
+
 	# Affichage
 	plt.grid()
 	plt.subplots_adjust(top=0.9)  # Ajuster pour donner plus d'espace au titre
 	plt.savefig("plot_temps_espace.png", bbox_inches='tight')
 	plt.show()
+
+	# Création de la figure et de l'axe principal
+ 	# espace x temps (en calculant le nombre d'appels pendant l'execution)
+	fig, ax1 = plt.subplots()
 	
-	# Deuxième plot : Appels vs Nombre de tokens
-	fig, ax = plt.subplots()
-	ax.set_xlabel('Nombre de tokens')
-	ax.set_ylabel('Nbre appels fonctions', color='blue')
-	ax.plot(nb_toks, appels, color='blue', marker='o', label='Appels de fonction vs nbre de tokens')
-	ax.tick_params(axis='y', labelcolor='blue')
+	# Axe des x et premier axe y (temps)
+	ax1.set_xlabel('Nombre de tokens')
+	ax1.set_ylabel('Nbre appels fonctions', color='blue')
+	ax1.plot(nb_toks, appels, color='blue', marker='o', label='Nbre appels fonctions')
+	ax1.tick_params(axis='y', labelcolor='blue')
+
+	#Création d'un second axe y (espace)
+	ax2 = ax1.twinx()
+	ax2.set_ylabel('Espace mémoire (unités)', color='purple')
+	ax2.plot(nb_toks, espace, color='purple', marker='o', linestyle='-', label='Espace mémoire (unités)')
+	ax2.tick_params(axis='y', labelcolor='purple')
 
 	# Titre et légendes
 	fig.tight_layout() # Ajuste la mise en page évite les chevauchements
-	plt.title('Complexité en nb appels de fonction vs nb de tokens')
+	plt.title('Complexité en temps(appels) et espace selon le nombre de tokens')
 	# Affichage
 	plt.grid()
 	plt.subplots_adjust(top=0.9)
-	plt.savefig("plot_appels.png", bbox_inches='tight')
+	plt.savefig("plot_appels_espace.png", bbox_inches='tight')
 	plt.show()
-	
-	
+
 
 if __name__ == "__main__":
 
-	# complex = get_complexities(sys.argv[1])
+	# on obtient les compteurs et on les affiche dans deux graphiques
+	complex = get_complexities(sys.argv[1])
+	make_plot(complex)
 	
 	LE_dico = get_annotations(sys.argv[1])
 	# enregistre dans un fichier json nos annotations
 	with open('annotations_EN.json', 'w', encoding='utf-8') as file:
 		json.dump(LE_dico, file, ensure_ascii=False, indent=4)
-	
-	make_plot(complex)
