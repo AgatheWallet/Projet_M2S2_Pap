@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import glob
 import sys
 import os
+import json
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../Groupe1')))
 from groupe1 import process_gp1, preprocess_gp1
 
@@ -122,14 +123,29 @@ def process_gp2(docs):
 # Ne s'exécute pas dans le cas d'import de module
 if __name__ == "__main__":
     input_files = glob.glob('../Corpus/*.txt') # tout les fichiers dans le dossier Corpus
+
     for input_file in input_files:
         # Préprocessus et processus de chaque fichier, puis mesure des performances
-        process_gp2(process_gp1(preprocess_gp1(input_file)))
+        docs = process_gp2(process_gp1(preprocess_gp1(input_file)))
         print(f"Processing {input_file}...")
 
+        # Récupérer le nom de base du fichier d'entrée sans l'extension
+        base_name = os.path.basename(input_file).split('.')[0]
+        # Créer le nom de fichier de sortie
+        output_file = f'resultats_groupe2_{base_name}.tsv'
+
+        # Enregistrer les résultats dans un fichier TSV
+        with open(output_file, 'w', encoding='utf-8') as f:
+            f.write("Text\tPOS\tDep\tHead\n")
+            for doc in docs:
+                for token in doc:
+                    f.write(f"{token.text}\t{token.pos_}\t{token.dep_}\t{token.head.text}\n")
+        
     print(f"Total number of tokens: {n}")
     print("Time data:", time_data)
     print("Memory data:", memory_data)
+    
+    
     
     # Génère et affiche le graphique de complexité
     plot_complexity()
