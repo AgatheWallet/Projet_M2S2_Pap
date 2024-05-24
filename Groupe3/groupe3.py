@@ -21,7 +21,7 @@ import sys
 sys.setrecursionlimit(6000)
 
 
-def preprocess_file(inputFile: str, cpt_temps: int, cpt_espace: int) -> list[dict]:
+def preprocess_file(inputFile: str, cpt_temps: int, cpt_espace: int) -> tuple[list[dict], int, int]:
 	""" ouvre le fichier texte, le découpe au niveau des '\n',
 	supprime les lignes vides et appelle la fonction analyse_spacy() 
 	pour analyser le texte
@@ -32,20 +32,20 @@ def preprocess_file(inputFile: str, cpt_temps: int, cpt_espace: int) -> list[dic
 		cpt_espace (int): compteur pour la complexité en espace
 
 	Returns:
-		tuple(): un dico de dicos où chaque dico correspond à une phrase analysé + les compteurs
+		tuple(): un dico de dicos où chaque dico correspond à une phrase analysée + les compteurs
 	"""
 	with open(inputFile, 'r') as file:
 		texte = [line.rstrip() for line in file.readlines() if line.rstrip() != ""]
 		if len(texte) == 0:
 			return [], cpt_temps, cpt_espace
-		# 'textes' est une liste de ligne présente
-		# jusqu'à la fin de l'execution du programme 
-		# on l'ajoute donc a notre compteur
+		# 'textes' est une liste de lignes présentes
+		# jusqu'à la fin de l'exécution du programme 
+		# on l'ajoute donc à notre compteur
 		cpt_espace = len(texte)
 		return analyse_spacy(texte, cpt_temps+1, cpt_espace)
 
 
-def analyse_spacy(texte: list[str], cpt_temps: int, cpt_espace: int) -> list[dict]:
+def analyse_spacy(texte: list[str], cpt_temps: int, cpt_espace: int) -> tuple[tuple[list[dict], int, int], int]:
 	""" on analyse le texte avec spacy
 
 	Args:
@@ -65,7 +65,7 @@ def analyse_spacy(texte: list[str], cpt_temps: int, cpt_espace: int) -> list[dic
 	return process_file([], docs, cpt_temps+1, cpt_espace), nb_tokens
 
 
-def process_file(dicos: list[dict], docs: list[spacy.tokens.doc.Doc], cpt_temps: int, cpt_espace: int) -> list[dict]:
+def process_file(dicos: list[dict], docs: list[spacy.tokens.doc.Doc], cpt_temps: int, cpt_espace: int) -> tuple[list[dict], int, int]:
 	""" traite le texte ligne par ligne jusqu'à renvoyer
 
 	Args:
@@ -78,8 +78,8 @@ def process_file(dicos: list[dict], docs: list[spacy.tokens.doc.Doc], cpt_temps:
 		tuple(): chaque dico de dicos correspond à une phrase analysé + les compteurs
 	"""
 	# lorsqu'une nouvelle phrase analysée apparaît dans la liste 'dicos'
-	# elle est supprimé de la liste 'docs' à la ligne d'après
-	# donc on doit calculé si à la ligne 72, cpt_espace est plus grand au plus petit 
+	# elle est supprimée de la liste 'docs' à la ligne d'après
+	# donc on doit calculer si à la ligne 72, cpt_espace est plus grand ou plus petit 
 	if len(docs) == 0:
 		return dicos, cpt_temps, cpt_espace
 	else:
@@ -93,7 +93,7 @@ def process_file(dicos: list[dict], docs: list[spacy.tokens.doc.Doc], cpt_temps:
 		return process_file(dicos, docs[1:], cpt_temps+1, cpt_espace)
 
 
-def process_line(i: int, dicos: list[dict], doc: spacy.tokens.doc.Doc, cpt_temps: int, cpt_espace: int) -> list[dict]:
+def process_line(i: int, dicos: list[dict], doc: spacy.tokens.doc.Doc, cpt_temps: int, cpt_espace: int) -> tuple[list[dict], int, int]:
 	""" traite la ligne analysé par spacy pour créer un dico avec comme clé l'index
 	du token et comme valeur un tuple (le token, son annotation)
 
@@ -118,21 +118,22 @@ def process_line(i: int, dicos: list[dict], doc: spacy.tokens.doc.Doc, cpt_temps
 			dicos[-1][f"token_{i}"] = { "form": doc[0].text, "ner": "O"}
 		return process_line(i+1, dicos, doc[1:], cpt_temps+1, cpt_espace)
 	
-def get_complexities(files):
+def get_complexities(files) -> list[tuple[int]]:
 	""" Cette fonction permet d'obtenir les complexités pour chacun des fichiers du corpus.
 		Il renvoie une liste de trois listes pour les tokens, la complexité en temps, la complexité en espace 
 	"""
-	# chemins relatifs pour que le groupe 5 puisse facilement appelé sans bug
-	complexities = [[], [], []]
+	# chemins relatifs pour que le groupe 5 puisse facilement appeler sans bug
+	complexities = [[], [], [], []]
 	for file in glob(f"{files}*.txt"):
 		
-		start_time = time.time() # début du calcul du temps d'execution
-		(dicos, temps, espace), nb_tokens = preprocess_file(file, cpt_temps=1, cpt_espace=0) # on commencence compteur temps à 1 car la fonction est appelé
-		end_time = time.time() # fin du calcul du temps d'execution
+		start_time = time.time() # début du calcul du temps d'exécution
+		(dicos, temps, espace), nb_tokens = preprocess_file(file, cpt_temps=1, cpt_espace=0) # on commence ce compteur temps à 1 car la fonction est appelée
+		end_time = time.time() # fin du calcul du temps d'exécution
 		
 		complexities[0].append(nb_tokens)
 		complexities[1].append(round(end_time - start_time, 3))
 		complexities[2].append(espace)
+		complexities[3].append(temps)
 		
 		print("\nPour le fichier", file, ":")
 		print(f"Les fonctions ont été appelées", temps, "fois.")
@@ -156,14 +157,14 @@ def get_annotations(files):
 
 def make_plot(liste_res:list):
 
-	# Préparation des données : tri par rapport au nbre de tokens
-	combined = list(zip(liste_res[0], liste_res[1], liste_res[2]))
+	# Préparation des données de axe x : tri par rapport au nbre de tokens
+	combined = list(zip(liste_res[0], liste_res[1], liste_res[2], liste_res[3]))
 	sorted_on_ntokens = sorted(combined, key=lambda x: x[0])
-	nb_toks, temps, espace = zip(*sorted_on_ntokens)
+	nb_toks, temps, espace, appels = zip(*sorted_on_ntokens)
 
 	# Création de la figure et de l'axe principal
-	fig,ax1=plt.subplots()
-
+	fig, ax1= plt.subplots()
+	
 	# Axe des x et premier axe y (temps)
 	ax1.set_xlabel('Nombre de tokens')
 	ax1.set_ylabel('Temps (s)', color='green')
@@ -171,28 +172,44 @@ def make_plot(liste_res:list):
 	ax1.tick_params(axis='y', labelcolor='green')
 
 	#Création d'un second axe y (espace)
-	ax2=ax1.twinx()
+	ax2 = ax1.twinx()
 	ax2.set_ylabel('Espace mémoire (unités)', color='purple')
-	ax2.plot(nb_toks,espace, color='purple', linestyle='-', label='Espace mémoire (unités)')
+	ax2.plot(nb_toks,espace, color='purple', marker='o', linestyle='-', label='Espace mémoire (unités)')
 	ax2.tick_params(axis='y', labelcolor='purple')
-
 	# Titre et légendes
 	fig.tight_layout() # Ajuste la mise en page pour éviter les chevauchements
-	plt.title('Complexité en temps et espace vs nb de tokens pour entités nommées')
-	ax1.annotate('Terre_Lune', xy=(66466, 6.497), xytext=(87000, 5), arrowprops=dict(width=3, facecolor='blue', shrink=0.05),)
+	plt.title('Complexité en temps et espace memoire vs nb de tokens')
 	# Affichage
 	plt.grid()
+	plt.subplots_adjust(top=0.9)  # Ajuster pour donner plus d'espace au titre
+	plt.savefig("plot_temps_espace.png", bbox_inches='tight')
 	plt.show()
-	plt.savefig("plot.png")
+	
+	# Deuxième plot : Appels vs Nombre de tokens
+	fig, ax = plt.subplots()
+	ax.set_xlabel('Nombre de tokens')
+	ax.set_ylabel('Nbre appels fonctions', color='blue')
+	ax.plot(nb_toks, appels, color='blue', marker='o', label='Appels de fonction vs nbre de tokens')
+	ax.tick_params(axis='y', labelcolor='blue')
+
+	# Titre et légendes
+	fig.tight_layout() # Ajuste la mise en page évite les chevauchements
+	plt.title('Complexité en nb appels de fonction vs nb de tokens')
+	# Affichage
+	plt.grid()
+	plt.subplots_adjust(top=0.9)
+	plt.savefig("plot_appels.png", bbox_inches='tight')
+	plt.show()
+	
+	
 
 if __name__ == "__main__":
 
 	complex = get_complexities(sys.argv[1])
 	print(complex)
 	
-	all_dicos = get_annotations(sys.argv[1])
-	with open('annotations_EN.json', 'w', encoding='utf-8') as file:
-		json.dump(all_dicos, file, ensure_ascii=False, indent=4)
+	# all_dicos = get_annotations(sys.argv[1])
+# 	with open('annotations_EN.json', 'w', encoding='utf-8') as file:
+# 		json.dump(all_dicos, file, ensure_ascii=False, indent=4)
 	
 	make_plot(complex)
-	
