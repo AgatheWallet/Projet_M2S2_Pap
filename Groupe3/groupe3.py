@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-""" Avec un fichier long, comme dans notre corpus, vous finirez par avoir des soucis d'erreurs de récursions.
+""" Ce fichier annote un corpus en entitées nommées et calcule la complexité globale du module.
+Le formatage des résultats a été discuté avec et approuvé par le groupe 5.
+
+Avec un fichier long, comme dans notre corpus, vous finirez par avoir des soucis d'erreurs de récursions.
 Il y a deux manières de résoudre ce problème:
 - augmenter la limite de recursion avec le module sys (à vos risques et périls...),
 - transformer le code pour passer d'un code récursif à un code itératif (ce qui n'est pas le but de ce projet).
-
-Le formatage des résultats a été discuté avec et approuvé par le groupe 5.
 
 Le fichier peut-être appelé de cette manière dans le terminal
 	$ python groupe3.py [chemin/vers/dossier_corpus/]
