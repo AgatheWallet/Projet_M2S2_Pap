@@ -247,9 +247,10 @@ if __name__ == "__main__":
 
 	# on obtient les compteurs et on les affiche dans deux graphiques
 	complex = get_complexities(sys.argv[1])
+	print(complex)
 	make_plot(complex)
 	
-	LE_dico = get_annotations(sys.argv[1])
-	# enregistre dans un fichier json nos annotations
-	with open('annotations_EN.json', 'w', encoding='utf-8') as file:
-		json.dump(LE_dico, file, ensure_ascii=False, indent=4)
+	# LE_dico = get_annotations(sys.argv[1])
+	# # enregistre dans un fichier json nos annotations
+	# with open('annotations_EN.json', 'w', encoding='utf-8') as file:
+	# 	json.dump(LE_dico, file, ensure_ascii=False, indent=4)
