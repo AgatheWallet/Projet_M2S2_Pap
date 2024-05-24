@@ -184,7 +184,8 @@ def get_annotations(chemin: str) -> dict:
 	return all_dicos
 
 
-def make_plot(liste_res:list):
+def make_plot(liste_res: list):
+    """ affiche les graphes de complexités empiriques de notre module"""
 
 	# Préparation des données de axe x : tri par rapport au nbre de tokens
 	combined = list(zip(liste_res[0], liste_res[1], liste_res[2], liste_res[3]))
@@ -247,10 +248,9 @@ if __name__ == "__main__":
 
 	# on obtient les compteurs et on les affiche dans deux graphiques
 	complex = get_complexities(sys.argv[1])
-	print(complex)
 	make_plot(complex)
 	
-	# LE_dico = get_annotations(sys.argv[1])
-	# # enregistre dans un fichier json nos annotations
-	# with open('annotations_EN.json', 'w', encoding='utf-8') as file:
-	# 	json.dump(LE_dico, file, ensure_ascii=False, indent=4)
+	LE_dico = get_annotations(sys.argv[1])
+	# enregistre dans un fichier json nos annotations
+	with open('annotations_EN.json', 'w', encoding='utf-8') as file:
+		json.dump(LE_dico, file, ensure_ascii=False, indent=4)

@@ -81,6 +81,8 @@ subgraph "Création du dictionnaire final et enregistrement des annotations au f
 end
 ```
 
+Il n'y a pas eu de problèmes particulièrement compliqués pendant l'écriture du fichier ou de l'intégration des compteurs. Le groupe 5 nous a fait remarqué qu'il y avait des tokens vides annotés dans notre sortie. En fait, spacy comptait comme token tout endroit où plusieurs espaces de succédaient. Un simple nettoyage du texte a suffit à résoudre ce problème. 
+
 ## III. La compléxité empirique du module en temps et en espace
 
 | corpus               | nb tokens | espace (nb éléments) | temps (sec.) |temps (nb appels)  |
