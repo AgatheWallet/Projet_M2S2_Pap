@@ -8,17 +8,11 @@ Notre tâche a été de créer un module qui prend en entrée un corpus de texte
 
 Il a été fait en accord avec les autres groupes. En effet, puisque la chaîne de traitement était divisée en quatre tâche, nous avons décidé ensemble d'utiliser Spacy car ce module permet de rassembler les différentes tâches dans un seul objet : le SpacyDoc.
 
-# LAURA: attention, l'url devra être le lien github vers l'image que tu mettras dans un dossier Gourpe3/images/
-
-<img title="" src="./Images/SpacyDoc.pdf" alt="" width="356" data-align="center">
+<img title="" src="./images/SpacyDoc.jpg" alt="" width="356" data-align="center">
 
 S'agissant des entités nommées (EN), le modèle Spacy utilise l'**annotation BIO**. Celle-ci associe une étiquette à chaque token. Cette étiquette est la lettre 'O' (pour "Outside") si le token n'est pas reconnu comme une EN. S'il est reconnu comme étant une EN, la lettre 'B' (pour "Beginning") lui est associée.
 
 Si l'entité nommée reconnue est composée de plusieurs tokens, le ou les tokens suivants appartenant à la même entitée seront étiquetés avec la lettre 'I' (pour "inside").
-
-Ainsi, les EN peuvent être étiquetées sur plusieurs tokens qui se suivent. Dans notre script, nous lisons les éléments du le SpacyDoc, les tokens, un par un de manière séquentielle. Si une EN comporte plusieurs tokens, elle est donc éclatée en plusieurs dicos dans notre liste de dicos. À DEV VÉRFIER
-
-On peut accéder à un tuple `doc.ents` qui regroupe les EN reconnues par le modèle sous leur forme regroupée, par exemple : "Royaume-Uni", "docteur Cicogna", au lieu de "Royaume", "-", "Uni", "docteur" "Cigogna". `.ents` C'est une propriété de l'objet Doc, établie après la création et l'implémentation de l'objet SpacyDoc.
 
 Le SpacyDoc est créé et implémenté avec l'appel du modèle Spacy et l'affectation de son résultat à la variable docs : 
 
@@ -53,6 +47,10 @@ On peut récupérer, à partir du Token de docs, les informations suivantes :
 - l'étiquette IOB : `token.ent_iob_`
 - le type d'EN, soit l'étiquette : `token.ent_type_`
 
+Ainsi, les EN peuvent être étiquetées sur plusieurs tokens qui se suivent. Dans notre script, nous lisons les éléments du le SpacyDoc, les tokens, un par un de manière séquentielle. Si une EN comporte plusieurs tokens, elle est donc éclatée en plusieurs dicos dans notre liste de dicos. À DEV VÉRFIER
+
+On peut accéder à un tuple `doc.ents` qui regroupe les EN reconnues par le modèle sous leur forme regroupée, par exemple : "Royaume-Uni", "docteur Cicogna", au lieu de "Royaume", "-", "Uni", "docteur" "Cigogna". `.ents`. C'est une propriété de l'objet Doc, établie après la création et l'implémentation de l'objet SpacyDoc.
+
 ## II. Le module
 
 ```mermaid
@@ -78,6 +76,8 @@ end
 ```
 
 ## III. La compléxité empirique du module en temps et en espace
+
+tableau
 
 ### Complexité empirique en espace
 
