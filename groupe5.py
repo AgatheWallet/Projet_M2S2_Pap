@@ -109,7 +109,7 @@ def build_conll(dico_global: defaultdict, output_file: str)-> None:
 	Pas d'output
 	"""
 	with open(output_file, "w") as output:
-		output.write("# global.colums = ID FORM POS HEAD DEPREL NAMED_ENTITIES NOUN_PHRASES\n")
+		output.write("# global.columns = ID FORM POS HEAD DEPREL NAMED_ENTITIES NOUN_PHRASES\n")
 		for file, sentence_analysis in dico_global.items():
 			for sentence, analysis in sentence_analysis.items() :
 				output.write(f"\n# doc_title = {file}\n# sent_id = {file.split('.')[0]}_{sentence}\n# text = {analysis["text"]}\n")
