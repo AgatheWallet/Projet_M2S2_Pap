@@ -78,7 +78,7 @@ flowchart TB
   b1 -- "renvoie une instance de Corpus" --> a
 
 ```mermaid
-flowchart TB
+flowchart TB;
 
 subgraph "Création du dictionnaire final et enregistrement des annotations au format json"
   A(get_annotation) -- "Appelle pour chaque fichier" --> B(preprocess_file)
