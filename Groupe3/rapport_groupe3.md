@@ -62,7 +62,7 @@ L'annotation a été effectuée token par token. Spacy propose également une so
 flowchart TD
 
 subgraph "Création du dictionnaire final et enregistrement des annotations au format json"
-  A(get_annotations\(\)) ----> O{boucle for pour travailler fichier par fichier}
+  A(get_annotations) ----> O{boucle for pour travailler fichier par fichier}
   O -- "appelle" --> B(preprocess_file)
 
   subgraph "Transformation du fichier en liste de lignes et analyse avec spaCy"
