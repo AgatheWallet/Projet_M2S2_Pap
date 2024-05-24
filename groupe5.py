@@ -68,7 +68,7 @@ def get_named_entities(corpus: str, dico_global: defaultdict) -> defaultdict:
 	return dico_global
 
 
-def get_nominal_phrase(corpus: str, dico_global: defaultdict) -> defaultdict:
+def get_noun_phrase(corpus: str, dico_global: defaultdict) -> defaultdict:
 	"""
 	Inputs : 
 	- Chemin du corpus
@@ -95,11 +95,13 @@ def get_nominal_phrase(corpus: str, dico_global: defaultdict) -> defaultdict:
 				compteur_sent += 1
 	return dico_global, cpx
 
+def build_conll(dico_global: defaultdict, output_file: str):
+	pass
+
 
 if __name__ == "__main__":
 	dico = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
 	corpus_path = sys.argv[1] if sys.argv[1][-1] == "/" else sys.argv[1] + "/"
 	dico = get_pos_dep(corpus_path, dico)
 	dico = get_named_entities(corpus_path, dico)
-	dico, dico_complexity_g4 = get_nominal_phrase(corpus_path, dico)
-	# pprint(dico)
+	dico, dico_complexity_g4 = get_noun_phrase(corpus_path, dico)
