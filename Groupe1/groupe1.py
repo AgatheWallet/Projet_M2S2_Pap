@@ -110,7 +110,8 @@ def get_complexity_time(fichier, json=False):
     print("compléxité en temps : ", tot)
 
     # sauvegarder le fichier processé dans un fichier json
-    save_json(res)
+    if json:
+        save_json(res)
     return tot
 
 def get_complexity_space():
