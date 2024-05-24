@@ -1,6 +1,6 @@
 # Rapport Groupe 3 - Extraction des entités nommées
 
-Notre tâche a été de créer un module qui prenne en entrée un corpus de textes et fournisse en sortie ces données annotées en entitées nommées. Ce module et sa sortie ont été conçu pour pouvoir s'insérer dans une chaîne de traitement en quatre étape : étiquettage morpho-syntaxique (M1), analyse syntaxique en dépendances (M2), **extraction des entitées nommées (M3)**, et extraction des groupes nominaux (M4).
+Notre tâche a été de créer un module qui prend en entrée un corpus de textes et fournit en sortie ces données annotées en entitées nommées. Ce module et sa sortie ont été conçus pour pouvoir s'insérer dans une chaîne de traitement en quatre étapes : étiquetage morpho-syntaxique (M1), analyse syntaxique en dépendances (M2), **extraction des entitées nommées (M3)**, et extraction des groupes nominaux (M4).
 
 ## I. Présentation des données et du modèle
 
@@ -8,10 +8,9 @@ Notre tâche a été de créer un module qui prenne en entrée un corpus de text
 
 Il a été fait en accord avec les autres groupes. En effet, puisque la chaîne de traitement était divisée en quatre tâche, nous avons décidé ensemble d'utiliser Spacy car ce module permet de rassembler les différentes tâches dans un seul objet : le SpacyDoc.
 
-
 # LAURA: attention, l'url devra être le lien github vers l'image que tu mettras dans un dossier Gourpe3/images/
 
-<img title="" src="file:///Users/Alice/Library/Application%20Support/marktext/images/2024-05-24-21-01-31-image.png" alt="" width="356" data-align="center">
+<img title="" src="./Images/SpacyDoc.pdf" alt="" width="356" data-align="center">
 
 S'agissant des entités nommées (EN), le modèle Spacy utilise l'**annotation BIO**. Celle-ci associe une étiquette à chaque token. Cette étiquette est la lettre 'O' (pour "Outside") si le token n'est pas reconnu comme une EN. S'il est reconnu comme étant une EN, la lettre 'B' (pour "Beginning") lui est associée.
 
@@ -34,6 +33,7 @@ La variable docs est une liste de SpacyDoc (spacy.tokens.doc.Doc). Chaque élém
 Le script du Groupe 5 qui est en charge d'intégrer les différentes modules, prend la sortie de notre script : `from Groupe3.groupe3 import get_annotations`
 
 La fonction get_annotations() retourne une liste de 4 listes, dont les 3 premières seront utilisées afin qu'il puisse calculer la complexité moyenne en temps et en espace de chaque module : 
+
 - la liste du nombre de tokens par texte
 - la liste du temps d'exécution en sec par texte
 - la liste des compteurs de la complexité empirique en espace mémoire. 
@@ -61,7 +61,6 @@ On peut récupérer, à partir du Token de docs, les informations suivantes :
 
 La complexité empirique en espace mémoire correspond au calcul du nombre d'éléments de toutes les séquences, les dictionnaires et des SpacyDoc.
 
-
 Le nombre des éléments pris en compte est représentés par les len() et les sum() suivants :
 
 - len(texte) l. 44 dans def preprocess_file() : le nombre des phrases dans un texte
@@ -70,5 +69,3 @@ Le nombre des éléments pris en compte est représentés par les len() et les s
   ??
 
 ### Complexité empirique en temps
-
-
