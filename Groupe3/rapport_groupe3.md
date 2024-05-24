@@ -65,8 +65,6 @@ subgraph "Création du dictionnaire final et enregistrement des annotations au f
     B -- "Appelle" --> C(analyse_spacy)
 
     subgraph "Annotation du corpus en entités nommées"
-      direction LR
-
       C -- "Appelle" --> D(process_file)
       D -- "Appelle" --> E(process_line)
       D -- "Boucle" --> D
