@@ -1,30 +1,33 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-""" Avec un fichier long (comme notre corpus), vous finirez par avoir des soucis d'erreurs de récursions.
+""" Avec un fichier long, comme dans notre corpus, vous finirez par avoir des soucis d'erreurs de récursions.
 Il y a deux manières de résoudre ce problème:
-- augmenter la limite de recursion avec le module sys (à vos risques et périls...)
-- transformer le code pour passer d'un code récursif à un code itératif (ce qui n'est pas le but de ce projet)
+- augmenter la limite de recursion avec le module sys (à vos risques et périls...),
+- transformer le code pour passer d'un code récursif à un code itératif (ce qui n'est pas le but de ce projet).
 
-Le formatage des résultats a été discuté et approuvé par le groupe 5
+Le formatage des résultats a été discuté avec et approuvé par le groupe 5.
+
+Le fichier peut-être appelé de cette manière dans le terminal
+	$ python groupe3.py [chemin vers le dossier du corpus]
 """
 
+import sys
+sys.setrecursionlimit(6000)
 import time
+import re
 import spacy
+from spacy.tokens.doc import Doc
+nlp = spacy.load("fr_core_news_sm")
 import json
 from glob import glob
 import matplotlib.pyplot as plt
 
-nlp = spacy.load("fr_core_news_sm")
-
-import sys
-sys.setrecursionlimit(6000)
 
 
-def preprocess_file(inputFile: str, cpt_temps: int, cpt_espace: int) -> tuple[list[dict], int, int]:
-	""" ouvre le fichier texte, le découpe au niveau des '\n',
-	supprime les lignes vides et appelle la fonction analyse_spacy() 
-	pour analyser le texte
+def preprocess_file(inputFile: str, cpt_temps: int, cpt_espace: int) -> tuple:
+	""" ouvre le fichier texte, le découpe au niveau des '\n', le nettoie 
+ 	et appelle la fonction analyse_spacy() pour analyser le texte
 
 	Args:
 		inputFile (str): chemin vers le fichier
@@ -32,10 +35,13 @@ def preprocess_file(inputFile: str, cpt_temps: int, cpt_espace: int) -> tuple[li
 		cpt_espace (int): compteur pour la complexité en espace
 
 	Returns:
-		tuple(): un dico de dicos où chaque dico correspond à une phrase analysée + les compteurs
+		tuple: un dico de dicos où chaque dico correspond à une phrase analysée,
+  		les compteurs de temps et d'espace
 	"""
 	with open(inputFile, 'r') as file:
-		texte = [line.rstrip() for line in file.readlines() if line.rstrip() != ""]
+		texte = [line.rstrip() for line in file.readlines()]
+		texte = [re.sub(r"^ +", "", line) for line in texte]
+		texte = [re.sub(r" +", " ", line) for line in texte if line != ""]
 		if len(texte) == 0:
 			return [], cpt_temps, cpt_espace
 		# 'textes' est une liste de lignes présentes
@@ -45,8 +51,8 @@ def preprocess_file(inputFile: str, cpt_temps: int, cpt_espace: int) -> tuple[li
 		return analyse_spacy(texte, cpt_temps+1, cpt_espace)
 
 
-def analyse_spacy(texte: list[str], cpt_temps: int, cpt_espace: int) -> tuple[tuple[list[dict], int, int], int]:
-	""" on analyse le texte avec spacy
+def analyse_spacy(texte: list[str], cpt_temps: int, cpt_espace: int) -> tuple:
+	""" analyse le texte avec spacy
 
 	Args:
 		texte (list[str]): liste de phrase
@@ -54,7 +60,8 @@ def analyse_spacy(texte: list[str], cpt_temps: int, cpt_espace: int) -> tuple[tu
 		cpt_espace (int): compteur pour la complexité en espace
 		
 	Returns:
-		tuple(): chaque dico de dicos correspond à une phrase analysé + les compteurs
+		tuple: un dico de dicos où chaque dico correspond à une phrase analysée,
+  		les compteurs de temps et d'espace
 	"""
 	docs = list(nlp.pipe(texte, disable=["parser", "lemmatizer", "attribute_ruler"]))
 	# 'docs' contient le texte analysé par spacy, on rajoute le nombre d'élément dans la variable 'cpt_espace'
@@ -65,17 +72,20 @@ def analyse_spacy(texte: list[str], cpt_temps: int, cpt_espace: int) -> tuple[tu
 	return process_file([], docs, cpt_temps+1, cpt_espace), nb_tokens
 
 
-def process_file(dicos: list[dict], docs: list[spacy.tokens.doc.Doc], cpt_temps: int, cpt_espace: int) -> tuple[list[dict], int, int]:
-	""" traite le texte ligne par ligne jusqu'à renvoyer
+def process_file(dicos: list[dict], docs: list[Doc], cpt_temps: int, cpt_espace: int) -> tuple:
+	""" traite le texte analysé par spacy ligne par ligne pour créer
+	un dico avec comme clé l'index de la phrase et comme valeurs le dico
+	contenant les tokens
 
 	Args:
 		dicos (list[dict]): chaque dico correspond à une phrase analysé
-		docs (list[spacy.tokens.doc.Doc]): liste de phrase analysé avec spacy
+		docs (list[Doc]): liste de phrase analysé avec spacy
 		cpt_temps (int): compteur pour la complexité en temps
 		cpt_espace (int): compteur pour la complexité en espace
 
 	Returns:
-		tuple(): chaque dico de dicos correspond à une phrase analysé + les compteurs
+		tuple: un dico de dicos où chaque dico correspond à une phrase analysée,
+  		les compteurs de temps et d'espace
 	"""
 	# lorsqu'une nouvelle phrase analysée apparaît dans la liste 'dicos'
 	# elle est supprimée de la liste 'docs' à la ligne d'après
@@ -85,27 +95,28 @@ def process_file(dicos: list[dict], docs: list[spacy.tokens.doc.Doc], cpt_temps:
 	else:
 		dicos.append({})
 		dicos, cpt_temps, cpt_espace = process_line(0, dicos, docs[0], cpt_temps+1, cpt_espace)
-		# len(textes) == len(dicos)+len(docs)-1
-		# cpt_def = len(textes)+len(docs)+len(dicos)
+		# 'cpt_def' correspond à len(textes)+len(docs)+len(dicos)
 		cpt_def = (len(dicos)+len(docs)-1)+sum([len(doc) for doc in docs])+sum([1 for dico in dicos for token in dico.keys()])
 		if cpt_def > cpt_espace:
 			cpt_espace = cpt_def
 		return process_file(dicos, docs[1:], cpt_temps+1, cpt_espace)
 
 
-def process_line(i: int, dicos: list[dict], doc: spacy.tokens.doc.Doc, cpt_temps: int, cpt_espace: int) -> tuple[list[dict], int, int]:
+def process_line(i: int, dicos: list[dict], doc: Doc, cpt_temps: int, cpt_espace: int) -> tuple:
 	""" traite la ligne analysé par spacy pour créer un dico avec comme clé l'index
-	du token et comme valeur un tuple (le token, son annotation)
+	du token et comme valeur un dictionnaire avec deux clé, la forme du token et 
+	son annotation en entité nommé
 
 	Args:
 		i (int): l'index du token à analyser
 		dicos (dict): chaque dico correspond à une phrase analysé
-		doc (spacy.tokens.doc.Doc): la ligne analysé par spacy
+		doc (Doc): la ligne analysé par spacy
 		cpt_temps (int): compteur pour la complexité en temps
 		cpt_espace (int): compteur pour la complexité en espace
 
 	Returns:
-		tuple(): chaque dico de dicos correspond à une phrase analysé + les compteurs
+		tuple: un dico de dicos où chaque dico correspond à une phrase analysée,
+  		les compteurs de temps et d'espace
 	"""
 	# nous ne calculons pas l'espace mémoire ici 
 	# nous le calculons dans la ligne après l'appel de cette fonction
@@ -117,14 +128,21 @@ def process_line(i: int, dicos: list[dict], doc: spacy.tokens.doc.Doc, cpt_temps
 		else:
 			dicos[-1][f"token_{i}"] = { "form": doc[0].text, "ner": "O"}
 		return process_line(i+1, dicos, doc[1:], cpt_temps+1, cpt_espace)
-	
-def get_complexities(files) -> list[tuple[int]]:
-	""" Cette fonction permet d'obtenir les complexités pour chacun des fichiers du corpus.
-		Il renvoie une liste de trois listes pour les tokens, la complexité en temps, la complexité en espace 
+
+
+def get_complexities(chemin: str) -> list:
+	""" Cette fonction permet d'obtenir les complexités pour chacun des fichiers.
+	Il renvoie une 
+    
+	Args:
+		chemin (str): chemin vers le dossier du corpus
+  
+	Returns:
+		list: liste de quatre listes pour les tokens, la complexité en temps avec time, 
+		la complexité en espace, et la complexité en temps avec le compteur d'appel de fonctions.
 	"""
-	# chemins relatifs pour que le groupe 5 puisse facilement appeler sans bug
 	complexities = [[], [], [], []]
-	for file in glob(f"{files}*.txt"):
+	for file in glob(f"{chemin}*.txt"):
 		
 		start_time = time.time() # début du calcul du temps d'exécution
 		(dicos, temps, espace), nb_tokens = preprocess_file(file, cpt_temps=1, cpt_espace=0) # on commence ce compteur temps à 1 car la fonction est appelée
@@ -134,26 +152,37 @@ def get_complexities(files) -> list[tuple[int]]:
 		complexities[1].append(round(end_time - start_time, 3))
 		complexities[2].append(espace)
 		complexities[3].append(temps)
-		
+
 		print("\nPour le fichier", file, ":")
-		print(f"Les fonctions ont été appelées", temps, "fois.")
+		print("Les fonctions ont été appelées", temps, "fois.")
 		print("Les fonctions auront tourné", round(end_time - start_time, 3), "secondes.")
 		print("Dans l'espace mémoire, il y a eu au maximum", espace, "éléments à un moment T.")
 		print("Ce fichier fait", nb_tokens, "tokens.")
 		
 	return complexities
 
-def get_annotations(files):
-	""" Cette fonction print dans des fichiers le résultat de notre traitement
-	"""
+
+def get_annotations(chemin: str) -> dict:
+	""" Cette fonction renvoie un dictionnaire contenant
+	tous les textes annotées
+ 
+	Args:
+		chemin (str): chemin vers le dossier du corpus
+  
+	Returns:
+		dict: renvoie LE dictionnaire des entitées nommées
+
+ 	"""
+	# on crée un
 	all_dicos = {}
-	for file in glob(f"{files}*.txt"):
+	for file in glob(f"{chemin}*.txt"):
 		(dicos, temps, espace), nb_tokens = preprocess_file(file, cpt_temps=1, cpt_espace=0)
 		all_dicos[file] = {}
 		for i, dico in enumerate(dicos):
 			all_dicos[file]["phrase_"+str(i)] = dico
-
+  
 	return all_dicos
+
 
 def make_plot(liste_res:list):
 
@@ -205,11 +234,11 @@ def make_plot(liste_res:list):
 
 if __name__ == "__main__":
 
-	complex = get_complexities(sys.argv[1])
-	print(complex)
+	# complex = get_complexities(sys.argv[1])
 	
-	# all_dicos = get_annotations(sys.argv[1])
-# 	with open('annotations_EN.json', 'w', encoding='utf-8') as file:
-# 		json.dump(all_dicos, file, ensure_ascii=False, indent=4)
+	LE_dico = get_annotations(sys.argv[1])
+	# enregistre dans un fichier json nos annotations
+	with open('annotations_EN.json', 'w', encoding='utf-8') as file:
+		json.dump(LE_dico, file, ensure_ascii=False, indent=4)
 	
 	make_plot(complex)
