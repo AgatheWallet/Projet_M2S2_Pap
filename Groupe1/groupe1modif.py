@@ -91,37 +91,29 @@ def recursive_tokens_pos(doc, index_tok=0, tags=None):
     return recursive_tokens_pos(doc, index_tok + 1, tags) #appel récursif pour itérer sur les mots
 
 
-def get_complexity():
-    global memo_f
+def get_complexity_time():
     global tot
-    return memo_f, tot
-
-def main():	
-	# calcul de complexité en temps
     start = time.time()
     res = recursive_objet_doc(process_gp1(preprocess_gp1('../Corpus/JV-Tour_monde.txt')))
-    print(res)
-
-    # sauvegarder les résultats dans un fichier json
-    with open('./test.json', 'w') as sortie_json:
-        json.dump(res, sortie_json, indent=6, ensure_ascii=False)
-
     end = time.time()
+    with open('./test12345.json', 'w') as sortie_json:
+        json.dump(res, sortie_json, indent=6, ensure_ascii=False)
     tot = end - start
     print("compléxité en temps : ", tot)
+    return tot
 
-    # calcul de compexité en espace
+def get_complexity_space():
     global memo_f
     memo_f = 0
     for key, values in memo.items():
         if key == "tags":
             memo_f += sum(values)
-    memo_f2 = memo_f*2
+    memo_f2 = memo_f * 2
 
     print("compléxité en espace :", memo_f, "tuples de pos tag")
     print("compléxité en espace :", memo_f2, "éléments dans la mémoire")
+    return memo_f
 
-    return memo_f, tot
-
-if __name__ == "__main__" :
-    memo_f, tot = main()
+if __name__ == "__main__":
+    get_complexity_space()
+    get_complexity_time()
