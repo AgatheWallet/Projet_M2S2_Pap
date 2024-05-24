@@ -58,28 +58,6 @@ On peut récupérer, à partir du Token de docs, les informations suivantes :
 ```mermaid
 flowchart TB
 
-  t{execute_scripts.sh} ----> a[extract_corpus.py]
-  a -- "appelle" --> b1(script:get_corpus.py, fonction:get_Corpus)
-
-  subgraph "création de l'instance Corpus grâce au fichier datastructures.py"
-    b1 -- "appelle" --> b2(script:get_corpus.py, fonction:get_Article)
-    b2 -- "appelle en boucle" --> c(script:get_articles.py, fonction:to_article, which_analyse)
-
-    subgraph "tokenisation et pos-tagging"
-      direction LR
-      c -- "appelle" --> d(script:get_analyse.py, fonctions:get_stanza, get_trankit ou get_spacy)
-      d -- "renvoie une liste d'instances de Token" --> c
-    end
-
-    c -- "renvoie une instance de Article" --> b2
-    b2 -- "renvoie une liste d'instances de Article" --> b1
-  end
-
-  b1 -- "renvoie une instance de Corpus" --> a
-
-```mermaid
-flowchart TB;
-
 subgraph "Création du dictionnaire final et enregistrement des annotations au format json"
   A(get_annotation) -- "Appelle pour chaque fichier" --> B(preprocess_file)
 
@@ -100,8 +78,6 @@ subgraph "Création du dictionnaire final et enregistrement des annotations au f
   F -- "Enregistre" --> G[fichier json]
 end
 ```
-
-
 
 ## III. La compléxité empirique du module en temps et en espace
 
