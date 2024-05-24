@@ -96,8 +96,6 @@ def get_complexity_time():
     start = time.time()
     res = recursive_objet_doc(process_gp1(preprocess_gp1('../Corpus/JV-Tour_monde.txt')))
     end = time.time()
-    with open('./test12345.json', 'w') as sortie_json:
-        json.dump(res, sortie_json, indent=6, ensure_ascii=False)
     tot = end - start
     print("compléxité en temps : ", tot)
     return tot
@@ -115,5 +113,11 @@ def get_complexity_space():
     return memo_f
 
 if __name__ == "__main__":
-    get_complexity_space()
     get_complexity_time()
+    get_complexity_space()
+
+    res = recursive_objet_doc(process_gp1(preprocess_gp1('../Corpus/JV-Tour_monde.txt')))
+    with open('./test1234567.json', 'w') as sortie_json:
+        json.dump(res, sortie_json, indent=6, ensure_ascii=False)
+    #print(res)
+    
