@@ -55,6 +55,55 @@ On peut récupérer, à partir du Token de docs, les informations suivantes :
 
 ## II. Le module
 
+```mermaid
+flowchart TB
+
+  t{execute_scripts.sh} ----> a[extract_corpus.py]
+  a -- "appelle" --> b1(script:get_corpus.py, fonction:get_Corpus)
+
+  subgraph "création de l'instance Corpus grâce au fichier datastructures.py"
+    b1 -- "appelle" --> b2(script:get_corpus.py, fonction:get_Article)
+    b2 -- "appelle en boucle" --> c(script:get_articles.py, fonction:to_article, which_analyse)
+
+    subgraph "tokenisation et pos-tagging"
+      direction LR
+      c -- "appelle" --> d(script:get_analyse.py, fonctions:get_stanza, get_trankit ou get_spacy)
+      d -- "renvoie une liste d'instances de Token" --> c
+    end
+
+    c -- "renvoie une instance de Article" --> b2
+    b2 -- "renvoie une liste d'instances de Article" --> b1
+  end
+
+  b1 -- "renvoie une instance de Corpus" --> a
+
+```mermaid
+flowchart TB
+
+  subgraph "création du dictionnaire final et enregistrement des annotations au format json"
+    A(get_annotation) -- "appelle pour chaque fichier" --> B(preprocess_file)
+
+    subgraph "transformation du fichier en liste de lignes et analyse avec spaCy"
+      B -- "appelle" --> C(analyse_spacy)
+
+      subgraph "annotation du corpus en entitées nommées"
+        direction LR
+
+        C -- "appelle" --> D(process_file)
+        D -- "appelle" -- > E(process_line)
+        D -- "appelle" --> D
+        E -- "appelle" -- > E
+      end
+
+    end
+
+    A -- "renvoie" --> F(dictionnaire)
+    F -- "enregistre" --> G{fichier json}
+  end
+```
+
+
+
 ## III. La compléxité empirique du module en temps et en espace
 
 ### Complexité empirique en espace
