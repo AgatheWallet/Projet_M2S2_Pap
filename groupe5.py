@@ -8,6 +8,12 @@ from glob import glob
 import sys
 
 
+"""
+Pour exécuter ce script : 
+python3 groupe5.py chemin/du/corpus chemin/du/fichier/output
+
+"""
+
 def get_pos_dep(corpus: str, dico_global: defaultdict) -> defaultdict:
 	"""
 	Inputs : 
@@ -95,8 +101,28 @@ def get_noun_phrase(corpus: str, dico_global: defaultdict) -> defaultdict:
 				compteur_sent += 1
 	return dico_global, cpx
 
-def build_conll(dico_global: defaultdict, output_file: str):
-	pass
+def build_conll(dico_global: defaultdict, output_file: str)-> None:
+	"""
+	Inputs:
+	- Dictionnaire contenant toutes les informations dont on a besoin
+	- Chemin vers le fichier type conll de sortie
+	Pas d'output
+	"""
+	with open(output_file, "w") as output:
+		output.write("# global.colums = ID FORM POS HEAD DEPREL NAMED_ENTITIES NOUN_PHRASES\n")
+		for file, sentence_analysis in dico_global.items():
+			for sentence, analysis in sentence_analysis.items() :
+				output.write(f"\n# doc_title = {file}\n# sent_id = {file.split('.')[0]}_{sentence}\n# text = {analysis["text"]}\n")
+				for token, tok_analysis in analysis["tokens_decomp"].items():
+					tok_id = token.split("_")[-1]
+					form = tok_analysis["form"]
+					pos = tok_analysis["pos"]
+					head = tok_analysis["head"]
+					dep = tok_analysis["dep"]
+					ne = tok_analysis["ner"]
+					gn = tok_analysis["noun_phrase"]
+					output.write(f"{tok_id}\t{form}\t{pos}\t{head}\t{dep}\t{ne}\t{gn}\n")
+
 
 
 if __name__ == "__main__":
@@ -105,3 +131,4 @@ if __name__ == "__main__":
 	dico = get_pos_dep(corpus_path, dico)
 	dico = get_named_entities(corpus_path, dico)
 	dico, dico_complexity_g4 = get_noun_phrase(corpus_path, dico)
+	build_conll(dico, sys.argv[2])
