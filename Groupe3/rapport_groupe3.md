@@ -80,26 +80,25 @@ flowchart TB
 ```mermaid
 flowchart TB
 
-  subgraph "création du dictionnaire final et enregistrement des annotations au format json"
-    A(get_annotation) -- "appelle pour chaque fichier" --> B(preprocess_file)
+subgraph "Création du dictionnaire final et enregistrement des annotations au format json"
+  A(get_annotation) -- "Appelle pour chaque fichier" --> B(preprocess_file)
 
-    subgraph "transformation du fichier en liste de lignes et analyse avec spaCy"
-      B -- "appelle" --> C(analyse_spacy)
+  subgraph "Transformation du fichier en liste de lignes et analyse avec spaCy"
+    B -- "Appelle" --> C(analyse_spacy)
 
-      subgraph "annotation du corpus en entitées nommées"
-        direction LR
+    subgraph "Annotation du corpus en entités nommées"
+      direction LR
 
-        C -- "appelle" --> D(process_file)
-        D -- "appelle" -- > E(process_line)
-        D -- "appelle" --> D
-        E -- "appelle" -- > E
-      end
-
+      C -- "Appelle" --> D(process_file)
+      D -- "Appelle" --> E(process_line)
+      D -- "Boucle" --> D
+      E -- "Boucle" --> E
     end
-
-    A -- "renvoie" --> F(dictionnaire)
-    F -- "enregistre" --> G{fichier json}
   end
+
+  A -- "Renvoie" --> F(dictionnaire)
+  F -- "Enregistre" --> G[fichier json]
+end
 ```
 
 
