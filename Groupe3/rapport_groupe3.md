@@ -8,9 +8,7 @@ Notre tâche a été de créer un module qui prend en entrée un corpus de texte
 
 Il a été choisi en accord avec les autres groupes. En effet, puisque la chaîne de traitement était divisée en quatre tâche, nous avons décidé ensemble de l'utiliser car ce module permet de rassembler les différentes tâches dans un seul objet : le SpacyDoc.
 
-<p align="center">
-  <img title="schema d'un doc spacy" src="http://some_place.com/image.png" />
-</p>
+<img align="center" title="schema d'un doc spacy" src="http://some_place.com/image.png" />
 
 S'agissant des entités nommées (EN), le modèle Spacy utilise l'**annotation BIO**. Celle-ci associe une étiquette à chaque token. Cette étiquette est la lettre 'O' (pour "Outside") si le token n'est pas reconnu comme une EN. S'il est reconnu comme étant une EN, la lettre 'B' (pour "Beginning") lui est associée. Si l'entité nommée reconnue est composée de plusieurs tokens, le ou les tokens suivants appartenant à la même entitée seront étiquetés avec la lettre 'I' (pour "inside").
 
@@ -38,7 +36,7 @@ Nous avons un compteur supplémentaire qui calcule le nombre d'appels de fonctio
 
 Nous avons extrait tous les tokens et récupéré pour chaque token son étiquette I, B ou O et son label s'il en a un. Le format du dictionnaire a été fait selon les demandes du groupe 5 pour permettre une extraction facile des labels des entités nommés. Il suit  les règles suivantes :
 
-```json
+```python
   {
     "nom_du_fichier" : {
       "phrase_n" : {
@@ -61,24 +59,25 @@ L'annotation a été effectuée token par token. Spacy propose également une so
 ## II. Le module
 
 ```mermaid
-flowchart TB
+flowchart TD
 
 subgraph "Création du dictionnaire final et enregistrement des annotations au format json"
-  A(get_annotation) -- "Appelle pour chaque fichier" --> B(preprocess_file)
+  A(get_annotations\(\)) ----> O{boucle for pour travailler fichier par fichier}
+  O -- "appelle" --> B(preprocess_file)
 
   subgraph "Transformation du fichier en liste de lignes et analyse avec spaCy"
-    B -- "Appelle" --> C(analyse_spacy)
+    B -- "appelle" --> C(analyse_spacy)
+    C -- "appelle" --> D(process_file)
 
-    subgraph "Annotation du corpus en entités nommées"
-      C -- "Appelle" --> D(process_file)
-      D -- "Appelle" --> E(process_line)
-      D -- "Boucle" --> D
-      E -- "Boucle" --> E
+    subgraph "Création du dictionnaire"
+      D -- "appelle" --> E(process_line)
+      D -- "boucle tant qu'il reste des lignes à annoter" --> D
+      E -- "boucle tant qu'il reste des tokens à annoter" --> E
     end
   end
 
-  A -- "Renvoie" --> F(dictionnaire)
-  F -- "Enregistre" --> G[fichier json]
+  A -- "renvoie dictionnaire" --> F[main]
+  F -- "enregistre dans" --> G{annotations_EN.json}
 end
 ```
 
