@@ -140,26 +140,31 @@ Pour faire cette normalisation, nous avons pris la liberté de supprimer les poi
 Nous avons ainsi obtenu les graphiques suivants :
 
 **Complexité du Module 1**
+
 ![Complexité empirique du module 1](plot_time_space_complexities_gp1.png "Complexité empirique du module 1")
 
 Nous voyons que ce module semble avoir une complexité empirique proche de $O(x)$ en temps et en espace. En réalité, la complexité spatiale est parfaitement en accord avec $O(x)$ puisque celle-ci mesure la taille du dictionnaire qui associe une association clé-valeur par token, nous avons donc une correspondance un token pour une entrée du dictionnaire.
 
 **Complexité du Module 2**
+
 ![Complexité empirique du module 1](plot_time_space_complexities_gp2.png "Complexité empirique du module 1")
 
 Nous voyons que ce module semble avoir une complexité empirique entre $O(x)$ et $O(xlog(x))$ en temps et en espace. Peut-être que la complexité en temps approche plus de $O(xlog(x))$ et celle en espace plus de $O(x)$ mais il est difficile de le dire sans des résultats avec un plus grand nombre de tokens en entrée.
 
 **Complexité du Module 3**
+
 ![Complexité empirique du module 1](plot_time_space_complexities_gp3.png "Complexité empirique du module 1")
 
 Ce module présente une complexité empirique en espace parfaitement en accord avec $O(x)$ tandis que la complexité en temps est plus proche de $O(xlog(x))$ et semble être même supérieure à celle-ci.
 
 **Complexité du Module 4**
+
 ![Complexité empirique du module 1](plot_time_space_complexities_gp4.png "Complexité empirique du module 1")
 
 Encore une fois, la complexité en temps semble être entre $O(x)$ et $O(xlog(x))$. En revanche, la courbe pour la complexité spatiale n'est pas vraiment interprétable. Il semble que les mesures faite par le module `psutil` ne sont pas fiables ici.
 
 **Complexité de la chaîne complète**
+
 ![Complexité empirique du module 1](plot_time_space_complexities_all.png "Complexité empirique du module 1")
 
 Théoriquement, la complexité empirique de la chaîne de traitement complète devrait être proche de la complexité la plus élevé mesurée précédemment, donc plus que $O(xlog(x))$ pour la complexité temporelle et $O(x)$ pour la complexité spatiale (selon les trois premiers modules).
