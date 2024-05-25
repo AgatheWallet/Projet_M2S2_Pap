@@ -132,7 +132,7 @@ if __name__ == "__main__":
         # Récupérer le nom de base du fichier d'entrée sans l'extension
         base_name = os.path.basename(input_file).split('.')[0]
         # Créer le nom de fichier de sortie
-        output_file = f'resultats_groupe2_{base_name}.tsv'
+        output_file = f'resultat_analyseSynDep/resultats_groupe2_{base_name}.tsv'
 
         # Enregistrer les résultats dans un fichier TSV
         with open(output_file, 'w', encoding='utf-8') as f:

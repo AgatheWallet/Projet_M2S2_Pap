@@ -1,4 +1,6 @@
-## Analyse syntaxique
+## Analyse syntaxique en dépendance
+
+**Auteurs**: Liza FRETEL, Kenza AHMIA, Shami THIRION SEN
 
 ### Calcul de complexite en temps et en espace
 
