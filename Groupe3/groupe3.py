@@ -184,7 +184,8 @@ def get_annotations(chemin: str) -> dict:
 	return all_dicos
 
 
-def make_plot(liste_res:list):
+def make_plot(liste_res: list):
+    """ affiche les graphes de complexités empiriques de notre module"""
 
 	# Préparation des données de axe x : tri par rapport au nbre de tokens
 	combined = list(zip(liste_res[0], liste_res[1], liste_res[2], liste_res[3]))

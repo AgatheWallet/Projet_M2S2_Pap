@@ -6,13 +6,11 @@ Notre tâche a été de créer un module qui prend en entrée un corpus de texte
 
 ### Le choix du module Spacy
 
-Il a été fait en accord avec les autres groupes. En effet, puisque la chaîne de traitement était divisée en quatre tâche, nous avons décidé ensemble d'utiliser Spacy car ce module permet de rassembler les différentes tâches dans un seul objet : le SpacyDoc.
+Il a été choisi en accord avec les autres groupes. En effet, puisque la chaîne de traitement était divisée en quatre tâche, nous avons décidé ensemble de l'utiliser car ce module permet de rassembler les différentes tâches dans un seul objet : le SpacyDoc.
 
-<img title="" src="./images/SpacyDoc.jpg" alt="" width="356" data-align="center">
+<img align="center" title="schema d'un doc spacy" src="http://some_place.com/image.png" />
 
-S'agissant des entités nommées (EN), le modèle Spacy utilise l'**annotation BIO**. Celle-ci associe une étiquette à chaque token. Cette étiquette est la lettre 'O' (pour "Outside") si le token n'est pas reconnu comme une EN. S'il est reconnu comme étant une EN, la lettre 'B' (pour "Beginning") lui est associée.
-
-Si l'entité nommée reconnue est composée de plusieurs tokens, le ou les tokens suivants appartenant à la même entitée seront étiquetés avec la lettre 'I' (pour "inside").
+S'agissant des entités nommées (EN), le modèle Spacy utilise l'**annotation BIO**. Celle-ci associe une étiquette à chaque token. Cette étiquette est la lettre 'O' (pour "Outside") si le token n'est pas reconnu comme une EN. S'il est reconnu comme étant une EN, la lettre 'B' (pour "Beginning") lui est associée. Si l'entité nommée reconnue est composée de plusieurs tokens, le ou les tokens suivants appartenant à la même entitée seront étiquetés avec la lettre 'I' (pour "inside").
 
 Le SpacyDoc est créé et implémenté avec l'appel du modèle Spacy et l'affectation de son résultat à la variable docs : 
 
@@ -20,64 +18,83 @@ Le SpacyDoc est créé et implémenté avec l'appel du modèle Spacy et l'affect
 docs = list(nlp.pipe(texte, disable=["parser", "lemmatizer", "attribute_ruler"]))
 ```
 
-La variable docs est une liste de SpacyDoc (spacy.tokens.doc.Doc). Chaque élément de la liste correspond à une phrase segmentée en Token selon la formulation de Spacy. cf. Shéma SpacyDoc plus haut.
+La variable docs est une liste de SpacyDoc (spacy.tokens.doc.Doc). Chaque élément de la liste correspond à une phrase segmentée en Token selon la formulation de Spacy (cf. schéma SpacyDoc plus haut).
 
 ### Le choix du calcul de complexité
 
-Le script du Groupe 5 qui est en charge d'intégrer les différentes modules, prend la sortie de notre script : `from Groupe3.groupe3 import get_annotations`
+Le script du Groupe 5 qui est en charge d'intégrer les différentes modules, prend la sortie de notre script : `from Groupe3.groupe3 import get_complexities`
 
-La fonction get_annotations() retourne une liste de 4 listes, dont les 3 premières seront utilisées afin qu'il puisse calculer la complexité moyenne en temps et en espace de chaque module : 
+La fonction retourne une liste de 4 listes, dont les 3 premières seront utilisées afin qu'il puisse calculer la complexité moyenne en temps et en espace de chaque module : 
 
 - la liste du nombre de tokens par texte
 - la liste du temps d'exécution en sec par texte
 - la liste des compteurs de la complexité empirique en espace mémoire. 
 
-Nous avons un compteur supplémentaire qui calcule le nombre d'appels de fonction pendant l'execution 
+Nous avons un compteur supplémentaire qui calcule le nombre d'appels de fonction pendant l'execution, une métrique qui nous a paru intéressant pour notre programme récursif. 
 
 ### L'extraction des entités nommées et la construction des dictionnaires
 
-Nous avons extrait tous les tokens et récupéré pour chaque token son étiquette I, B ou O.
-Le format est un dictionnaire par phrase avec en clé l'indice du token dans la phrase commençant à 0 et en valeur un tuple comprenant : la forme du token et l'étiquette IOB.
+Nous avons extrait tous les tokens et récupéré pour chaque token son étiquette I, B ou O et son label s'il en a un. Le format du dictionnaire a été fait selon les demandes du groupe 5 pour permettre une extraction facile des labels des entités nommés. Il suit  les règles suivantes :
 
-Si le token est une EN sont étiquette sera donc 'B' ou 'I'.
+```python
+  {
+    "nom_du_fichier" : {
+      "phrase_n" : {
+        "token_n" : {
+          "form" : token.text,
+          "ner" : "O"
+        },
+        "token_n+1" : {
+          "form" : token.text,
+          "ner" : token.ent_iob+"-"+token.ent_type_
+        }
+      }
+    }
+  }
+```
 
-On peut récupérer, à partir du Token de docs, les informations suivantes :
+L'annotation a été effectuée token par token. Spacy propose également une sortie qui regroupe les tokens, par exemple `("guerre fédérale des États-Unis", "MISC")`, mais cette sortie ne s'accordait pas avec celles des autres modules de la chaîne de traitement. Nous l'avons mis de côté.
 
-- la forme : `token.text`
-- l'étiquette IOB : `token.ent_iob_`
-- le type d'EN, soit l'étiquette : `token.ent_type_`
-
-Ainsi, les EN peuvent être étiquetées sur plusieurs tokens qui se suivent. Dans notre script, nous lisons les éléments du le SpacyDoc, les tokens, un par un de manière séquentielle. Si une EN comporte plusieurs tokens, elle est donc éclatée en plusieurs dicos dans notre liste de dicos. À DEV VÉRFIER
-
-On peut accéder à un tuple `doc.ents` qui regroupe les EN reconnues par le modèle sous leur forme regroupée, par exemple : "Royaume-Uni", "docteur Cicogna", au lieu de "Royaume", "-", "Uni", "docteur" "Cigogna". `.ents`. C'est une propriété de l'objet Doc, établie après la création et l'implémentation de l'objet SpacyDoc.
 
 ## II. Le module
 
 ```mermaid
-flowchart TB
+flowchart TD
 
 subgraph "Création du dictionnaire final et enregistrement des annotations au format json"
-  A(get_annotation) -- "Appelle pour chaque fichier" --> B(preprocess_file)
+  A(get_annotations) ----> O[boucle for pour travailler fichier par fichier]
+  O -- "appelle" --> B(preprocess_file)
 
   subgraph "Transformation du fichier en liste de lignes et analyse avec spaCy"
-    B -- "Appelle" --> C(analyse_spacy)
+    B -- "appelle" --> C(analyse_spacy)
+    C -- "appelle" --> D(process_file)
 
-    subgraph "Annotation du corpus en entités nommées"
-      C -- "Appelle" --> D(process_file)
-      D -- "Appelle" --> E(process_line)
-      D -- "Boucle" --> D
-      E -- "Boucle" --> E
+    subgraph "Création du dictionnaire"
+      D -- "appelle" --> E(process_line)
+      D -- "boucle tant qu'il reste des lignes à annoter" --> D
+      E -- "boucle tant qu'il reste des tokens à annoter" --> E
     end
   end
 
-  A -- "Renvoie" --> F(dictionnaire)
-  F -- "Enregistre" --> G[fichier json]
+  A -- "renvoie dictionnaire" --> F(main)
+  F -- "enregistre dans" --> G{annotations_EN.json}
 end
 ```
 
+Il n'y a pas eu de problèmes particulièrement compliqués pendant l'écriture du fichier ou de l'intégration des compteurs. Le groupe 5 nous a fait remarqué qu'il y avait des tokens vides annotés dans notre sortie. En fait, spacy comptait comme token tout endroit où plusieurs espaces de succédaient. Un simple nettoyage du texte a suffit à résoudre ce problème. 
+
 ## III. La compléxité empirique du module en temps et en espace
 
-tableau
+| corpus               | nb tokens | espace (nb éléments) | temps (sec.) |temps (nb appels)  |
+|----------------------|-----------|----------------------|--------------|-------------------|
+| JV-Terre_Lune        | 66352     | 68107                | 21.422       | 68969             |
+| JV-Revoltes_Bounty   | 8266      | 8708                 | 2.138        | 8585              |
+| JV-5_semaines_ballon | 98817     | 102264               | 41.154       | 104494            |
+| JV-Tour_monde        | 86349     | 88928                | 31.189       | 90822             |
+| JV-Forceurs_blocus   | 23525     | 24606                | 6.646        | 24932             |
+| JV-Robur             | 73354     | 75576                | 25.532       | 76601             |
+| JV-Begum             | 64440     | 66132                | 19.266       | 66949             |
+
 
 ### Complexité empirique en espace
 
