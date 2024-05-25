@@ -2,7 +2,7 @@
 
 ## Groupe 3
 - Laura Darenne
-- Alice
+- Alice Wallard
 
 ## Installation
 
