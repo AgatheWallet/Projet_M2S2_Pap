@@ -30,7 +30,7 @@
 
 Notre mission était un peu différente de celle des autres groupes puisque nous n'avions pas pour objectif de créer un module mais de rassembler les modules faits par les autres équipes pour pouvoir traiter le corpus de A à Z. Aussi, nous n'avons pas réellement de recherches préalables à notre travail à vous présenter.
 
-L'infrastructure globale est conçue pour traiter un corpus de texte et générer un fichier de sortie au format CoNLL. Il utilise les scripts des groupes 1 à 4 pour effectuer différentes tâches de traitement automatique des langues.
+L'infrastructure globale est conçue pour traiter un corpus de textex et générer un fichier de sortie type CoNLL (nous nous en sommes grandement inspiré mais notre fichier ne présente pas toutes les informations présentes dans un fichier conll et le découpage par phrase n'a pas toujours réussi. Il s'agit en fait plus d'un découpage par paragraphe). Il utilise les scripts des groupes 1 à 4 pour effectuer différentes tâches de traitement automatique des langues.
 
 Le travail de notre groupe consistait donc à lire, comprendre et utiliser les travaux des différents groupes pour faire la chaîne de traitements suivante sur un corpus de textes :  
 1. Étiquetage en partie du discours 
@@ -54,10 +54,10 @@ Le travail de notre groupe consistait donc à lire, comprendre et utiliser les t
 Pour exécuter ce script, il suffit d'ouvrir un terminal et de taper la commande suivante :
 
 ```bash
-python3 main.py chemin/du/corpus chemin/du/fichier/output.conllu
+python3 main.py chemin/du/corpus chemin/du/fichier/output.conll
 ```
 
-où `chemin/du/corpus` est le chemin d'accès au corpus de texte à traiter, et `chemin/du/fichier/output.conllu` est le chemin d'accès au fichier de sortie au format CoNLL à générer.
+où `chemin/du/corpus` est le chemin d'accès au corpus de texte à traiter, et `chemin/du/fichier/output.conll` est le chemin d'accès au fichier de sortie au format CoNLL à générer.
 
 Le script affiche également des graphiques de complexité temporelle et spatiale pour chaque groupe de traitement, ainsi que pour l'ensemble du pipeline de traitement. Ces graphiques permettent de visualiser l'évolution de la complexité en fonction du nombre de tokens traités, et de comparer les performances des différents groupes de traitement.
 
@@ -79,19 +79,19 @@ Ce module contient les fonctions `process_gp1`, `recursive_tokens_pos`, `get_com
 
 #### Module 2
 
-Ce module contient les fonctions `process_gp2`, et les données `n_tokens`, `time_data` et `memory_data`. La fonction `process_gp2` est utilisée pour effectuer l'analyse syntaxique et sémantique sur le corpus de texte. Elle prend en entrée un objet `Doc` de spaCy contenant les tokens et leurs POS tags et renvoie un nouvel objet `Doc` de spaCy contenant les dépendances syntaxiques et sémantiques entre les tokens. La liste `n_tokens` renvoie le nombre de tokens dans le corpus. Les données `time_data` et `memory_data` renvoient les temps d'exécution et les utilisations de mémoire de l'algorithme d'analyse syntaxique et sémantique.
+Ce module contient les fonctions `process_gp2`, et les données `n_tokens`, `time_data` et `memory_data`. La fonction `process_gp2` est utilisée pour effectuer l'analyse syntaxique et sémantique sur le corpus de textes. Elle prend en entrée un objet `Doc` de spaCy contenant les tokens et leurs POS tags et renvoie un nouvel objet `Doc` de spaCy contenant les dépendances syntaxiques et sémantiques entre les tokens. La liste `n_tokens` renvoie le nombre de tokens dans le corpus. Les données `time_data` et `memory_data` renvoient les temps d'exécution et les utilisations de mémoire de l'algorithme d'analyse syntaxique et sémantique.
 
 #### Module 3
 
-Ce module contient les fonctions `get_annotations` et `get_complexities`. Ces fonctions sont utilisées pour effectuer la reconnaissance des entités nommées (NER) sur le corpus de texte. La fonction `get_annotations` prend en entrée le chemin d'accès à un corpus de texte et renvoie un dictionnaire contenant les annotations NER pour chaque token dans le corpus sous le format BIO. La fonction `get_complexities` prend en entrée le chemin d'accès à un corpus de texte et renvoie deux listes contenant les complexités temporelle et spatiale de l'algorithme de reconnaissance des entités nommées.
+Ce module contient les fonctions `get_annotations` et `get_complexities`. Ces fonctions sont utilisées pour effectuer la reconnaissance des entités nommées (NER) sur le corpus de texte. La fonction `get_annotations` prend en entrée le chemin d'accès à un corpus de textes et renvoie un dictionnaire contenant les annotations NER pour chaque token dans le corpus sous le format BIO. La fonction `get_complexities` prend en entrée le chemin d'accès à un corpus de texte et renvoie deux listes contenant les complexités temporelle et spatiale de l'algorithme de reconnaissance des entités nommées.
 
 #### Module 4
 
 Ce module contient la fonction `process_gp4`. Cette fonction est utilisée pour effectuer l'analyse des groupes nominaux sur le corpus de texte. Elle prend en entrée le chemin d'accès à un fichier du corpus de texte et renvoie une liste de dictionnaire contenant les groupes nominaux pour chaque phrase dans le corpus. 
 
-### Partie calcul de complexité
+### Partie calculs de complexité
 
-Il y avait deux calcul à effectuer pour la complexité temporelle et spatiale. Les quatre groupes ont utilisé la même méthode pour calculer la complexité temporelle : le module python `time`. Ce module permet de mesurer le temps d'exécution d'un processus et calculant la différence entre deux mesures temporelles prises avant et après l'exécution du dit processus.
+Il y avait deux calculs à effectuer pour la complexité temporelle et spatiale. Les quatre groupes ont utilisé la même méthode pour calculer la complexité temporelle : le module python `time`. Ce module permet de mesurer le temps d'exécution d'un processus et calculant la différence entre deux mesures temporelles prises avant et après l'exécution dudit processus.
 
 En revanche, les différents groupes ont utilisé une méthode différente pour le calcul de complexité spatiale que nous allons à présent décrire. De plus, les méthodes d'implémentation de ces calculs différent également entre modules.
 
@@ -133,7 +133,7 @@ Ensuite, il définit plusieurs fonctions pour traiter le corpus de texte et gén
 * `analyse_line` : cette fonction prend en entrée un objet Doc de spaCy représentant une ligne de texte, ainsi que trois dictionnaires contenant les résultats des analyses précédentes, et renvoie un dictionnaire contenant les résultats de l'analyse de la ligne de texte.
 * `get_pos`, `get_dep`, `get_ne`, `get_np` : ces fonctions sont utilisées par `analyse_line` pour extraire les informations voulues de chaque token dans la ligne de texte, soit respectivement : sa partie du discours, sa dépendance syntaxique, son statut d'entités nommées, s'il fait partie d'un groupe nominal.
 * `build_dico` : cette fonction prend en entrée le chemin d'accès à un corpus de texte et renvoie un dictionnaire contenant les résultats de l'analyse du corpus ainsi que toutes les mesures de complexité des différents modules.
-* `build_conll` : cette fonction prend en entrée, le dictionnaire obtenu avec la fonction précédente qui contient toutes les informations dont on a besoin, et le chemin d'accès à un fichier de sortie au format CoNLL, et génère le fichier de sortie.
+* `build_conll` : cette fonction prend en entrée, le dictionnaire obtenu avec la fonction précédente qui contient toutes les informations dont on a besoin, et le chemin d'accès à un fichier de sortie type CoNLL, et génère le fichier de sortie.
 
 Les fonctions pour la mesure de la complexité empirique sont les suivantes :
 
@@ -148,10 +148,10 @@ Le script se termine par l'appel de la fonction `build_dico` avec le chemin d'ac
 
 **Remarques :**
 
-* Le script utilise la bibliothèque spaCy pour effectuer l'étiquetage en partie du discours, l'analyse syntaxique et sémantique, et la reconnaissance des entités nommées.
-* Le script utilise la bibliothèque matplotlib pour tracer les complexités temporelles et spatiales des différentes étapes du traitement.
-* Le script utilise la bibliothèque numpy pour effectuer des calculs numériques.
-* Le script utilise la bibliothèque io pour rediriger la sortie standard vers une chaîne de caractères, afin de supprimer tous les affichages (notamment des modules) ralentissant l'exécution.
+* Le script utilise la bibliothèque `spaCy` pour effectuer l'étiquetage en partie du discours, l'analyse syntaxique et sémantique, et la reconnaissance des entités nommées.
+* Le script utilise la bibliothèque `matplotlib` pour tracer les complexités temporelles et spatiales des différentes étapes du traitement.
+* Le script utilise la bibliothèque `numpy` pour effectuer des calculs numériques.
+* Le script utilise la bibliothèque `io` pour rediriger la sortie standard vers une chaîne de caractères, afin de supprimer tous les affichages (notamment des modules) ralentissant l'exécution.
 
 ## Analyse de complexités
 
@@ -167,31 +167,31 @@ Nous avons ainsi obtenu les graphiques suivants :
 
 **Complexité du Module 1**
 
-![Complexité empirique du module 1](plot_time_space_complexities_gp1.png "Complexité empirique du module 1")
+![Complexité empirique du module 1](Images_Groupe5/plot_time_space_complexities_gp1.png "Complexité empirique du module 1")
 
 Nous voyons que ce module semble avoir une complexité empirique proche de $O(x)$ en temps et en espace. En réalité, la complexité spatiale est parfaitement en accord avec $O(x)$ puisque celle-ci mesure la taille du dictionnaire qui associe une association clé-valeur par token, nous avons donc une correspondance un token pour une entrée du dictionnaire.
 
 **Complexité du Module 2**
 
-![Complexité empirique du module 1](plot_time_space_complexities_gp2.png "Complexité empirique du module 1")
+![Complexité empirique du module 1](Images_Groupe5/plot_time_space_complexities_gp2.png "Complexité empirique du module 1")
 
 Nous voyons que ce module semble avoir une complexité empirique entre $O(x)$ et $O(xlog(x))$ en temps et en espace. Peut-être que la complexité en temps approche plus de $O(xlog(x))$ et celle en espace plus de $O(x)$ mais il est difficile de le dire sans des résultats avec un plus grand nombre de tokens en entrée.
 
 **Complexité du Module 3**
 
-![Complexité empirique du module 1](plot_time_space_complexities_gp3.png "Complexité empirique du module 1")
+![Complexité empirique du module 1](Images_Groupe5/plot_time_space_complexities_gp3.png "Complexité empirique du module 1")
 
 Ce module présente une complexité empirique en espace parfaitement en accord avec $O(x)$ tandis que la complexité en temps est plus proche de $O(xlog(x))$ et semble être même supérieure à celle-ci.
 
 **Complexité du Module 4**
 
-![Complexité empirique du module 1](plot_time_space_complexities_gp4.png "Complexité empirique du module 1")
+![Complexité empirique du module 1](Images_Groupe5/plot_time_space_complexities_gp4.png "Complexité empirique du module 1")
 
 Encore une fois, la complexité en temps semble être entre $O(x)$ et $O(xlog(x))$. En revanche, la courbe pour la complexité spatiale n'est pas vraiment interprétable. Il semble que les mesures faites par le module `psutil` ne sont pas fiables ici.
 
 **Complexité de la chaîne complète**
 
-![Complexité empirique du module 1](plot_time_space_complexities_all.png "Complexité empirique du module 1")
+![Complexité empirique du module 1](Images_Groupe5/plot_time_space_complexities_all.png "Complexité empirique du module 1")
 
 Théoriquement, la complexité empirique de la chaîne de traitement complète devrait être proche de la complexité la plus élevé mesurée précédemment, donc plus que $O(xlog(x))$ pour la complexité temporelle et $O(x)$ pour la complexité spatiale (selon les trois premiers modules).
 
@@ -206,7 +206,7 @@ La partie concernant l'intégration de tous les travaux en une unique chaîne de
 
 Tout d'abord, bien que nous avions fourni un format de sortie que nous jugions optimal pour faciliter la manipulation des données, un dictionnaire Python, il n'a pas toujours été bien respecté. Aussi, la mise en commun des différents modules a été plus compliquée. 
 
-Ensuite, la plupart des modules n'étaient pas fournis avec une notice ou une documentation sur la façon de les utiliser. Nous avons donc dû consacrer beaucoup de temps à comprendre les modes de fonctionnements de chaque modules, temps qui se faisait de plus en plus rare à mesure que la date de remise des travaux approchait. De plus, nous ne savions pas toujours exactement quelle fonction nous devions utiliser pour chaque groupe, car chaque groupe utilisait de nombreuses fonctions, certaines qui nous semblaient plus utiles que d'autres pour notre tâche. Certaines ne renvoyaient d'ailleurs aucun objet directement exploitable (comme un dictionnaire), et nous avons dû demander au groupe concerné de nous expliquer comment leur fonction était utilisée, quelles extensions étaient possibles, etc. Certains modules étant incompatibles avec d'autres, nous avons essayé au mieux d'utiliser un peu du travail de chacun pour arriver au résultat final.
+Ensuite, la plupart des modules n'étaient pas fournis avec une notice ou une documentation sur la façon de les utiliser. Nous avons donc dû consacrer beaucoup de temps à comprendre les modes de fonctionnements de chaque modules, temps qui se faisait de plus en plus rare à mesure que la date de remise des travaux approchait. De plus, nous ne savions pas toujours exactement quelle fonction nous devions utiliser pour chaque groupe, car chaque groupe utilisait de nombreuses fonctions, certaines qui nous semblaient plus utiles que d'autres pour notre tâche. Certaines ne renvoyaient d'ailleurs aucun objet directement exploitable (comme un dictionnaire), et nous avons dû demander aux groupes concernés de nous expliquer comment leur fonction était utilisée, quelles extensions étaient possibles, etc. Certains modules étant incompatibles avec d'autres, nous avons essayé au mieux d'utiliser un peu du travail de chacun pour arriver au résultat final.
 
 Nous avons également rencontré des problèmes avec certains caractères dans le corpus, que nous avons fini par supprimer (comme les tabulations et les espaces multiples qui entraînaient des décalages entre les différents dictionnaires générés par les différents modules).
 
@@ -214,7 +214,7 @@ De façon générale, comme beaucoup de travaux d'équipe, le problème majeur f
 
 ### Difficultés par rapport aux calculs de complexités
 
-Tout d'abord, lors de la lecture des scripts des différents groupes, nous avons rapidement réalisé qu'aucun module n'avait vraiment prévu de quoi nous donner accès à leurs mesures de complexité, il nous a donc fallu demander à plusieurs reprises, et parfois, le faire avec le groupe car le temps était compté et qu'il nous fallait avancer en parallèle sur notre propre partie. Nous avons dû à plusieurs reprises tenter des choses avec les scripts présents sur le git, et tout refaire après modifications. La diversité des méthodes de mesures de complexités, de méthode de transmission et de format de présentation de ces dernières a évidemment compliqué tout le processus d'extraction.
+Tout d'abord, lors de la lecture des scripts des différents groupes, nous avons rapidement réalisé qu'aucun module n'avait vraiment prévu de quoi nous donner accès à leurs mesures de complexité, il nous a donc fallu demander à plusieurs reprises, et parfois, le faire avec le groupe car le temps était compté et qu'il nous fallait avancer en parallèle sur notre propre partie. Nous avons dû à plusieurs reprises tenter des choses avec les scripts présents sur le git, et tout refaire après modifications. La diversité des méthodes de mesures de complexités, des méthodes de transmission et des formats de présentation de ces dernières a évidemment compliqué tout le processus d'extraction.
 
 Malgré toutes ces difficultés, nous avons réussi à intégrer tous les travaux en une unique chaîne de traitement et à effectuer des calculs de complexité pour évaluer la complexité de notre chaîne. Nous sommes fiers d'avoir réussi à finaliser ce travail et souhaitons remercier le travail des différents groupes pour les échanges parfois compliqués mais enrichissants.
 
