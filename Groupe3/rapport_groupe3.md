@@ -8,7 +8,7 @@ Notre tâche a été de créer un module qui prend en entrée un corpus de texte
 
 Il a été choisi en accord avec les autres groupes. En effet, puisque la chaîne de traitement était divisée en quatre tâche, nous avons décidé ensemble de l'utiliser car ce module permet de rassembler les différentes tâches dans un seul objet : le SpacyDoc.
 
-<img align="center" title="schema d'un doc spacy" src="http://some_place.com/image.png" />
+<img title="schema d'un doc spacy" src="https://github.com/AgatheWallet/Projet_M2S2_Pap/blob/main/Groupe3/images/SpacyDoc.png" alt="" align="center">
 
 S'agissant des entités nommées (EN), le modèle Spacy utilise l'**annotation BIO**. Celle-ci associe une étiquette à chaque token. Cette étiquette est la lettre 'O' (pour "Outside") si le token n'est pas reconnu comme une EN. S'il est reconnu comme étant une EN, la lettre 'B' (pour "Beginning") lui est associée. Si l'entité nommée reconnue est composée de plusieurs tokens, le ou les tokens suivants appartenant à la même entitée seront étiquetés avec la lettre 'I' (pour "inside").
 
@@ -55,7 +55,6 @@ Nous avons extrait tous les tokens et récupéré pour chaque token son étiquet
 
 L'annotation a été effectuée token par token. Spacy propose également une sortie qui regroupe les tokens, par exemple `("guerre fédérale des États-Unis", "MISC")`, mais cette sortie ne s'accordait pas avec celles des autres modules de la chaîne de traitement. Nous l'avons mis de côté.
 
-
 ## II. Le module
 
 ```mermaid
@@ -85,8 +84,8 @@ Il n'y a pas eu de problèmes particulièrement compliqués pendant l'écriture 
 
 ## III. La compléxité empirique du module en temps et en espace
 
-| corpus               | nb tokens | espace (nb éléments) | temps (sec.) |temps (nb appels)  |
-|----------------------|-----------|----------------------|--------------|-------------------|
+| corpus               | nb tokens | espace (nb éléments) | temps (sec.) | temps (nb appels) |
+| -------------------- | --------- | -------------------- | ------------ | ----------------- |
 | JV-Terre_Lune        | 66352     | 68107                | 21.422       | 68969             |
 | JV-Revoltes_Bounty   | 8266      | 8708                 | 2.138        | 8585              |
 | JV-5_semaines_ballon | 98817     | 102264               | 41.154       | 104494            |
@@ -94,7 +93,6 @@ Il n'y a pas eu de problèmes particulièrement compliqués pendant l'écriture 
 | JV-Forceurs_blocus   | 23525     | 24606                | 6.646        | 24932             |
 | JV-Robur             | 73354     | 75576                | 25.532       | 76601             |
 | JV-Begum             | 64440     | 66132                | 19.266       | 66949             |
-
 
 ### Complexité empirique en espace
 

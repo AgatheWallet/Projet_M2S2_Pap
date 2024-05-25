@@ -11,8 +11,6 @@ Verne	PROPN	flat:name	Jules
 L'	DET	det	ABANDON
 ABANDON	PROPN	ROOT	ABANDON
 ----------------	PROPN	ROOT	----------------
-			SPACE	ROOT			
-  	SPACE	ROOT	  
 Pas	ADV	ROOT	Pas
 le	DET	det	souffle
 moindre	ADJ	amod	souffle
@@ -53,8 +51,7 @@ voiles	NOUN	nsubj	pendent
 de	ADP	case	Bounty
 la	DET	det	Bounty
 Bounty	PROPN	nmod	voiles
- 	SPACE	dep	Bounty
-pendent	NOUN	ROOT	pendent
+pendent	VERB	ROOT	pendent
 le	DET	det	long
 long	NOUN	obj	pendent
 des	ADP	case	mâts
@@ -64,7 +61,7 @@ le	DET	det	bâtiment
 bâtiment	NOUN	nsubj	immobile
 est	AUX	cop	immobile
 immobile	ADJ	conj	pendent
-,	PUNCT	punct	immobile
+,	PUNCT	punct	pendent
 et	CCONJ	cc	lumière
 la	DET	det	lumière
 lumière	NOUN	conj	pendent
@@ -88,12 +85,10 @@ une	DET	det	lueur
 lueur	NOUN	nmod	espace
 indefinissable	ADJ	amod	lueur
 .	PUNCT	punct	pendent
-  	SPACE	ROOT	  
 La	DET	det	Bounty
- 	SPACE	dep	La
 Bounty	PROPN	nsubj	quitté
 ,	PUNCT	punct	Bounty
-navire	ADJ	amod	Bounty
+navire	ADJ	appos	Bounty
 de	ADP	case	tonneaux
 deux	NUM	nummod	cent
 cent	NUM	dep	de
@@ -188,7 +183,6 @@ pourrait	VERB	acl:relcl	faits
 rien	PRON	nummod	ajouter.].
 y	PRON	fixed	rien
 ajouter.].	NOUN	obl:mod	pourrait
-  	SPACE	ROOT	  
 La	DET	det	Bounty
 Bounty	PROPN	nsubj	mission
 avait	AUX	aux:tense	mission
@@ -255,8 +249,7 @@ aux	ADP	case	îles
 des	ADP	case	Amis
 Amis	NOUN	nmod	îles
 .	PUNCT	punct	pris
-   	SPACE	ROOT	   
-Maintes	PROPN	ROOT	Maintes
+Maintes	PROPN	obl:mod	amené
 fois	NOUN	fixed	Maintes
 ,	PUNCT	punct	amené
 le	DET	det	caractère
@@ -313,8 +306,7 @@ allaient	VERB	acl:relcl	événements
 se	PRON	expl:comp	produire
 produire	VERB	xcomp	allaient
 .	PUNCT	punct	faisait
-   	SPACE	ROOT	   
-Tout	ADJ	amod	semblait
+Tout	ADJ	advmod	semblait
 semblait	NOUN	ROOT	semblait
 calme	ADJ	amod	semblait
 ,	PUNCT	punct	semblait
@@ -324,12 +316,12 @@ effet	NOUN	nmod	semblait
 lorsque	SCONJ	mark	propage
 tout	ADV	advmod	animation
 à	ADP	case	coup
-coup	NOUN	obl:arg	tout
+coup	NOUN	dep	tout
 une	DET	det	animation
 animation	NOUN	nsubj	propage
 insolite	VERB	acl	animation
 se	PRON	expl:comp	propage
-propage	VERB	advcl	semblait
+propage	VERB	acl	semblait
 sur	ADP	case	bâtiment
 le	DET	det	bâtiment
 bâtiment	NOUN	obl:mod	propage
@@ -354,16 +346,15 @@ disparaissent	VERB	conj	accostent
 petits	ADJ	xcomp	disparaissent
 pas	ADV	advmod	petits
 .	PUNCT	punct	accostent
-   	SPACE	ROOT	   
-Est	PROPN	ROOT	Est
--ce	PRON	dep	Est
+Est	AUX	cop	quart
+-ce	PRON	nsubj	quart
 le	DET	det	quart
 quart	NOUN	ROOT	quart
 du	ADP	case	matin
 matin	NOUN	nmod	quart
 qu'	PRON	obj	relève
 on	PRON	nsubj	relève
-relève	VERB	acl:relcl	quart
+relève	VERB	dep	quart
 ?	PUNCT	punct	quart
 Quelque	DET	det	accident
 accident	NOUN	nsubj	produit
@@ -428,16 +419,14 @@ capitaine	NOUN	nmod	cabine
 .	PUNCT	punct	prenez
 Une	DET	det	recommandation
 dernière	ADJ	amod	recommandation
-recommandation	NOUN	ROOT	recommandation
- 	SPACE	dep	recommandation
+recommandation	NOUN	nsubj	faut
 il	PRON	expl:subj	faut
 me	PRON	iobj	faut
 le	PRON	det	faut
-faut	NOUN	parataxis	recommandation
+faut	NOUN	ROOT	faut
 vivant	ADJ	amod	faut
-!	PUNCT	punct	recommandation
+!	PUNCT	punct	faut
 "	PUNCT	ROOT	"
-   	SPACE	ROOT	   
 Suivi	VERB	advcl	glissa
 d'	ADP	case	dizaine
 une	DET	det	dizaine
@@ -498,9 +487,8 @@ porte	NOUN	obl:arg	arrêta
 du	ADP	case	capitaine
 capitaine	NOUN	nmod	porte
 .	PUNCT	punct	placé
-  	SPACE	ROOT	  
 "	PUNCT	punct	Allons
-Allons	PROPN	ROOT	Allons
+Allons	NOUN	ROOT	Allons
 ,	PUNCT	punct	Allons
 garçons	NOUN	amod	Allons
 ,	PUNCT	punct	dit
@@ -509,14 +497,13 @@ dit	VERB	parataxis	Allons
 ,	PUNCT	punct	Allons
 un	DET	det	coup
 bon	ADJ	amod	coup
-coup	NOUN	nmod	Allons
+coup	NOUN	appos	Allons
 d'	ADP	case	épaule
 épaule	NOUN	nmod	coup
 !	PUNCT	punct	Allons
-"	PUNCT	ROOT	"
-  	SPACE	ROOT	  
+"	PUNCT	punct	Allons
 La	DET	det	porte
-porte	VERB	ROOT	porte
+porte	NOUN	ROOT	porte
 céda	ADJ	amod	porte
 sous	ADP	case	pression
 une	DET	det	pression
@@ -532,7 +519,6 @@ dans	ADP	case	cabine
 la	DET	det	cabine
 cabine	NOUN	obl:arg	précipitèrent
 .	PUNCT	punct	porte
-  	SPACE	ROOT	  
 Surpris	NOUN	nsubj	eurent
 d'	ADP	case	obscurité
 abord	ADV	fixed	d'
@@ -557,7 +543,6 @@ moment	NOUN	obj	eurent
 d'	ADP	case	hésitation
 hésitation	NOUN	nmod	moment
 .	PUNCT	punct	eurent
-  	SPACE	ROOT	  
 "	PUNCT	punct	Holà
 Holà	NOUN	ROOT	Holà
 !	PUNCT	punct	Holà
@@ -586,12 +571,11 @@ de	ADP	case	cadre
 son	DET	det	cadre
 cadre	NOUN	obl:arg	sautant
 .	PUNCT	punct	écria
-  	SPACE	ROOT	  
---	PUNCT	punct	Silence
-Silence	PROPN	ROOT	Silence
+--	PUNCT	ROOT	--
+Silence	PROPN	nmod	--
 ,	PUNCT	punct	Bligh
 Bligh	PROPN	conj	Silence
-!	PUNCT	punct	Silence
+!	PUNCT	punct	--
 répondit	NOUN	ROOT	répondit
 Churchill	PROPN	nmod	répondit
 .	PUNCT	punct	répondit
@@ -609,16 +593,15 @@ je	PRON	nsubj	te
 te	VERB	nsubj	bâillonne
 bâillonne	ADJ	ROOT	bâillonne
 !	PUNCT	punct	bâillonne
-  	SPACE	ROOT	  
---	PUNCT	ROOT	--
-Inutile	PRON	dep	--
+--	PUNCT	punct	Inutile
+Inutile	ADJ	ROOT	Inutile
 de	ADP	mark	habiller
 t'	AUX	det	habiller
-habiller	VERB	nmod	--
+habiller	VERB	nmod	Inutile
 ,	PUNCT	punct	habiller
 ajouta	ADJ	amod	habiller
-Bob	PROPN	appos	habiller
-.	PUNCT	punct	--
+Bob	PROPN	flat:name	ajouta
+.	PUNCT	punct	Inutile
 Tu	ADV	amod	feras
 feras	NOUN	ROOT	feras
 toujours	ADV	advmod	bonne
@@ -636,11 +619,10 @@ vergue	NOUN	obl:arg	pendu
 d'	ADP	case	artimon
 artimon	NOUN	nmod	vergue
 !	PUNCT	punct	feras
-  	SPACE	ROOT	  
---	PUNCT	ROOT	--
-Attachez	PROPN	ROOT	Attachez
--	PROPN	ROOT	-
-lui	PRON	obl:mod	dit
+--	PUNCT	punct	dit
+Attachez	PROPN	obl:mod	dit
+-	PROPN	flat:name	Attachez
+lui	PRON	dep	Attachez
 les	DET	det	mains
 mains	NOUN	dep	lui
 derrière	ADP	case	dos
@@ -660,12 +642,11 @@ sur	ADP	case	pont
 le	DET	det	pont
 pont	NOUN	obl:mod	dit
 !	PUNCT	punct	dit
-  	SPACE	ROOT	  
---Le	ADP	ROOT	--Le
+--Le	ADP	advmod	terrible
 plus	ADV	advmod	terrible
 terrible	ADJ	ROOT	terrible
 des	DET	det	capitaines
-capitaines	NOUN	dep	terrible
+capitaines	NOUN	nmod	terrible
 n'	ADV	advmod	redoutable
 est	AUX	cop	redoutable
 pas	ADV	advmod	bien
@@ -690,8 +671,7 @@ philosophe	NOUN	obj	observer
 de	ADP	case	bande
 la	DET	det	bande
 bande	PROPN	nmod	philosophe
-.	PUNCT	ROOT	.
-  	SPACE	ROOT	  
+.	PUNCT	punct	terrible
 Puis	CCONJ	cc	cortège
 le	DET	det	cortège
 cortège	NOUN	ROOT	cortège
@@ -721,7 +701,6 @@ sur	ADP	case	pont
 le	DET	det	pont
 pont	NOUN	obl:mod	remonta
 .	PUNCT	punct	cortège
-  	SPACE	ROOT	  
 C'	PRON	nsubj	révolte
 était	AUX	cop	révolte
 une	DET	det	révolte
@@ -751,9 +730,8 @@ avec	ADP	case	révoltés
 les	DET	det	révoltés
 révoltés	NOUN	obl:mod	fait
 .	PUNCT	punct	fait
-  	SPACE	ROOT	  
 Quant	ADV	case	hommes
-aux	DET	det	hommes
+aux	DET	case	hommes
 hommes	NOUN	obl:mod	dû
 de	ADP	case	équipage
 l'	DET	det	équipage
@@ -791,17 +769,16 @@ sous	ADP	case	yeux
 leurs	DET	det	yeux
 yeux	NOUN	obl:mod	accomplir
 .	PUNCT	punct	dû
-  	SPACE	ROOT	  
 Tous	ADJ	nsubj	étaient
-étaient	AUX	cop	rangés
+étaient	VERB	ROOT	étaient
 sur	ADP	case	pont
 le	DET	det	pont
-pont	NOUN	obl:mod	rangés
+pont	NOUN	obl:arg	étaient
 ,	PUNCT	punct	pont
-rangés	ADJ	ROOT	rangés
+rangés	ADJ	obl:arg	étaient
 en	ADP	case	silence
 silence	NOUN	obl:arg	rangés
-;	PUNCT	punct	rangés
+;	PUNCT	punct	étaient
 ils	PRON	nsubj	observaient
 observaient	VERB	ROOT	observaient
 la	DET	det	contenance
@@ -830,9 +807,8 @@ trembler	VERB	xcomp	habitués
 devant	ADP	case	lui
 lui	PRON	nmod	trembler
 .	PUNCT	punct	avançait
-  	SPACE	ROOT	  
 "	PUNCT	punct	Bligh
-Bligh	PROPN	ROOT	Bligh
+Bligh	PROPN	nsubj:pass	démonté
 ,	PUNCT	punct	dit
 dit	VERB	parataxis	Bligh
 Christian	PROPN	nsubj	dit
@@ -844,12 +820,11 @@ rude	ADJ	amod	voix
 ,	PUNCT	punct	démonté
 vous	PRON	nsubj:pass	démonté
 êtes	AUX	aux:pass	démonté
-démonté	VERB	acl	Bligh
+démonté	VERB	ROOT	démonté
 de	ADP	case	commandement
 votre	DET	det	commandement
 commandement	NOUN	obl:arg	démonté
-.	PUNCT	punct	Bligh
-  	SPACE	ROOT	  
+.	PUNCT	punct	démonté
 --	PUNCT	punct	reconnais
 Je	PRON	nsubj	reconnais
 ne	ADV	advmod	reconnais
@@ -864,8 +839,7 @@ répondit	VERB	advcl	reconnais
 le	DET	det	capitaine
 capitaine	NOUN	obj	répondit
 .	PUNCT	punct	reconnais
-  	SPACE	ROOT	  
---	PUNCT	nsubj	perdons
+--	PUNCT	punct	perdons
 Ne	ADV	advmod	perdons
 perdons	VERB	ROOT	perdons
 pas	ADV	advmod	perdons
@@ -883,7 +857,6 @@ qui	PRON	nsubj	interrompit
 interrompit	X	acl:relcl	écria
 Bligh	PROPN	flat:name	interrompit
 ,	PUNCT	punct	interrompit
-   	SPACE	ROOT	   
 Je	PRON	nsubj	interprète
 suis	AUX	cop	interprète
 ,	PUNCT	punct	interprète
@@ -1168,7 +1141,6 @@ cela	PRON	ROOT	cela
 ,	PUNCT	punct	cela
 camarades	NOUN	appos	cela
 ?	PUNCT	punct	cela
-  	SPACE	ROOT	  
 --	PUNCT	punct	Oui
 Oui	PROPN	ROOT	Oui
 ,	PUNCT	punct	Oui
@@ -1189,7 +1161,6 @@ menaçant	VERB	advcl	écrièrent
 leur	DET	det	capitaine
 capitaine	NOUN	obj	menaçant
 .	PUNCT	punct	écrièrent
-  	SPACE	ROOT	  
 --	PUNCT	punct	Capitaine
 Capitaine	PROPN	ROOT	Capitaine
 Bligh	PROPN	flat:name	Capitaine
@@ -1299,7 +1270,6 @@ vent	ADV	nsubj	poussera
 vous	PRON	obj	poussera
 poussera	VERB	ccomp	mérité
 .	PUNCT	punct	mérité
-   	SPACE	ROOT	   
 --Qu'	NOUN	nsubj	amène
 on	PRON	nsubj	amène
 amène	VERB	ROOT	amène
@@ -1307,9 +1277,8 @@ la	DET	det	chaloupe
 chaloupe	NOUN	obj	amène
 !	PUNCT	punct	amène
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
 Un	DET	det	désapprobateur
-murmure	NOUN	amod	désapprobateur
+murmure	ADJ	amod	désapprobateur
 désapprobateur	NOUN	nsubj	accueillit
 accueillit	VERB	ROOT	accueillit
 ces	DET	det	paroles
@@ -1350,22 +1319,21 @@ prendre	VERB	advcl	troubler
 la	DET	det	parole
 parole	NOUN	obj	prendre
 .	PUNCT	punct	parvenaient
-  	SPACE	ROOT	  
 "	PUNCT	punct	Officiers
-Officiers	NOUN	ROOT	Officiers
+Officiers	NOUN	nsubj	proteste
 et	CCONJ	cc	matelots
 matelots	NOUN	conj	Officiers
 ,	PUNCT	punct	dit
-dit	VERB	ROOT	dit
+dit	VERB	parataxis	Officiers
 -il	PRON	dep	dit
 d'	ADP	case	voix
 une	DET	det	voix
 voix	NOUN	obl:arg	dit
 ferme	ADJ	amod	voix
-,	PUNCT	punct	dit
+,	PUNCT	punct	Officiers
 en	ADP	case	qualité
 ma	DET	det	qualité
-qualité	NOUN	obl:mod	proteste
+qualité	NOUN	nmod	Officiers
 d'	ADP	case	officier
 officier	NOUN	nmod	qualité
 de	ADP	case	marine
@@ -1375,10 +1343,10 @@ royale	ADJ	amod	marine
 ,	PUNCT	punct	qualité
 commandant	VERB	appos	qualité
 la	DET	det	Bounty
-Bounty	PROPN	nmod	commandant
+Bounty	PROPN	nmod	qualité
 ,	PUNCT	punct	proteste
 je	PRON	nsubj	proteste
-proteste	VERB	ccomp	dit
+proteste	VERB	ROOT	proteste
 contre	ADP	case	traitement
 le	DET	det	traitement
 traitement	NOUN	obl:arg	proteste
@@ -1388,7 +1356,7 @@ voulez	VERB	acl:relcl	traitement
 me	PRON	obj	subir
 faire	AUX	dep	subir
 subir	VERB	xcomp	voulez
-.	PUNCT	punct	dit
+.	PUNCT	punct	proteste
 Si	SCONJ	mark	avez
 vous	PRON	nsubj	avez
 avez	VERB	advcl	pouvez
@@ -1517,7 +1485,6 @@ dans	ADP	case	devoir
 le	DET	det	devoir
 devoir	VERB	obl:arg	rentrer
 !	PUNCT	punct	somme
-  	SPACE	ROOT	  
 --	PUNCT	nsubj	savons
 Nous	PRON	nsubj	savons
 savons	VERB	ROOT	savons
@@ -1530,7 +1497,6 @@ exposons	VERB	ccomp	savons
 ,	PUNCT	punct	répondit
 répondit	NOUN	conj	exposons
 Churchill	PROPN	nmod	répondit
-  	SPACE	ROOT	  
 --	PUNCT	punct	Assez
 Assez	ADV	ROOT	Assez
 !	PUNCT	punct	Assez
@@ -1547,30 +1513,29 @@ voies	NOUN	obl:arg	prêt
 de	ADP	case	fait
 fait	NOUN	nmod	voies
 .	PUNCT	punct	cria
-  	SPACE	ROOT	  
---	PUNCT	punct	dit
+--	PUNCT	punct	faut
 Eh	PROPN	obl:mod	dit
 bien	ADV	fixed	Eh
 ,	PUNCT	punct	dit
-dit	VERB	ROOT	dit
+dit	VERB	advcl	faut
 Bligh	PROPN	xcomp	dit
 ,	PUNCT	punct	faut
 s'	SCONJ	mark	faut
 il	PRON	expl:subj	faut
 vous	PRON	iobj	faut
-faut	VERB	conj	dit
+faut	VERB	ROOT	faut
 une	DET	det	victime
 victime	NOUN	obj	faut
 ,	PUNCT	punct	faut
 que	SCONJ	mark	moi
 ce	PRON	nsubj	moi
 soit	VERB	cop	moi
-moi	PRON	ccomp	dit
-,	PUNCT	punct	dit
+moi	PRON	ccomp	faut
+,	PUNCT	punct	faut
 mais	CCONJ	cc	moi
-moi	PRON	conj	dit
+moi	PRON	conj	faut
 seul	ADJ	amod	moi
-!	PUNCT	punct	dit
+!	PUNCT	punct	faut
 Ceux	PRON	nsubj	fait
 de	ADP	case	compagnons
 mes	DET	det	compagnons
@@ -1590,7 +1555,6 @@ mes	DET	det	ordres
 ordres	NOUN	obj	exécuter
 !	PUNCT	punct	fait
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
 La	DET	det	voix
 voix	NOUN	nsubj:pass	couverte
 du	ADP	case	capitaine
@@ -1615,7 +1579,6 @@ coeurs	NOUN	obj	toucher
 devenus	ADJ	amod	coeurs
 impitoyables	ADJ	amod	devenus
 .	PUNCT	punct	couverte
-  	SPACE	ROOT	  
 Pendant	ADP	case	temps
 ce	DET	det	temps
 temps	NOUN	obl:mod	prises
@@ -1634,7 +1597,6 @@ Christian	PROPN	nmod	ordres
 fussent	ADV	advmod	exécutés
 exécutés	VERB	xcomp	prises
 .	PUNCT	punct	prises
-  	SPACE	ROOT	  
 Cependant	ADV	advmod	débat
 ,	PUNCT	punct	débat
 un	DET	det	vif
@@ -1677,22 +1639,20 @@ once	NOUN	obj	laisser
 de	ADP	case	pain
 pain	NOUN	nmod	once
 .	PUNCT	punct	élevé
-  	SPACE	ROOT	  
-  	SPACE	ROOT	  
 Quelques	DET	ROOT	Quelques
--	PROPN	ROOT	-
+-	PROPN	obl:mod	trouvaient
 uns	NOUN	conj	-
 --et	ADJ	amod	-
 c'	PRON	nsubj	avis
 était	AUX	cop	avis
 l'	DET	det	avis
-avis	NOUN	ROOT	avis
+avis	NOUN	nsubj	trouvaient
 de	ADP	case	Churchill,--
 Churchill,--	NOUN	nmod	avis
-trouvaient	VERB	amod	avis
+trouvaient	VERB	ROOT	trouvaient
 que	SCONJ	mark	nombre
 le	DET	det	nombre
-nombre	NOUN	nmod	avis
+nombre	NOUN	dep	trouvaient
 de	ADP	case	ceux
 ceux	PRON	nmod	nombre
 qui	PRON	nsubj	devaient
@@ -1705,7 +1665,7 @@ n'	ADV	advmod	considérable
 pas	ADV	advmod	considérable
 assez	ADV	advmod	considérable
 considérable	ADJ	nsubj	quitter
-.	PUNCT	punct	avis
+.	PUNCT	punct	trouvaient
 Il	PRON	expl:subj	fallait
 fallait	VERB	dep	disait
 se	PRON	obj	défaire
@@ -1807,9 +1767,8 @@ sa	DET	det	main
 propre	ADJ	amod	main
 main	ADJ	conj	venger
 !	PUNCT	punct	saurait
-  	SPACE	ROOT	  
 "	PUNCT	punct	Hayward
-Hayward	PROPN	ROOT	Hayward
+Hayward	NOUN	ROOT	Hayward
 !	PUNCT	punct	Hayward
 Hallett	NOUN	nsubj	cria
 !	PUNCT	punct	Hallett
@@ -1837,9 +1796,8 @@ dans	ADP	case	chaloupe
 la	DET	det	chaloupe
 chaloupe	NOUN	obl:arg	descendez
 .	PUNCT	punct	descendez
-   	SPACE	ROOT	   
 --	PUNCT	punct	fait
-Que	SCONJ	obj	fait
+Que	PRON	obj	fait
 vous	PRON	nsubj	fait
 ai	AUX	aux:tense	fait
 -je	PRON	nsubj	fait
@@ -1867,11 +1825,10 @@ vous	PRON	nsubj	envoyez
 m'	PRON	iobj	envoyez
 envoyez	ADJ	acl:relcl	mort
 !	PUNCT	punct	mort
-  	SPACE	ROOT	  
 --	PUNCT	punct	inutiles
 Les	DET	det	récriminations
 récriminations	NOUN	nsubj	inutiles
-sont	AUX	cop	inutiles
+sont	AUX	aux:pass	inutiles
 inutiles	ADJ	ROOT	inutiles
 !	PUNCT	punct	inutiles
 Obéissez	PROPN	ROOT	Obéissez
@@ -1886,7 +1843,6 @@ embarquez	VERB	acl	Fryer
 aussi	ADV	advmod	embarquez
 !	PUNCT	punct	Fryer
 "	PUNCT	ROOT	"
-		SPACE	ROOT		
 Mais	CCONJ	cc	officiers
 ces	DET	det	officiers
 officiers	NOUN	nsubj	rapprochèrent
@@ -1922,7 +1878,6 @@ lui	PRON	obl:arg	pencha
 en	ADP	case	disant
 disant	VERB	obl:mod	pencha
 :	PUNCT	punct	pencha
-  	SPACE	ROOT	  
 "	PUNCT	punct	Commandant
 Commandant	NOUN	ROOT	Commandant
 ,	PUNCT	punct	voulez
@@ -1978,7 +1933,6 @@ en	PRON	iobj	semble
 semble	NOUN	ROOT	semble
 ?	PUNCT	punct	semble
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
 Déjà	ADV	advmod	prenaient
 les	DET	det	officiers
 officiers	NOUN	nsubj	prenaient
@@ -2010,23 +1964,23 @@ cet	DET	det	entretien
 entretien	NOUN	acl:relcl	chaloupe
 ,	PUNCT	punct	prenaient
 si	SCONJ	mark	rapide
-rapide	ADJ	ROOT	rapide
+rapide	ADJ	advcl	échappé
 qu'	SCONJ	mark	fût
 il	PRON	nsubj	fût
-fût	VERB	dep	échappé
+fût	VERB	dep	rapide
 ,	PUNCT	punct	échappé
 n'	ADV	advmod	échappé
 avait	AUX	aux:tense	échappé
 pas	ADV	advmod	échappé
-échappé	ADJ	nsubj	rapide
+échappé	ADJ	advcl	entoura
 ,	PUNCT	punct	entoura
 les	DET	obj	entoura
-entoura	VERB	obl:mod	échappé
+entoura	VERB	conj	prenaient
 avec	ADP	case	hommes
 quelques	DET	det	hommes
 hommes	NOUN	obl:mod	entoura
 bien	ADV	advmod	armés
-armés	ADJ	amod	hommes
+armés	ADJ	acl	hommes
 ,	PUNCT	punct	armés
 et	CCONJ	cc	embarquer
 les	DET	obj	embarquer
@@ -2034,28 +1988,27 @@ fit	PRON	dep	embarquer
 embarquer	VERB	conj	armés
 de	ADP	case	force
 force	NOUN	nmod	embarquer
-.	PUNCT	punct	rapide
-  	SPACE	ROOT	  
+.	PUNCT	punct	prenaient
 "	PUNCT	punct	Millward
 Millward	PROPN	ROOT	Millward
 ,	PUNCT	punct	Muspratt
-Muspratt	PROPN	conj	Millward
+Muspratt	PROPN	nmod	Millward
 ,	PUNCT	punct	Birket
-Birket	PROPN	conj	Millward
+Birket	PROPN	nmod	Millward
 ,	PUNCT	punct	Millward
 et	CCONJ	cc	autres
 vous	PRON	nsubj	autres
 autres	ADJ	conj	Millward
 ,	PUNCT	punct	dit
-dit	VERB	advmod	autres
+dit	VERB	ROOT	dit
 Christian	PROPN	nsubj	dit
 en	ADP	expl:comp	adressant
 s'	PRON	expl:comp	adressant
-adressant	VERB	advcl	autres
+adressant	VERB	advcl	dit
 à	ADP	case	quelques-uns
 quelques-uns	PROPN	obl:arg	adressant
 des	ADP	case	matelots
-matelots	NOUN	obl:arg	adressant
+matelots	NOUN	nmod	adressant
 qui	PRON	nsubj	avalent
 n'	ADV	advmod	avalent
 avalent	VERB	acl:relcl	matelots
@@ -2066,7 +2019,7 @@ part	NOUN	obj	pris
 la	DET	det	révolte
 révolte	NOUN	obl:arg	pris
 ,	PUNCT	punct	descendez
-descendez	VERB	ROOT	descendez
+descendez	VERB	xcomp	dit
 dans	ADP	case	entrepont
 l'	DET	det	entrepont
 entrepont	NOUN	obl:arg	descendez
@@ -2080,7 +2033,7 @@ avez	VERB	acl:relcl	ce
 de	ADP	det	précieux
 plus	ADV	advmod	précieux
 précieux	ADJ	obj	avez
-!	PUNCT	punct	descendez
+!	PUNCT	punct	dit
 Vous	PRON	nsubj	accompagnez
 accompagnez	VERB	ROOT	accompagnez
 le	DET	det	capitaine
@@ -2113,7 +2066,6 @@ l'	DET	det	emporter
 emporter	NOUN	obl:arg	permets
 .	PUNCT	punct	permets
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
 Deux	NUM	nummod	mâts
 mâts	NOUN	ROOT	mâts
 avec	ADP	case	voiles
@@ -2207,11 +2159,10 @@ armes	NOUN	nmod	espèce
 à	ADP	case	feu
 feu	NOUN	nmod	espèce
 .	PUNCT	punct	On
-  	SPACE	ROOT	  
-"	PUNCT	ROOT	"
+"	PUNCT	punct	Heywood
 Où	ADV	iobj	Heywood
-sont	AUX	aux:pass	Heywood
-donc	ADV	punct	sont
+sont	AUX	cop	Heywood
+donc	ADV	advmod	Heywood
 Heywood	PROPN	ROOT	Heywood
 et	CCONJ	cc	Stewart
 Stewart	PROPN	conj	Heywood
@@ -2234,25 +2185,23 @@ ont	VERB	ROOT	ont
 trahi	NOUN	obj	ont
 ?	PUNCT	punct	ont
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
-Ils	PRON	nsubj	trahi
-ne	ADV	advmod	trahi
-l'	PRON	obj	trahi
-avaient	VERB	aux:tense	trahi
+Ils	PRON	nsubj	avaient
+ne	ADV	advmod	avaient
+l'	PRON	obj	avaient
+avaient	VERB	ROOT	avaient
 pas	ADV	advmod	trahi
-trahi	ADJ	ROOT	trahi
-,	PUNCT	punct	trahi
+trahi	ADJ	obj	avaient
+,	PUNCT	punct	avaient
 mais	CCONJ	cc	résolu
 Christian	PROPN	nsubj	résolu
 avait	AUX	aux:tense	résolu
-résolu	VERB	conj	trahi
+résolu	VERB	conj	avaient
 de	ADP	mark	garder
 les	PRON	obj	garder
 garder	VERB	xcomp	résolu
 à	ADP	case	bord
 bord	NOUN	obl:mod	garder
-.	PUNCT	punct	trahi
-  	SPACE	ROOT	  
+.	PUNCT	punct	avaient
 Le	DET	det	capitaine
 capitaine	NOUN	nsubj	eut
 eut	VERB	ROOT	eut
@@ -2272,12 +2221,11 @@ ne	ADV	advmod	dura
 dura	VERB	advcl	eut
 pas	ADV	advmod	dura
 .	PUNCT	punct	eut
-  	SPACE	ROOT	  
-"	PUNCT	punct	Christian
-Christian	PROPN	ROOT	Christian
+"	PUNCT	punct	dit
+Christian	PROPN	nsubj	dit
 ,	PUNCT	punct	dit
 dit	VERB	dep	donne
--il	PRON	dep	dit
+-il	PRON	nsubj	dit
 ,	PUNCT	punct	donne
 je	PRON	nsubj	donne
 vous	PRON	iobj	donne
@@ -2327,7 +2275,6 @@ tous	ADJ	amod	miens
 les	DET	det	miens
 miens	NOUN	ccomp	mort
 !	PUNCT	punct	mort
-  	SPACE	ROOT	  
 --	PUNCT	punct	répondit
 Si	SCONJ	mark	aviez
 vous	PRON	nsubj	aviez
@@ -2391,7 +2338,6 @@ nous	PRON	nsubj	tous
 tous	ADJ	xcomp	injuste
 !	PUNCT	punct	auriez
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
 A	NOUN	case	tour
 son	DET	det	tour
 tour	NOUN	ROOT	tour
@@ -2414,8 +2360,7 @@ fut	AUX	cop	en
 en	ADP	ROOT	en
 vain	ADJ	fixed	en
 .	PUNCT	punct	en
-  	SPACE	ROOT	  
-"	PUNCT	ROOT	"
+"	PUNCT	punct	a
 Il	PRON	expl:subj	a
 y	PRON	expl:comp	a
 a	VERB	aux:tense	répondit
@@ -2516,10 +2461,9 @@ espoir	NOUN	punct	séparant
 de	ADP	case	salut
 salut	PROPN	nmod	espoir
 .	PUNCT	punct	espoir
- 	SPACE	dep	.
---	PUNCT	ROOT	--
-Smith	PROPN	nmod	--
-!	PUNCT	punct	--
+--	PUNCT	punct	Smith
+Smith	PROPN	nsubj	descendez
+!	PUNCT	punct	Smith
 descendez	ADJ	ROOT	descendez
 dans	ADP	case	cabine
 la	DET	det	cabine
@@ -2576,7 +2520,6 @@ affaire	NOUN	obl:arg	tirer
 lui-même	PRON	advmod	tirer
 !	PUNCT	punct	aura
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
 Les	DET	det	ordres
 ordres	NOUN	nsubj:pass	exécutés
 de	ADP	case	Christian
@@ -2589,8 +2532,7 @@ sans	ADP	case	protestation
 quelque	DET	det	protestation
 protestation	NOUN	obl:mod	exécutés
 .	PUNCT	punct	exécutés
-  	SPACE	ROOT	  
-"	PUNCT	ROOT	"
+"	PUNCT	punct	cria
 Et	CCONJ	cc	Morrison
 maintenant	ADV	advmod	Morrison
 ,	PUNCT	punct	Morrison
@@ -2615,7 +2557,6 @@ de	ADP	case	Dieu
 Dieu	PROPN	nmod	grâce
 !	PUNCT	punct	cria
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
 Tandis	ADV	mark	saluaient
 que	SCONJ	fixed	Tandis
 les	DET	det	révoltés
@@ -2746,7 +2687,6 @@ faute	NOUN	obj	suivait
 LES	DET	det	ABANDONNES
 ABANDONNES	NOUN	ROOT	ABANDONNES
 ---------------------------	ADV	ROOT	---------------------------
-  	SPACE	ROOT	  
 Avec	ADP	case	dix-huit
 ses	DET	det	dix-huit
 dix-huit	NOUN	obl:mod	chargée
@@ -2836,17 +2776,16 @@ embarcation	NOUN	obj	trouver
 plus	ADV	advmod	détestable
 détestable	ADJ	amod	embarcation
 .	PUNCT	punct	difficile
-  	SPACE	ROOT	  
 Les	DET	det	matelots
-matelots	NOUN	ROOT	matelots
+matelots	NOUN	nsubj	vigoureusement
 ,	PUNCT	punct	confiants
-confiants	NOUN	conj	matelots
+confiants	NOUN	amod	matelots
 dans	ADP	case	énergie
 l'	DET	det	énergie
 énergie	NOUN	nmod	matelots
 et	CCONJ	cc	habileté
 l'	DET	det	habileté
-habileté	NOUN	conj	énergie
+habileté	NOUN	conj	matelots
 du	ADP	case	capitaine
 capitaine	NOUN	nmod	habileté
 Bligh	PROPN	flat:name	capitaine
@@ -2857,8 +2796,8 @@ confondus	VERB	acl	officiers
 dans	ADP	case	sort
 le	DET	det	sort
 même	ADJ	amod	sort
-sort	NOUN	obl:mod	vigoureusement
-,	PUNCT	punct	vigoureusement
+sort	NOUN	nmod	matelots
+,	PUNCT	punct	nageaient
 nageaient	VERB	nsubj	vigoureusement
 vigoureusement	ADV	ROOT	vigoureusement
 ,	PUNCT	punct	vigoureusement
@@ -2870,7 +2809,6 @@ rapidement	ADV	advmod	fendait
 les	DET	det	lames
 lames	NOUN	obj	fendait
 .	PUNCT	punct	vigoureusement
-  	SPACE	ROOT	  
 Bligh	PROPN	nsubj	hésité
 n'	ADV	advmod	hésité
 avait	AUX	aux:tense	hésité
@@ -2990,7 +2928,6 @@ sur	ADP	case	route
 la	DET	det	route
 route	NOUN	obl:arg	semés
 .	PUNCT	punct	pourrait
-  	SPACE	ROOT	  
 La	DET	det	journée
 première	ADJ	amod	journée
 journée	NOUN	nsubj	passa
@@ -3042,7 +2979,6 @@ attendre	VERB	xcomp	fallut
 le	DET	det	jour
 jour	NOUN	obj	attendre
 .	PUNCT	punct	fallut
-  	SPACE	ROOT	  
 Blîgh	PROPN	ROOT	Blîgh
 ,	PUNCT	punct	Blîgh
 à	ADP	advmod	entendait
@@ -3138,8 +3074,6 @@ noix	NOUN	conj	eau
 de	ADP	case	coco
 coco	NOUN	nmod	noix
 .	PUNCT	punct	amenèrent
-	  	SPACE	ROOT		  
-  	SPACE	ROOT	  
 L'	DET	det	embarras
 embarras	NOUN	nsubj	grand
 de	ADP	case	Bligh
@@ -3158,9 +3092,7 @@ déjà	ADV	advmod	trafiqué
 trafiqué	VERB	acl:relcl	naturels
 avec	ADP	case	Bounty
 la	DET	det	Bounty
- 	SPACE	dep	la
 Bounty	PROPN	obl:mod	trafiqué
-  	SPACE	dep	Bounty
 pendant	ADP	case	relâche
 sa	DET	det	relâche
 dernière	ADJ	amod	relâche
@@ -3197,8 +3129,6 @@ dans	ADP	case	îles
 ces	DET	det	îles
 îles	NOUN	obl:mod	entourès
 .	PUNCT	punct	importait
-			SPACE	ROOT			
-  	SPACE	ROOT	  
 Dire	VERB	ROOT	Dire
 qu'	SCONJ	mark	envoyés
 ils	PRON	nsubj	envoyés
@@ -3310,7 +3240,6 @@ sur	ADP	case	fable
 cette	DET	det	fable
 fable	NOUN	nmod	monde
 .	PUNCT	punct	arrêta
-  	SPACE	ROOT	  
 En	ADP	mark	entendant
 entendant	VERB	advcl	firent
 ce	DET	det	récit
@@ -3349,13 +3278,12 @@ ce	PRON	obj	connaître
 qu'	PRON	punct	étonnement
 ils	PRON	nsubj	pensaient
 pensaient	ADV	dep	qu'
-  	SPACE	ROOT	  
 Le	DET	det	2
 2	NUM	ROOT	2
 mai	NOUN	nmod	2
 ,	PUNCT	punct	2
 le	DET	det	nombre
-nombre	NOUN	nmod	2
+nombre	NOUN	dep	2
 des	ADP	case	indigènes
 indigènes	NOUN	nmod	nombre
 venus	VERB	acl	indigènes
@@ -3440,7 +3368,6 @@ gallons	NOUN	obl:arg	rapportaient
 d'	ADP	case	eau
 eau	NOUN	nmod	gallons
 .	PUNCT	punct	envoyés
-  	SPACE	ROOT	  
 Le	DET	det	moment
 moment	NOUN	nsubj	venu
 était	AUX	aux:tense	venu
@@ -3526,7 +3453,6 @@ prêts	ADJ	parataxis	accostât
 à	ADP	mark	embarquer
 embarquer	VERB	xcomp	prêts
 .	PUNCT	punct	fallait
-  	SPACE	ROOT	  
 Les	DET	det	Anglais
 Anglais	PROPN	nsubj	inquiets
 ,	PUNCT	punct	inquiets
@@ -3656,9 +3582,8 @@ pleuvaient	ADV	amod	pierres
 sur	ADP	case	eux
 eux	PRON	nmod	pierres
 .	PUNCT	punct	attaqués
-  	SPACE	ROOT	  
 "	PUNCT	punct	Allons
-Allons	PROPN	ROOT	Allons
+Allons	NOUN	ROOT	Allons
 ,	PUNCT	punct	Allons
 garçons	NOUN	amod	Allons
 ,	PUNCT	punct	Allons
@@ -3674,7 +3599,6 @@ souquez	NOUN	conj	Allons
 ferme	ADJ	amod	souquez
 !	PUNCT	punct	Allons
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
 Les	DET	det	naturels
 naturels	ADJ	nsubj	entrèrent
 entrèrent	VERB	ROOT	entrèrent
@@ -3750,7 +3674,6 @@ camarade	ADJ	amod	infortuné
 était	AUX	aux:pass	vengé
 vengé	VERB	ROOT	vengé
 .	PUNCT	punct	vengé
-  	SPACE	ROOT	  
 Cependant	ADV	advmod	détachaient
 ,	PUNCT	punct	détachaient
 plusieurs	DET	det	pirogues
@@ -3853,7 +3776,6 @@ de	ADP	case	baie
 la	DET	det	baie
 baie	NOUN	nmod	pointe
 .	PUNCT	punct	attardérent
-  	SPACE	ROOT	  
 Sur	ADP	case	entrefaites
 ces	DET	det	entrefaites
 entrefaites	NOUN	obl:mod	venue
@@ -3877,7 +3799,6 @@ de	ADP	case	chaloupe
 la	DET	det	chaloupe
 chaloupe	NOUN	nmod	poursuite
 .	PUNCT	punct	venue
-  	SPACE	ROOT	  
 Cette	DET	det	tentative
 première	ADJ	amod	tentative
 tentative	NOUN	nsubj	malheureuse
@@ -3900,21 +3821,20 @@ du	ADP	case	capitaine
 capitaine	NOUN	nmod	avis
 Bligh	PROPN	flat:name	capitaine
 .	PUNCT	punct	tel
-  	SPACE	ROOT	  
-"	PUNCT	punct	dit
+"	PUNCT	punct	maintenant
 C'	PRON	expl:subj	maintenant
 est	AUX	cop	maintenant
-maintenant	ADV	advmod	dit
+maintenant	ADV	advmod	faut
 qu'	SCONJ	mark	faut
 il	PRON	expl:subj	faut
-faut	VERB	ccomp	maintenant
+faut	VERB	ROOT	faut
 prendre	VERB	xcomp	faut
 une	DET	det	résolution
 résolution	NOUN	obj	prendre
 ,	PUNCT	punct	dit
-dit	VERB	ROOT	dit
--il	PRON	dep	dit
-.	PUNCT	punct	dit
+dit	VERB	advcl	faut
+-il	PRON	nsubj	dit
+.	PUNCT	punct	faut
 La	DET	det	scène
 scène	NOUN	ROOT	scène
 qui	PRON	nsubj	vient
@@ -4148,7 +4068,6 @@ murmure	NOUN	obl:mod	soumettre
 ces	DET	det	privations
 privations	NOUN	obl:arg	soumettre
 ?	PUNCT	punct	Promettez
-  	SPACE	ROOT	  
 --	PUNCT	punct	Oui
 Oui	PROPN	ROOT	Oui
 ,	PUNCT	punct	Oui
@@ -4169,7 +4088,6 @@ compagnons	NOUN	obj	écrièrent
 de	ADP	case	Bligh
 Bligh	PROPN	nmod	compagnons
 .	PUNCT	punct	écrièrent
-  	SPACE	ROOT	  
 --Mes	NUM	nummod	amis
 amis	NOUN	ROOT	amis
 ,	PUNCT	punct	amis
@@ -4210,13 +4128,11 @@ seul	ADJ	advmod	doit
 nous	PRON	nsubj	guider
 guider	VERB	xcomp	doit
 !	PUNCT	punct	faut
-   	SPACE	ROOT	   
---	PUNCT	nsubj	promettons
+--	PUNCT	punct	promettons
 Nous	PRON	nsubj	promettons
 le	DET	det	promettons
 promettons	NOUN	ROOT	promettons
 .	PUNCT	punct	promettons
-   	SPACE	ROOT	   
 --	PUNCT	punct	tenez
 Si	SCONJ	mark	tenez
 vous	PRON	nsubj	tenez
@@ -4244,7 +4160,6 @@ du	ADP	case	salut
 salut	PROPN	obl:arg	réponds
 .	PUNCT	punct	tenez
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
 La	DET	det	route
 route	NOUN	nsubj:pass	faite
 fut	AUX	aux:pass	faite
@@ -4332,7 +4247,6 @@ pain	NOUN	nmod	fruit
 moitiè	VERB	xcomp	réconforter
 pourri	VERB	acl	moitiè
 .	PUNCT	punct	eurent
-  	SPACE	ROOT	  
 Le	DET	det	lendemain
 lendemain	NOUN	obl:mod	changea
 et	CCONJ	cc	changea
@@ -4362,22 +4276,21 @@ pirogues	NOUN	nsubj	détachèrent
 se	PRON	expl:comp	détachèrent
 détachèrent	VERB	advcl	passa
 .	PUNCT	punct	passa
-  	SPACE	ROOT	  
-Était	AUX	ROOT	Était
--ce	PRON	ROOT	-ce
+Était	AUX	cop	-ce
+-ce	PRON	nsubj	faire
 pour	ADP	mark	donner
 lui	PRON	iobj	donner
-donner	VERB	ROOT	donner
+donner	VERB	dep	-ce
 la	DET	det	chasse
 chasse	NOUN	obj	donner
-,	PUNCT	punct	donner
-était	AUX	advmod	donner
--ce	PRON	fixed	était
+,	PUNCT	punct	-ce
+était	AUX	cop	-ce
+-ce	PRON	nsubj	faire
 pour	ADP	mark	faire
-faire	VERB	xcomp	était
+faire	VERB	ROOT	faire
 quelques	DET	det	échanges
 échanges	NOUN	obj	faire
-?	PUNCT	ROOT	?
+?	PUNCT	punct	faire
 Dans	ADP	case	doute
 le	DET	det	doute
 doute	NOUN	obl:mod	imprudent
@@ -4411,7 +4324,6 @@ loin	ADV	advmod	laissées
 derrière	ADP	case	elle
 elle	PRON	obl:mod	laissées
 .	PUNCT	punct	laissées
-  	SPACE	ROOT	  
 Le	DET	det	9
 9	NUM	ROOT	9
 mai	NOUN	nmod	9
@@ -4539,7 +4451,6 @@ eût	ADV	advmod	provoquées
 bientôt	ADV	advmod	provoquées
 provoquées	VERB	acl	insoutenable
 .	PUNCT	punct	torrentielles
-  	SPACE	ROOT	  
 Le	DET	det	17
 17	NUM	ROOT	17
 mai	NOUN	nmod	17
@@ -4560,7 +4471,6 @@ plaintes	NOUN	nsubj	unanimes
 devinrent	ADV	advmod	unanimes
 unanimes	ADJ	conj	17
 :	PUNCT	punct	17
-  	SPACE	ROOT	  
 "	PUNCT	punct	aurons
 Jamais	ADV	advmod	aurons
 nous	PRON	nsubj	aurons
@@ -4593,7 +4503,6 @@ n'	ADV	advmod	aurons
 aurons	VERB	ROOT	aurons
 -nous	PRON	punct	aurons
 jamais	ADV	advmod	aurons
- 	SPACE	ROOT	 
 un	DET	det	moment
 moment	NOUN	ROOT	moment
 de	ADP	case	repos
@@ -4636,7 +4545,6 @@ Nouvelle	PROPN	obl:arg	arrivant
 -	PROPN	obl:mod	arrivant
 Hollande	PROPN	obl:mod	arrivant
 !	PUNCT	punct	trouverons
-  	SPACE	ROOT	  
 --	PUNCT	nsubj	refuse
 Je	PRON	nsubj	refuse
 refuse	VERB	ROOT	refuse
@@ -4708,9 +4616,8 @@ ses	DET	det	habitants
 habitants	NOUN	conj	pays
 !	PUNCT	punct	connaissez
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
 Et	CCONJ	cc	Bligh
-Bligh	PROPN	nsubj	mit
+Bligh	PROPN	dep	mit
 se	PRON	expl:pass	mit
 mit	VERB	ROOT	mit
 à	ADP	mark	peindre
@@ -4769,7 +4676,6 @@ et	CCONJ	cc	turent
 se	PRON	expl:comp	turent
 turent	VERB	conj	écoutèrent
 .	PUNCT	punct	écoutèrent
-  	SPACE	ROOT	  
 Les	DET	det	jours
 quinze	NUM	nummod	jours
 jours	NOUN	nsubj:pass	égayés
@@ -4829,7 +4735,6 @@ réjouissaient	VERB	acl:relcl	groupes
 les	DET	det	regards
 regards	NOUN	obj	réjouissaient
 .	PUNCT	punct	calme
-  	SPACE	ROOT	  
 On	PRON	nsubj	débarqua
 débarqua	VERB	ROOT	débarqua
 en	ADP	advmod	débarqua
@@ -4869,7 +4774,6 @@ nuit	NOUN	obj	passer
 à	ADP	case	terre
 terre	NOUN	nmod	nuit
 .	PUNCT	punct	possible
-  	SPACE	ROOT	  
 Mais	CCONJ	cc	fallait
 il	PRON	expl:subj	fallait
 fallait	VERB	ROOT	fallait
@@ -4893,9 +4797,8 @@ un	DET	det	régal
 véritable	ADJ	amod	régal
 régal	ADJ	ROOT	régal
 .	PUNCT	punct	régal
-  	SPACE	ROOT	  
 Le	DET	det	lendemain
-lendemain	NOUN	ROOT	lendemain
+lendemain	NOUN	obl:mod	trouva
 ,	PUNCT	punct	Bligh
 Bligh	PROPN	nsubj	trouva
 trouva	VERB	ROOT	trouva
@@ -4931,7 +4834,6 @@ ou	CCONJ	cc	poisson
 le	DET	det	poisson
 poisson	NOUN	conj	gibier
 .	PUNCT	punct	fut
-  	SPACE	ROOT	  
 Bligh	PROPN	nsubj	eut
 eut	VERB	ROOT	eut
 alors	ADV	advmod	eut
@@ -4992,22 +4894,21 @@ dans	ADP	case	pays
 le	DET	det	pays
 pays	NOUN	obl:arg	aventurer
 .	PUNCT	punct	plaignirent
-  	SPACE	ROOT	  
 L'	DET	det	un
-un	PRON	nsubj	alla
+un	PRON	nsubj	violent
 d'	ADP	case	eux
 eux	PRON	nmod	un
 ,	PUNCT	punct	un
 plus	ADV	advmod	violent
-violent	VERB	amod	un
+violent	VERB	ROOT	violent
 ou	CCONJ	cc	énervé
 plus	ADV	advmod	énervé
 énervé	VERB	conj	violent
 que	SCONJ	mark	camarades
 ses	DET	det	camarades
 camarades	NOUN	dep	énervé
-,	PUNCT	punct	un
-alla	VERB	ROOT	alla
+,	PUNCT	punct	violent
+alla	VERB	conj	violent
 même	ADV	advmod	alla
 jusqu'	ADP	mark	dire
 à	ADP	mark	dire
@@ -5015,10 +4916,9 @@ dire	VERB	xcomp	alla
 au	ADP	case	capitaine
 capitaine	NOUN	obl:arg	dire
 :	PUNCT	punct	alla
-  	SPACE	ROOT	  
 "	PUNCT	ROOT	"
 Un	DET	det	homme
-homme	NOUN	ROOT	homme
+homme	NOUN	punct	"
 en	ADP	case	vaut
 vaut	NOUN	nmod	homme
 un	DET	det	autre
@@ -5061,7 +4961,6 @@ remplacerai	VERB	ROOT	remplacerai
 bien	ADV	advmod	remplacerai
 !	PUNCT	punct	remplacerai
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
 Bligh	PROPN	ROOT	Bligh
 ,	PUNCT	punct	Bligh
 comprenant	VERB	acl	Bligh
@@ -5073,9 +4972,9 @@ mutinerie	NOUN	nmod	esprit
 devait	VERB	ccomp	comprenant
 être	AUX	aux:pass	enrayé
 enrayé	VERB	xcomp	devait
-sur-le-champ	NOUN	nsubj	devait
-,	PUNCT	punct	devait
-saisit	VERB	advcl	devait
+sur-le-champ	NOUN	obj	enrayé
+,	PUNCT	punct	sur-le-champ
+saisit	VERB	xcomp	enrayé
 un	DET	det	coutelas
 coutelas	NOUN	nmod	saisit
 ,	PUNCT	punct	devait
@@ -5093,22 +4992,20 @@ rebelle	PROPN	nmod	pieds
 il	PRON	nsubj	cria
 lui	PRON	iobj	cria
 cria	ADJ	ROOT	cria
-  	SPACE	ROOT	  
 "	PUNCT	punct	Défends
 Défends	NOUN	ROOT	Défends
--	NOUN	ROOT	-
-toi	NOUN	ROOT	toi
-,	PUNCT	punct	te
+-	NOUN	nmod	Défends
+toi	NOUN	nmod	Défends
+,	PUNCT	punct	Défends
 ou	CCONJ	cc	te
 je	PRON	nsubj	te
-te	VERB	ROOT	te
+te	VERB	conj	Défends
 tue	VERB	advmod	te
 comme	ADP	case	chien
 un	DET	det	chien
 chien	NOUN	obl:mod	te
-!	PUNCT	punct	te
+!	PUNCT	punct	Défends
 "	PUNCT	ROOT	"
-   	SPACE	ROOT	   
 Cette	DET	det	attitude
 attitude	NOUN	nsubj	fit
 énergique	ADJ	amod	attitude
@@ -5127,7 +5024,6 @@ général	ADJ	amod	mécontentement
 se	PRON	expl:pass	calma
 calma	X	conj	fit
 .	PUNCT	punct	fit
-  	SPACE	ROOT	  
 Pendant	ADP	case	relâche
 cette	DET	det	relâche
 relâche	NOUN	obl:mod	abondamment
@@ -5141,19 +5037,17 @@ récolta	ADJ	nmod	chaloupe
 abondamment	VERB	ROOT	abondamment
 des	DET	det	huîtres
 huîtres	NOUN	obj	abondamment
-,	PUNCT	punct	huîtres
+,	PUNCT	punct	peignes
 des	DET	det	peignes
-peignes	NOUN	appos	huîtres
- 	SPACE	dep	peignes
+peignes	NOUN	nsubj	douce
 et	CCONJ	cc	eau
 de	ADP	case	eau
 l'	DET	det	eau
 eau	NOUN	conj	peignes
-douce	VERB	acl	eau
+douce	VERB	acl:relcl	huîtres
 .	PUNCT	punct	abondamment
-  	SPACE	ROOT	  
 Un	DET	advmod	loin
-peu	ADV	advmod	plus
+peu	ADV	fixed	Un
 plus	ADV	advmod	loin
 loin	ADV	ROOT	loin
 ,	PUNCT	punct	loin
@@ -5245,14 +5139,13 @@ crus	NOUN	conj	volatiles
 sur	ADP	case	place
 place	NOUN	obl:mod	neuf
 .	PUNCT	punct	homme
-  	SPACE	ROOT	  
 Sans	ADP	case	vivres
 les	DET	det	vivres
-vivres	NOUN	ROOT	vivres
+vivres	NOUN	obl:mod	certain
 et	CCONJ	cc	douce
 l'	DET	det	eau
 eau	NOUN	nsubj	douce
-douce	VERB	ROOT	douce
+douce	VERB	conj	vivres
 qu'	SCONJ	mark	venait
 il	PRON	nsubj	venait
 venait	VERB	ccomp	douce
@@ -5300,7 +5193,6 @@ de	DET	det	cadavres
 véritables	ADJ	amod	cadavres
 cadavres	NOUN	conj	état
 .	PUNCT	punct	état
-  	SPACE	ROOT	  
 Le	DET	det	voyage
 voyage	NOUN	ROOT	voyage
 en	ADP	case	pleine
@@ -5419,7 +5311,6 @@ peu	ADV	fixed	un
 d'	ADP	case	espoir
 espoir	NOUN	obj	rendre
 .	PUNCT	punct	distribua
-   	SPACE	ROOT	   
 Enfin	ADV	advmod	12
 ,	PUNCT	punct	12
 le	DET	det	12
@@ -5438,10 +5329,9 @@ après	ADP	case	mille
 trois	NUM	nummod	mille
 mille	DET	nmod	12
 six	NUM	nummod	dix-huit
-cent	NUM	fixed	six
-dix-huit	VERB	nmod	mille
- 	SPACE	dep	dix-huit
-lieues	VERB	amod	dix-huit
+cent	NUM	dep	six
+dix-huit	NOUN	nmod	mille
+lieues	ADJ	amod	dix-huit
 d'	ADP	case	traversée
 une	DET	det	traversée
 traversée	NOUN	nmod	dix-huit
@@ -5451,10 +5341,9 @@ des	DET	det	conditions
 conditions	NOUN	obl:mod	accomplie
 épouvantables	ADJ	amod	conditions
 .	PUNCT	punct	12
-  	SPACE	ROOT	  
 L'	DET	det	accueil
 accueil	NOUN	nsubj	sympathiques
-que	SCONJ	obj	reçurent
+que	SCONJ	mark	reçurent
 les	DET	det	Anglais
 Anglais	PROPN	nsubj	reçurent
 reçurent	VERB	acl:relcl	accueil
@@ -5468,12 +5357,11 @@ sympathiques	ADJ	ROOT	sympathiques
 ils	PRON	nsubj	restèrent
 y	PRON	expl:comp	restèrent
 restèrent	VERB	ROOT	restèrent
- 	SPACE	dep	restèrent
 deux	NUM	nummod	mois
-mois	NOUN	obl:mod	refaire
+mois	NOUN	obj	restèrent
 pour	ADP	mark	refaire
 se	PRON	expl:comp	refaire
-refaire	VERB	xcomp	restèrent
+refaire	VERB	acl:relcl	mois
 .	PUNCT	punct	restèrent
 Puis	ADV	cc	acheté
 ,	PUNCT	punct	Bligh
@@ -5496,7 +5384,6 @@ pour	ADP	case	Angleterre
 l'	DET	det	Angleterre
 Angleterre	PROPN	obl:mod	embarqua
 .	PUNCT	punct	acheté
-  	SPACE	ROOT	  
 Ce	PRON	nsubj	14
 fut	AUX	cop	14
 le	DET	det	14
@@ -5523,7 +5410,6 @@ la	DET	det	sympathie
 sympathie	NOUN	obl:mod	endurées
 universelle	ADJ	amod	sympathie
 et	CCONJ	cc	indignation
- 	SPACE	dep	et
 l'	DET	det	indignation
 indignation	NOUN	conj	sympathie
 de	ADP	case	gens
@@ -5570,7 +5456,6 @@ de	ADP	case	Bounty
 la	DET	det	Bounty
 Bounty	PROPN	nmod	révoltés
 .	PUNCT	punct	procédait
-		SPACE	dep	.
 On	PRON	nsubj	va
 va	VERB	ROOT	va
 voir	VERB	xcomp	va
@@ -5584,7 +5469,6 @@ LES	DET	det	REVOLTES
 REVOLTES	PROPN	ROOT	REVOLTES
 :	PUNCT	punct	REVOLTES
 -------------	PROPN	ROOT	-------------
-  	SPACE	ROOT	  
 Après	ADP	mark	abandonné
 que	SCONJ	mark	abandonné
 le	DET	det	capitaine
@@ -5652,8 +5536,7 @@ fut	AUX	aux:pass	effectué
 pas	ADV	advmod	effectué
 effectué	VERB	conj	démonstrations
 .	PUNCT	punct	démonstrations
-  	SPACE	ROOT	  
-Ce	PRON	nsubj	6
+Ce	PRON	expl:subj	6
 fut	AUX	cop	6
 le	DET	det	6
 6	NUM	ROOT	6
@@ -5662,7 +5545,7 @@ juin	NOUN	nmod	6
 que	SCONJ	mark	tomba
 l'	DET	det	ancre
 ancre	NOUN	nsubj	tomba
-tomba	VERB	acl	6
+tomba	VERB	ccomp	6
 dans	ADP	case	rade
 la	DET	det	rade
 rade	NOUN	obl:mod	tomba
@@ -5727,7 +5610,6 @@ le	DET	det	meilleur
 meilleur	ADJ	xcomp	conservé
 souvenir	NOUN	amod	meilleur
 .	PUNCT	punct	retrouvèrent
-  	SPACE	ROOT	  
 Le	DET	det	29
 29	NUM	obl:mod	repartirent
 juin	NOUN	nmod	29
@@ -5807,13 +5689,12 @@ rarement	ADV	advmod	parvenait
 à	ADP	mark	prévenir
 prévenir	VERB	xcomp	parvenait
 .	PUNCT	punct	errèrent
-  	SPACE	ROOT	  
 Puis	CCONJ	cc	regagnèrent
 ,	PUNCT	punct	regagnèrent
 attirés	ADJ	advcl	regagnèrent
 encore	ADV	advmod	attirés
 une	DET	det	fois
-fois	NOUN	obj	attirés
+fois	NOUN	xcomp	attirés
 par	ADP	case	fertilité
 la	DET	det	fertilité
 fertilité	NOUN	nmod	fois
@@ -5882,11 +5763,10 @@ partir	VERB	xcomp	soupçonner
 sans	ADP	case	eux
 eux	PRON	obl:mod	partir
 .	PUNCT	punct	levé
-  	SPACE	ROOT	  
 Livrés	ADJ	ROOT	Livrés
 à	ADP	case	eux
 eux	PRON	obl:mod	Livrés
--	PRON	nmod	Livrés
+-	PRON	dep	Livrés
 mêmes	PRON	dep	Livrés
 ,	PUNCT	punct	établirent
 ces	DET	det	hommes
@@ -5989,7 +5869,6 @@ pas	ADV	advmod	tardèrent
 des	DET	det	Taïtiennes
 Taïtiennes	NOUN	obj	épouser
 .	PUNCT	punct	enfoncèrent
-  	SPACE	ROOT	  
 Churchill	PROPN	nsubj	nommé
 et	CCONJ	cc	furieux
 un	DET	det	furieux
@@ -5998,7 +5877,6 @@ furieux	ADJ	conj	Churchill
 nommé	ADJ	ROOT	nommé
 Thompson	PROPN	obj	nommé
 ,	PUNCT	punct	nommé
- 	SPACE	dep	,
 après	ADP	mark	commis
 avoir	AUX	aux:tense	commis
 commis	VERB	advcl	nommé
@@ -6006,13 +5884,13 @@ toute	DET	det	sorte
 sorte	NOUN	obj	commis
 de	ADP	case	crimes
 crimes	NOUN	nmod	sorte
-,	PUNCT	punct	nommé
+,	PUNCT	punct	commis
 en	ADP	mark	vinrent
-vinrent	VERB	advcl	nommé
-tous	ADJ	amod	mains
+vinrent	VERB	advcl	commis
+tous	ADJ	advmod	vinrent
 deux	PRON	fixed	tous
 aux	ADP	case	mains
-mains	NOUN	obj	vinrent
+mains	NOUN	obl:arg	vinrent
 .	PUNCT	punct	nommé
 Churchill	PROPN	nsubj:pass	tué
 fut	AUX	aux:pass	tué
@@ -6062,12 +5940,11 @@ chérir	VERB	ROOT	chérir
 des	DET	det	Taïtiens
 Taïtiens	NOUN	obj	chérir
 .	PUNCT	punct	chérir
-  	SPACE	ROOT	  
-Cependant	ADV	ROOT	Cependant
+Cependant	ADV	advmod	voyaient
 ,	PUNCT	punct	Morrison
-Morrison	PROPN	conj	Cependant
+Morrison	PROPN	nsubj	voyaient
 et	CCONJ	cc	Millward
-Millward	PROPN	conj	Cependant
+Millward	PROPN	conj	Morrison
 voyaient	NOUN	ROOT	voyaient
 toujours	ADV	advmod	voyaient
 le	DET	det	châtiment
@@ -6188,7 +6065,6 @@ prendre	VERB	acl	empêcha
 la	DET	det	mer
 mer	VERB	obj	prendre
 .	PUNCT	punct	impossibilité
-  	SPACE	ROOT	  
 Pendant	ADP	case	temps
 ce	DET	det	temps
 temps	NOUN	obl:mod	forts
@@ -6225,14 +6101,13 @@ aux	ADP	case	missionnaires
 missionnaires	NOUN	nmod	secours
 anglais	ADJ	nmod	secours
 .	PUNCT	punct	cultivait
-  	SPACE	ROOT	  
 Cependant	ADV	advmod	dix-huit
 ,	PUNCT	punct	dix-huit
 dix-huit	VERB	ROOT	dix-huit
 mois	NOUN	obj	dix-huit
 s'	PRON	expl:comp	écoulés
 étaient	AUX	aux:tense	écoulés
-écoulés	VERB	advcl	dix-huit
+écoulés	VERB	conj	dix-huit
 lorsque	SCONJ	advmod	écoulés
 ,	PUNCT	punct	pointe
 le	DET	det	23
@@ -6266,13 +6141,10 @@ poursuite	NOUN	obl:arg	envoyée
 des	ADP	case	révoltés
 révoltés	NOUN	nmod	poursuite
 par	ADP	case	Amirauté
- 	SPACE	dep	par
 l'	DET	det	Amirauté
-Amirauté	NOUN	nmod	révoltés
+Amirauté	NOUN	obl:agent	révoltés
 anglaise	ADJ	amod	Amirauté
 .	PUNCT	punct	Pandore
-                             	SPACE	dep	Pandore
-  	SPACE	ROOT	  
 Heywood	PROPN	nsubj	empressèrent
 et	CCONJ	cc	Stewart
 Stewart	PROPN	conj	Heywood
@@ -6321,15 +6193,14 @@ tous	ADJ	amod	compagnons
 leurs	DET	det	compagnons
 compagnons	NOUN	obl:mod	mis
 ,	PUNCT	punct	mis
-sans	ADP	case	enquête
-que	SCONJ	fixed	sans
+sans	ADP	mark	faite
+que	SCONJ	mark	faite
 la	DET	det	enquête
- 	SPACE	dep	la
 moindre	ADJ	amod	enquête
-enquête	NOUN	obl:mod	mis
-eût	ADV	advmod	faite
+enquête	NOUN	nsubj:pass	faite
+eût	ADV	iobj	faite
 été	AUX	aux:pass	faite
-faite	VERB	acl	enquête
+faite	VERB	advcl	mis
 .	PUNCT	punct	empressèrent
 Traités	VERB	obl:mod	enfermés
 avec	ADP	case	inhumanité
@@ -6397,7 +6268,6 @@ de	ADP	case	Pandore
 Pandore	PROPN	nmod	boîte
 "	PUNCT	punct	enfermés
 .	PUNCT	punct	enfermés
-  	SPACE	ROOT	  
 Le	DET	det	19
 19	NUM	ROOT	19
 mai	NOUN	nmod	19
@@ -6506,9 +6376,8 @@ qui	PRON	nsubj	montaient
 la	DET	det	montaient
 montaient	NOUN	acl:relcl	marins
 .	PUNCT	punct	disparut
-  	SPACE	ROOT	  
 La	DET	det	Pandore
-Pandore	NOUN	nsubj	repris
+Pandore	PROPN	nsubj	repris
 avait	AUX	aux:tense	repris
 repris	VERB	ROOT	repris
 la	DET	det	route
@@ -6550,7 +6419,6 @@ quatre	NUM	conj	matelots
 des	ADP	case	révoltés
 révoltés	NOUN	nmod	trente
 .	PUNCT	punct	repris
-  	SPACE	ROOT	  
 L'	DET	det	équipage
 équipage	NOUN	nsubj	gagnèrent
 et	CCONJ	cc	prlsonniers
@@ -6613,7 +6481,6 @@ jusqu'	ADP	case	cou
 au	ADP	case	cou
 cou	NOUN	obl:mod	enfoncer
 .	PUNCT	punct	réduits
-  	SPACE	ROOT	  
 Les	DET	det	naufragés
 naufragés	NOUN	nsubj	restèrent
 restèrent	ADV	ROOT	restèrent
@@ -6660,8 +6527,7 @@ gravité	NOUN	nmod	gagnèrent
 des	ADP	case	circonstances
 circonstances	NOUN	nmod	gravité
 .	PUNCT	punct	gagnèrent
-  	SPACE	ROOT	  
-Arrivés	NOUN	advcl	révoltés
+Arrivés	VERB	ROOT	Arrivés
 en	ADP	case	Angleterre
 Angleterre	PROPN	nmod	Arrivés
 au	ADP	case	mois
@@ -6671,7 +6537,7 @@ juin	NOUN	nmod	mois
 1792	NUM	nmod	juin
 ,	PUNCT	punct	révoltés
 les	DET	det	révoltés
-révoltés	NOUN	ROOT	révoltés
+révoltés	NOUN	conj	Arrivés
 passèrent	ADV	advmod	révoltés
 devant	ADP	case	conseil
 un	DET	det	conseil
@@ -6683,7 +6549,7 @@ par	ADP	case	amiral
 l'	DET	det	amiral
 amiral	NOUN	obl:agent	présidé
 Hood	PROPN	nmod	amiral
-.	PUNCT	punct	révoltés
+.	PUNCT	punct	Arrivés
 Les	DET	det	débats
 débats	NOUN	ROOT	débats
 durèrent	ADJ	amod	débats
@@ -6754,10 +6620,9 @@ reconnue	VERB	acl:relcl	Stewart
 furent	AUX	aux:pass	graciés
 graciés	ADJ	ROOT	graciés
 .	PUNCT	punct	graciés
-  	SPACE	ROOT	  
 Mais	CCONJ	cc	devenue
-qu'	PRON	mark	devenue
-était	AUX	aux:tense	devenue
+qu'	PRON	nsubj:pass	devenue
+était	AUX	aux:pass	devenue
 devenue	VERB	ROOT	devenue
 la	DET	det	Bounty
 Bounty	PROPN	obj	devenue
@@ -6781,7 +6646,6 @@ impossible	ADJ	acl:relcl	ce
 de	ADP	mark	savoir
 savoir	VERB	dep	impossible
 .	PUNCT	punct	Voilà
-  	SPACE	ROOT	  
 En	ADP	case	1814
 1814	NUM	obl:mod	croisaient
 ,	PUNCT	punct	croisaient
@@ -6962,7 +6826,6 @@ avait	AUX	aux:tense	rapporté
 rapporté	VERB	acl:relcl	ce
 Carteret	PROPN	obj	rapporté
 .	PUNCT	punct	mesurait
-  	SPACE	ROOT	  
 Le	DET	det	capitaine
 capitaine	NOUN	nsubj	résolut
 Staines	PROPN	flat:name	capitaine
@@ -6980,9 +6843,8 @@ convenable	ADJ	amod	endroit
 pour	ADP	mark	débarquer
 débarquer	VERB	acl	endroit
 .	PUNCT	punct	résolut
-  	SPACE	ROOT	  
 En	ADP	mark	approchant
-s'	PRON	mark	approchant
+s'	PRON	expl:comp	approchant
 approchant	VERB	advcl	surpris
 de	ADP	case	côte
 la	DET	det	côte
@@ -7052,7 +6914,6 @@ par	ADP	case	phrase
 cette	DET	det	phrase
 phrase	NOUN	obl:mod	entendit
 :	PUNCT	punct	entendit
-  	SPACE	ROOT	  
 "	PUNCT	punct	Hé
 Hé	PROPN	ROOT	Hé
 !	PUNCT	punct	Hé
@@ -7073,10 +6934,9 @@ montions	VERB	ccomp	allez
 bord	NOUN	obl:mod	montions
 !	PUNCT	punct	autres
 "	PUNCT	ROOT	"
-    	SPACE	ROOT	    
 A	NOUN	case	peine
 peine	NOUN	obl:mod	entourés
-arrivés	VERB	amod	peine
+arrivés	VERB	acl	peine
 sur	ADP	case	pont
 le	DET	det	pont
 pont	NOUN	obl:mod	arrivés
@@ -7114,13 +6974,11 @@ furent	AUX	aux:tense	interrogés
 interrogés	VERB	ROOT	interrogés
 réguIièrement	ADV	advmod	interrogés
 .	PUNCT	punct	interrogés
-  	SPACE	ROOT	  
 "	PUNCT	ROOT	"
 Qui	PRON	ROOT	Qui
 êtes	X	dep	Qui
 -vous	NOUN	dep	Qui
 ?	PUNCT	punct	Qui
-  	SPACE	ROOT	  
 -	PUNCT	punct	appelle
 Je	PRON	nsubj	appelle
 m'	PRON	expl:comp	appelle
@@ -7135,7 +6993,6 @@ camarade	NOUN	conj	appelle
 Young	PROPN	conj	camarade
 .	PUNCT	punct	appelle
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
 Ces	DET	det	noms
 noms	NOUN	nsubj	disaient
 ne	ADV	advmod	disaient
@@ -7157,7 +7014,6 @@ de	ADP	case	Bounty
 la	DET	det	Bounty
 Bounty	PROPN	nmod	survivants
 .	PUNCT	punct	disaient
-  	SPACE	ROOT	  
 "	PUNCT	ROOT	"
 Depuis	ADP	case	quand
 quand	SCONJ	ROOT	quand
@@ -7165,24 +7021,21 @@ quand	SCONJ	ROOT	quand
 -vous	ADJ	obl:arg	quand
 ici	ADV	obl:arg	quand
 ?	PUNCT	punct	quand
-  	SPACE	ROOT	  
 -	PUNCT	punct	nés
 Nous	PRON	nsubj	nés
 y	PRON	expl:comp	nés
 sommes	AUX	aux:tense	nés
 nés	VERB	ROOT	nés
 .	PUNCT	punct	nés
-  	SPACE	ROOT	  
 -	PUNCT	punct	âge
 Quel	ADJ	det	âge
 âge	NOUN	ROOT	âge
 avez	AUX	acl	âge
--vous	PRON	nsubj	avez
+-vous	PRON	obl:mod	avez
 ?	PUNCT	punct	âge
-  	SPACE	ROOT	  
 -	PUNCT	punct	répondit
 J'	PRON	nsubj	répondit
-ai	VERB	advcl	répondit
+ai	VERB	aux:tense	répondit
 vingt-cinq	NUM	nummod	ans
 ans	NOUN	obj	ai
 ,	PUNCT	punct	répondit
@@ -7193,7 +7046,6 @@ et	CCONJ	cc	Young
 Young	PROPN	conj	répondit
 dix-huit	NOUN	flat:name	Young
 .	PUNCT	punct	répondit
-  	SPACE	ROOT	  
 -	PUNCT	punct	jetés
 Vos	PROPN	det	parents
 parents	NOUN	nsubj:pass	jetés
@@ -7209,7 +7061,6 @@ quelque	DET	det	naufrage
 naufrage	NOUN	obl:agent	jetés
 ?	PUNCT	punct	jetés
 "	PUNCT	ROOT	"
-  	SPACE	ROOT	  
 Christian	PROPN	nsubj	fit
 fit	VERB	ROOT	fit
 alors	ADV	advmod	fit
@@ -7229,7 +7080,6 @@ les	DET	det	faits
 principaux	ADJ	amod	faits
 faits	NOUN	obj	voici
 :	PUNCT	punct	confession
-   	SPACE	ROOT	   
 En	ADP	mark	quittant
 quittant	VERB	obl:mod	abandonnait
 Taîti	PROPN	obj	quittant
@@ -7333,7 +7183,6 @@ indigènes	ADJ	conj	hommes
 de	ADP	case	Roubouai
 Roubouai	PROPN	nmod	hommes
 .	PUNCT	punct	Christian
-   	SPACE	ROOT	   
 Le	DET	det	soin
 premier	ADJ	amod	soin
 soin	NOUN	obl:mod	atteint
@@ -7392,7 +7241,6 @@ sécurité	NOUN	nmod	soin
 l'	DET	obj	exigeait
 exigeait	NOUN	conj	enlevé
 .	PUNCT	punct	enlevé
-   	SPACE	ROOT	   
 L'	DET	det	établissement
 établissement	NOUN	nsubj	devait
 de	ADP	case	colonie
@@ -7467,8 +7315,7 @@ avaient	AUX	aux:tense	massacrés
 été	AUX	aux:pass	massacrés
 massacrés	VERB	ROOT	massacrés
 .	PUNCT	punct	massacrés
-   	SPACE	ROOT	   
-Un	PRON	ROOT	Un
+Un	PRON	obl:mod	fini
 des	ADP	case	Anglais
 Anglais	PROPN	nmod	Un
 ,	PUNCT	punct	Anglais
@@ -7519,7 +7366,6 @@ dans	ADP	case	mer
 la	DET	det	mer
 mer	VERB	nmod	haut
 .	PUNCT	punct	fini
-   	SPACE	ROOT	   
 Un	DET	det	autre
 autre	NOUN	nsubj	jeté
 ,	PUNCT	punct	autre
@@ -7568,10 +7414,9 @@ crise	NOUN	obj	mort
 d'	ADP	case	asthme
 asthme	NOUN	nmod	crise
 .	PUNCT	punct	mort
-  	SPACE	ROOT	  
 J	NOUN	ROOT	J
 ohn	DET	det	Adams
-Adams	PROPN	nsubj	dernier
+Adams	PROPN	ROOT	Adams
 fut	AUX	cop	dernier
 alors	ADV	advmod	dernier
 le	DET	det	dernier
@@ -7583,8 +7428,7 @@ l'	DET	det	équipage
 des	ADP	case	révoltés
 révoltés	NOUN	nmod	équipage
 .	PUNCT	punct	dernier
-   	SPACE	ROOT	   
-Resté	NOUN	advcl	modifié
+Resté	PROPN	advcl	modifié
 seul	ADJ	amod	Resté
 avec	ADP	case	femmes
 plusieurs	DET	det	femmes
@@ -7670,7 +7514,6 @@ tout	ADV	advmod	amendé
 fait	NOUN	fixed	tout
 amendé	VERB	conj	vu
 .	PUNCT	punct	vu
-   	SPACE	ROOT	   
 Dans	ADP	case	bibliothèque
 la	DET	det	bibliothèque
 bibliothèque	NOUN	obl:mod	trouvaient
@@ -7744,7 +7587,6 @@ roi	NOUN	conj	législateur
 de	ADP	case	Pitcairn
 Pitcairn	PROPN	nmod	roi
 .	PUNCT	punct	convertit
-   	SPACE	ROOT	   
 Cependant	ADV	advmod	continuelles
 ,	PUNCT	punct	continuelles
 jusqu'	ADP	case	1814
@@ -7872,21 +7714,20 @@ gravité	NOUN	nmod	préoccupations
 cette	DET	det	époque
 époque	NOUN	obl:mod	elIe
 .	PUNCT	punct	vrai
-   	SPACE	ROOT	   
 Tel	ADJ	ROOT	Tel
 fut	AUX	dep	Tel
 le	DET	det	récit
-récit	NOUN	dep	Tel
-fait	NOUN	amod	récit
+récit	NOUN	nsubj	fait
+fait	NOUN	dep	Tel
 au	ADP	case	commandant
 commandant	NOUN	obl:arg	fait
-Staines	PROPN	obj	fait
+Staines	PROPN	flat:name	commandant
 par	ADP	case	naturels
 les	DET	det	naturels
 deux	NUM	nummod	naturels
 naturels	NOUN	obl:agent	fait
-,	PUNCT	punct	récit
-anglais	VERB	acl	récit
+,	PUNCT	punct	Tel
+anglais	VERB	advcl	Tel
 par	ADP	case	pères
 leurs	DET	det	pères
 pères	NOUN	obl:agent	anglais
@@ -7931,7 +7772,6 @@ adviendrait	VERB	acl:relcl	ce
 de	ADP	det	lui
 lui	PRON	obj	adviendrait
 ,	PUNCT	punct	adviendrait
-   	SPACE	ROOT	   
 Le	DET	det	commandant
 commandant	NOUN	ROOT	commandant
 ,	PUNCT	punct	commandant
@@ -7949,7 +7789,6 @@ Adams	PROPN	flat:name	John
 couvert	VERB	ROOT	couvert
 par	ADP	case	prescription
 la	DET	det	prescription
- 	SPACE	dep	la
 prescription	NOUN	obl:agent	couvert
 ,	PUNCT	punct	couvert
 puisque	SCONJ	mark	écoulés
@@ -8023,7 +7862,6 @@ tout	ADV	advmod	séduisant
 fait	NOUN	fixed	tout
 séduisant	ADJ	advcl	imprimait
 .	PUNCT	punct	belles
-   	SPACE	ROOT	   
 Les	DET	det	lois
 lois	NOUN	nsubj	simples
 mises	VERB	acl	lois
@@ -8107,8 +7945,8 @@ telles	ADJ	amod	pêche
 étaient	AUX	cop	principales
 leurs	DET	det	principales
 principales	NOUN	ROOT	principales
-occupations	NOUN	amod	principales
- 	SPACE	dep	occupations
+occupations	NOUN	acl	principales
+.	PUNCT	punct	principales
 Les	DET	det	mariages
 mariages	NOUN	nsubj	faisaient
 ne	ADV	advmod	faisaient
@@ -8143,7 +7981,6 @@ sa	DET	det	future
 future	NOUN	nmod	entretien
 famille	NOUN	amod	future
 .	PUNCT	punct	faisaient
-   	SPACE	ROOT	   
 Le	DET	det	commandant
 commandant	NOUN	nsubj	recueilli
 Staines	PROPN	flat:name	commandant
@@ -8178,7 +8015,6 @@ revint	VERB	conj	reprit
 en	ADP	case	Europe
 Europe	PROPN	obl:arg	revint
 .	PUNCT	punct	recueilli
-   	SPACE	ROOT	   
 Depuis	ADP	case	époque
 cette	DET	det	époque
 époque	NOUN	obl:mod	terminé
@@ -8229,7 +8065,6 @@ maître	NOUN	conj	médecin
 d'	ADP	case	école
 école	NOUN	nmod	maître
 .	PUNCT	punct	mort
-   	SPACE	ROOT	   
 En	ADP	case	1853
 1853	NUM	obl:mod	étaient
 ,	PUNCT	punct	étaient
@@ -8294,7 +8129,6 @@ pour	ADP	case	convicts
 les	DET	det	convicts
 convicts	NOUN	nmod	station
 .	PUNCT	punct	fit
-   	SPACE	ROOT	   
 Mais	CCONJ	cc	regrettaient
 une	DET	det	partie
 partie	NOUN	nsubj	regrettaient
@@ -8354,8 +8188,7 @@ continuent	VERB	advcl	retournèrent
 à	ADP	mark	prospérer
 prospérer	VERB	xcomp	continuent
 .	PUNCT	punct	retournèrent
-   	SPACE	ROOT	   
-Tel	ADJ	ROOT	Tel
+Tel	ADJ	nsubj	dénouement
 fut	AUX	cop	dénouement
 donc	ADV	advmod	dénouement
 le	DET	det	dénouement

@@ -11554,7 +11554,6 @@ avait	AUX	punct	saurait
 pour	ADP	case	titre
 titre	NOUN	obl:mod	avait
 :	PUNCT	punct	avait
- 	SPACE	ROOT	 
 Pourquoi	ADV	advmod	atteints
 tous	ADJ	amod	Français
 les	DET	det	Français

@@ -1,15 +1,11 @@
 Text	POS	Dep	Head
-                         	SPACE	ROOT	                         
 LE	DET	det	TOUR
 TOUR	NOUN	ROOT	TOUR
 DU	ADP	case	MONDE
 MONDE	NOUN	nmod	TOUR
-                                	SPACE	ROOT	                                
 EN	ADP	ROOT	EN
-                       	SPACE	ROOT	                       
-QUATRE-VINGTS	ADJ	amod	JOURS
+QUATRE-VINGTS	DET	det	JOURS
 JOURS	NOUN	ROOT	JOURS
-              	SPACE	ROOT	              
 =	X	dep	=
 =	X	dep	=
 =	X	ROOT	=
@@ -47,22 +43,17 @@ JOURS	NOUN	ROOT	JOURS
 =	X	ROOT	=
 =	PRON	ROOT	=
 =	VERB	ROOT	=
-                         	SPACE	ROOT	                         
 par	ADP	case	Jules
 Jules	PROPN	ROOT	Jules
 Verne	PROPN	flat:name	Jules
-                                	SPACE	ROOT	                                
 I	NOUN	ROOT	I
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-             	SPACE	ROOT	             
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	obl:mod	FOGG
 PHILEAS	ADJ	amod	FOGG
 FOGG	PROPN	ROOT	FOGG
 ET	CCONJ	cc	PASSEPARTOUT
 PASSEPARTOUT	NOUN	conj	FOGG
-          	SPACE	ROOT	          
 S'	PRON	expl:pass	ACCEPTENT
 ACCEPTENT	NOUN	ROOT	ACCEPTENT
 RÉCIPROQUEMENT	ADJ	punct	ACCEPTENT
@@ -71,7 +62,6 @@ UN	PRON	ROOT	UN
 COMME	NOUN	case	MAÎTRE
 MAÎTRE	NOUN	nmod	UN
 ,	PUNCT	punct	UN
-                     	SPACE	ROOT	                     
 L'	DET	det	AUTRE
 AUTRE	NOUN	ROOT	AUTRE
 COMME	VERB	mark	DOMESTIQUE
@@ -2058,17 +2048,13 @@ Saville	PROPN	nmod	maison
 -	PROPN	nmod	maison
 row	VERB	nmod	maison
 .	PUNCT	punct	seul
-                                	SPACE	ROOT	                                
 II	NUM	ROOT	II
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                  	SPACE	ROOT	                  
 OU	CCONJ	cc	PASSEPARTOUT
 PASSEPARTOUT	NOUN	nsubj:pass	CONVAINCU
 EST	AUX	aux:pass	CONVAINCU
 CONVAINCU	VERB	ROOT	CONVAINCU
-                  	SPACE	ROOT	                  
-QU'	PRON	nsubj	A
+QU'	SCONJ	mark	A
 IL	PRON	nsubj	A
 A	VERB	ROOT	A
 ENFIN	ADJ	obj	A
@@ -3637,23 +3623,19 @@ une	DET	det	mécanique
 mécanique	NOUN	obj	servir
 !	PUNCT	punct	fâché
 »	PUNCT	ROOT	»
-                               	SPACE	ROOT	                               
-III	NOUN	ROOT	III
-                       	SPACE	ROOT	                       
+III	ADJ	ROOT	III
 --------------------	PUNCT	ROOT	--------------------
-       	SPACE	ROOT	       
 OU	CCONJ	cc	ENGAGE
 S'	PRON	expl:comp	ENGAGE
 ENGAGE	VERB	ROOT	ENGAGE
 UNE	DET	det	CONVERSATION
 CONVERSATION	NOUN	obj	ENGAGE
-QUI	PRON	ROOT	QUI
+QUI	PRON	punct	ENGAGE
 POURRA	X	xcomp	QUI
 COUTER	X	flat:foreign	QUI
-CHER	ADJ	amod	QUI
-                          	SPACE	ROOT	                          
-A	NOUN	case	PHILEAS
-PHILEAS	ADJ	ROOT	PHILEAS
+CHER	ADJ	ROOT	CHER
+A	AUX	case	PHILEAS
+PHILEAS	X	ROOT	PHILEAS
 FOGG	PROPN	ROOT	FOGG
 Phileas	PROPN	nsubj	quitté
 Fogg	PROPN	flat:name	Phileas
@@ -5456,16 +5438,14 @@ par	ADP	case	Mont-Cenis
 le	DET	det	Mont-Cenis
 Mont-Cenis	PROPN	obl:agent	Suez
 et	CCONJ	ROOT	et
- 	SPACE	ROOT	 
 Brindisi	PROPN	ROOT	Brindisi
 ,	PUNCT	punct	Brindisi
 railways	NOUN	appos	Brindisi
 et	CCONJ	cc	paquebots
 paquebots	ADJ	conj	railways
 ...........	PUNCT	punct	Brindisi
-  	SPACE	dep	...........
 7	NUM	nummod	jours
-jours	NOUN	obj	...........
+jours	NOUN	ROOT	jours
 De	ADP	case	Suez
 Suez	PROPN	ROOT	Suez
 à	ADP	case	Bombay
@@ -5473,18 +5453,16 @@ Bombay	PROPN	nmod	Suez
 ,	PUNCT	punct	Suez
 paquebot	NOUN	dep	Suez
 .................	PUNCT	punct	Suez
- 	SPACE	dep	.................
-13	NUM	nmod	Suez
+13	NUM	ROOT	13
 --	PUNCT	ROOT	--
 De	ADP	case	Bombay
 Bombay	PROPN	ROOT	Bombay
 à	ADP	case	Calcutta
 Calcutta	PROPN	nmod	Bombay
 ,	PUNCT	punct	Bombay
-railway	NOUN	dep	Bombay
-..............	PUNCT	punct	Bombay
-  	SPACE	dep	..............
-3	NUM	nummod	..............
+railway	ADV	dep	Bombay
+..............	VERB	parataxis	railway
+3	NUM	nmod	railway
 --	PUNCT	ROOT	--
 De	ADP	case	Calcutta
 Calcutta	PROPN	ROOT	Calcutta
@@ -5498,7 +5476,6 @@ Chine	PROPN	nmod	Calcutta
 ,	PUNCT	punct	Calcutta
 paquebot	NOUN	dep	Calcutta
 ..	PUNCT	punct	Calcutta
- 	SPACE	dep	..
 13	NUM	nmod	Calcutta
 --	PUNCT	ROOT	--
 De	ADP	case	Hong
@@ -5511,11 +5488,9 @@ Yokohama	PROPN	ROOT	Yokohama
 Japon	PROPN	appos	Yokohama
 )	PUNCT	punct	Yokohama
 ,	PUNCT	ROOT	,
- 	SPACE	ROOT	 
 paquebot	NOUN	ROOT	paquebot
-..................................	PUNCT	ROOT	..................................
-  	SPACE	dep	..................................
-6	NUM	nmod	..................................
+..................................	PUNCT	punct	paquebot
+6	NUM	ROOT	6
 --	PUNCT	ROOT	--
 De	ADP	case	Yokohama
 Yokohama	PROPN	ROOT	Yokohama
@@ -5524,9 +5499,8 @@ San	PROPN	ROOT	San
 Francisco	PROPN	flat:name	San
 ,	PUNCT	punct	paquebot
 paquebot	NOUN	ROOT	paquebot
-......	PUNCT	ROOT	......
- 	SPACE	dep	......
-22	NUM	nummod	......
+......	PUNCT	punct	paquebot
+22	NUM	ROOT	22
 --	PUNCT	ROOT	--
 De	ADP	case	San
 San	PROPN	det	Francisco
@@ -5534,10 +5508,9 @@ Francisco	PROPN	ROOT	Francisco
 New	PROPN	ROOT	New
 York	PROPN	flat:name	New
 ,	PUNCT	punct	New
-railroad	VERB	appos	New
+railroad	VERB	amod	New
 ........	PUNCT	punct	New
-  	SPACE	dep	........
-7	NUM	nmod	New
+7	NUM	nummod	--
 --	PUNCT	ROOT	--
 De	ADP	case	New
 New	PROPN	ROOT	New
@@ -5547,21 +5520,16 @@ Londres	PROPN	ROOT	Londres
 ,	PUNCT	punct	Londres
 paquebot	NOUN	appos	Londres
 et	CCONJ	ROOT	et
- 	SPACE	ROOT	 
 railway	NOUN	ROOT	railway
-...................................	VERB	punct	railway
-  	SPACE	dep	...................................
+...................................	PROPN	punct	railway
 9	NUM	nmod	railway
 --	PUNCT	ROOT	--
- 	SPACE	ROOT	 
 .	PUNCT	ROOT	.
-                                        	SPACE	dep	.
----------	DET	punct	.
+---------	DET	ROOT	---------
 Total	NOUN	ROOT	Total
-......................................	PUNCT	ROOT	......................................
- 	SPACE	dep	......................................
+......................................	PUNCT	punct	jours
 80	NUM	nummod	jours
-jours	NOUN	punct	......................................
+jours	NOUN	ROOT	jours
 --	PUNCT	punct	jours
 Oui	PROPN	dep	--
 ,	PUNCT	punct	Oui
@@ -6461,11 +6429,8 @@ monsieur	NOUN	obl:mod	jouer
 Stuart	PROPN	flat:name	monsieur
 .	PUNCT	punct	vous
 »	PUNCT	ROOT	»
-                                	SPACE	ROOT	                                
-IV	ADJ	ROOT	IV
-                       	SPACE	ROOT	                       
+IV	NOUN	ROOT	IV
 --------------------	PUNCT	ROOT	--------------------
-         	SPACE	ROOT	         
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	ROOT	LEQUEL
 PHILEAS	ADJ	amod	LEQUEL
@@ -6473,7 +6438,6 @@ FOGG	PROPN	ROOT	FOGG
 STUPEFIE	NOUN	ROOT	STUPEFIE
 PASSEPARTOUT	PROPN	nmod	STUPEFIE
 ,	PUNCT	punct	STUPEFIE
-                          	SPACE	ROOT	                          
 SON	DET	det	DOMESTIQUE
 DOMESTIQUE	NOUN	ROOT	DOMESTIQUE
 A	NOUN	ROOT	A
@@ -7820,18 +7784,14 @@ votre	DET	det	compte
 compte	NOUN	obl:arg	brûle
 !	PUNCT	punct	répondit
 »	PUNCT	ROOT	»
-                                	SPACE	ROOT	                                
 V	NOUN	ROOT	V
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-             	SPACE	ROOT	             
 DANS	ADP	case	LEQUEL
-LEQUEL	PRON	ROOT	LEQUEL
+LEQUEL	PRON	obl:mod	VALEUR
 UNE	DET	det	VALEUR
 NOUVELLE	ADJ	amod	VALEUR
 VALEUR	NOUN	ROOT	VALEUR
 APPARAÎT	VERB	ROOT	APPARAÎT
-                     	SPACE	ROOT	                     
 SUR	ADP	case	PLACE
 LA	DET	det	PLACE
 PLACE	NOUN	ROOT	PLACE
@@ -8969,10 +8929,9 @@ télégraphique	ADJ	amod	dépêche
 ainsi	ADV	advmod	conçue
 conçue	VERB	conj	reçu
 :	PUNCT	punct	reçu
-                                       	SPACE	ROOT	                                       
 Suez	VERB	ROOT	Suez
 à	ADP	case	Londres
-Londres	PROPN	nmod	Suez
+Londres	PROPN	obl:arg	Suez
 .	PUNCT	punct	Suez
 Rowan	PROPN	ROOT	Rowan
 ,	PUNCT	punct	Rowan
@@ -9007,7 +8966,6 @@ Inde	PROPN	appos	Bombay
 anglaise	ADJ	amod	Inde
 )	PUNCT	punct	Bombay
 .	PUNCT	punct	Envoyez
-                                       	SPACE	ROOT	                                       
 Fix	PROPN	ROOT	Fix
 ,	PUNCT	punct	Fix
 détective	ADJ	nmod	Fix
@@ -9127,20 +9085,16 @@ la	DET	det	police
 police	NOUN	nmod	agents
 anglaise	ADJ	amod	police
 .	PUNCT	punct	rappela
-                                	SPACE	ROOT	                                
 VI	NUM	ROOT	VI
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-          	SPACE	ROOT	          
 DANS	ADP	case	LEQUEL
-LEQUEL	PRON	ROOT	LEQUEL
+LEQUEL	PRON	obl:mod	FIX
 L'	DET	det	AGENT
-AGENT	PROPN	nsubj	FIX
+AGENT	PROPN	conj	LEQUEL
 FIX	VERB	ROOT	FIX
-MONTRE	VERB	dep	FIX
+MONTRE	VERB	xcomp	FIX
 UNE	DET	det	IMPATIENCE
 IMPATIENCE	NOUN	obj	MONTRE
-                          	SPACE	ROOT	                          
 BIEN	ADV	advmod	LEGITIME
 LEGITIME	NOUN	ROOT	LEGITIME
 Voici	VERB	ROOT	Voici
@@ -10986,13 +10940,10 @@ bord	NOUN	obl:arg	retourna
 du	ADP	mark	steamer
 steamer	VERB	xcomp	retourna
 .	PUNCT	punct	retourna
-                               	SPACE	ROOT	                               
 VII	NOUN	ROOT	VII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-         	SPACE	ROOT	         
-QUI	X	ROOT	QUI
-TÉMOIGNE	VERB	acl	QUI
+QUI	PRON	nsubj	TÉMOIGNE
+TÉMOIGNE	VERB	ROOT	TÉMOIGNE
 UNE	DET	det	FOIS
 FOIS	NOUN	obl:mod	TÉMOIGNE
 DE	ADP	case	PLUS
@@ -11000,8 +10951,7 @@ PLUS	NOUN	nmod	FOIS
 DE	ADP	case	INUTILITÉ
 L'	DET	det	INUTILITÉ
 INUTILITÉ	PROPN	nmod	FOIS
-DES	ADP	ROOT	DES
-                 	SPACE	ROOT	                 
+DES	ADP	punct	TÉMOIGNE
 PASSEPORTS	NOUN	ROOT	PASSEPORTS
 EN	ADP	case	MATIÈRE
 MATIÈRE	NOUN	nmod	PASSEPORTS
@@ -12087,11 +12037,8 @@ qu'	PRON	obj	traversent
 ils	PRON	nsubj	traversent
 traversent	ADV	acl:relcl	pays
 .	PUNCT	punct	pensait
-                               	SPACE	ROOT	                               
-VIII	NOUN	ROOT	VIII
-                       	SPACE	ROOT	                       
+VIII	ADJ	ROOT	VIII
 --------------------	PUNCT	ROOT	--------------------
-            	SPACE	ROOT	            
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	obl:mod	PARLE
 PASSEPARTOUT	NOUN	nmod	LEQUEL
@@ -12099,14 +12046,13 @@ PARLE	VERB	ROOT	PARLE
 UN	DET	det	PEU
 PEU	ADV	advmod	PLUS
 PLUS	ADV	advmod	PARLE
-                 	SPACE	ROOT	                 
 PEUT	PROPN	ROOT	PEUT
 -	ADV	ROOT	-
-ÊTRE	AUX	ROOT	ÊTRE
-QU'	SCONJ	flat:name	ÊTRE
-IL	PRON	dep	QU'
-NE	ADV	fixed	QU'
-CONVIENDRAIT	PROPN	flat:name	QU'
+ÊTRE	AUX	cop	QU'
+QU'	SCONJ	case	IL
+IL	PRON	ROOT	IL
+NE	ADV	punct	IL
+CONVIENDRAIT	PROPN	ROOT	CONVIENDRAIT
 Fix	PROPN	nsubj	croyant
 avait	AUX	punct	Fix
 en	ADP	advmod	instants
@@ -13537,12 +13483,9 @@ la	DET	det	Rouge
 mer	ADJ	amod	Rouge
 Rouge	PROPN	nmod	eaux
 .	PUNCT	punct	embarquait
-                                	SPACE	ROOT	                                
-IX	ADJ	ROOT	IX
-                       	SPACE	ROOT	                       
+IX	NOUN	ROOT	IX
 --------------------	PUNCT	ROOT	--------------------
-         	SPACE	ROOT	         
-OÙ	X	nmod	LA
+OÙ	PRON	ROOT	OÙ
 LA	PROPN	ROOT	LA
 MER	PROPN	nmod	LA
 ROUGE	NOUN	nmod	LA
@@ -13553,7 +13496,6 @@ DES	ADP	case	INDES
 INDES	NOUN	nmod	ROUGE
 SE	NUM	punct	LA
 MONTRENT	VERB	ROOT	MONTRENT
-              	SPACE	ROOT	              
 PROPICES	NOUN	ROOT	PROPICES
 AUX	ADP	case	DESSEINS
 DESSEINS	NOUN	nmod	PROPICES
@@ -15825,11 +15767,8 @@ colonne	NOUN	obl:arg	inscrivit
 des	ADP	case	bénéfices
 bénéfices	NOUN	nmod	colonne
 .	PUNCT	punct	départ
-                                	SPACE	ROOT	                                
 X	NOUN	ROOT	X
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-            	SPACE	ROOT	            
 OÙ	PRON	nmod	PASSEPARTOUT
 PASSEPARTOUT	PROPN	nsubj	HEUREUX
 EST	AUX	cop	HEUREUX
@@ -15838,10 +15777,9 @@ HEUREUX	ADJ	ROOT	HEUREUX
 D'	ADP	case	ÊTRE
 EN	PRON	fixed	D'
 ÊTRE	AUX	ROOT	ÊTRE
-                  	SPACE	ROOT	                  
-QUITTE	NOUN	ROOT	QUITTE
+QUITTE	ADJ	ROOT	QUITTE
 EN	ADP	mark	PERDANT
-PERDANT	VERB	nmod	QUITTE
+PERDANT	VERB	advcl	QUITTE
 SA	DET	det	CHAUSSURE
 CHAUSSURE	ADJ	obj	PERDANT
 Personne	NOUN	nsubj	ignore
@@ -17924,13 +17862,10 @@ dans	ADP	case	nuit
 la	DET	det	nuit
 nuit	NOUN	obl:mod	train
 .	PUNCT	punct	lança
-                                	SPACE	ROOT	                                
 XI	NOUN	ROOT	XI
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-           	SPACE	ROOT	           
-OÙ	X	amod	PHILEAS
-PHILEAS	X	ROOT	PHILEAS
+OÙ	PRON	ROOT	OÙ
+PHILEAS	X	punct	OÙ
 FOGG	X	ROOT	FOGG
 ACHÈTE	VERB	ROOT	ACHÈTE
 UNE	DET	det	MONTURE
@@ -17938,7 +17873,6 @@ MONTURE	NOUN	obj	ACHÈTE
 A	ADP	nmod	MONTURE
 UN	DET	det	PRIX
 PRIX	NOUN	obj	ACHÈTE
-                             	SPACE	ROOT	                             
 FABULEUX	PROPN	ROOT	FABULEUX
 Le	DET	det	train
 train	NOUN	nsubj	parti
@@ -21385,12 +21319,9 @@ forêt	NOUN	obl:mod	enfonçait
 de	ADP	case	lataniers
 lataniers	NOUN	nmod	forêt
 .	PUNCT	punct	jucha
-                               	SPACE	ROOT	                               
 XII	NOUN	ROOT	XII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-          	SPACE	ROOT	          
-OÙ	X	ROOT	OÙ
+OÙ	PRON	ROOT	OÙ
 PHILEAS	X	punct	OÙ
 FOGG	PROPN	ROOT	FOGG
 ET	CCONJ	cc	SES
@@ -21398,8 +21329,7 @@ SES	DET	conj	FOGG
 COMPAGNONS	NOUN	ROOT	COMPAGNONS
 S'	PRON	expl:pass	AVENTURENT
 AVENTURENT	VERB	ROOT	AVENTURENT
-         	SPACE	ROOT	         
-A	NOUN	case	TRAVERS
+A	ADP	case	TRAVERS
 TRAVERS	NOUN	ROOT	TRAVERS
 LES	DET	det	FORÊTS
 FORÊTS	NOUN	nmod	TRAVERS
@@ -24103,11 +24033,8 @@ le	DET	det	temps
 temps	NOUN	obj	ai
 .	PUNCT	punct	ai
 »	PUNCT	ROOT	»
-                               	SPACE	ROOT	                               
 XIII	ADJ	ROOT	XIII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-        	SPACE	ROOT	        
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	obl:mod	PROUVE
 PASSEPARTOUT	NOUN	nmod	LEQUEL
@@ -24116,7 +24043,6 @@ UNE	DET	det	FOIS
 FOIS	NOUN	obj	PROUVE
 DE	ADP	case	PLUS
 PLUS	ADV	nmod	FOIS
-               	SPACE	ROOT	               
 QUE	SCONJ	mark	SOURIT
 LA	DET	det	FORTUNE
 FORTUNE	NOUN	nsubj	SOURIT
@@ -26787,11 +26713,8 @@ et	CCONJ	cc	flèches
 des	ADP	case	flèches
 flèches	NOUN	conj	balles
 .	PUNCT	punct	eu
-                               	SPACE	ROOT	                               
 XIV	NOUN	ROOT	XIV
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-        	SPACE	ROOT	        
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	ROOT	LEQUEL
 PHILEAS	ADJ	amod	LEQUEL
@@ -26800,12 +26723,11 @@ DESCEND	NOUN	ROOT	DESCEND
 TOUTE	DET	ROOT	TOUTE
 L'	DET	det	ADMIRABLE
 ADMIRABLE	NOUN	ROOT	ADMIRABLE
-            	SPACE	ROOT	            
 VALLÉE	NOUN	ROOT	VALLÉE
 DU	ADP	case	GANGE
 GANGE	NOUN	nmod	VALLÉE
 SANS	ADP	case	MÊME
-MÊME	ADV	nmod	VALLÉE
+MÊME	ADV	advmod	A
 SONGER	PROPN	nmod	MÊME
 A	NOUN	ROOT	A
 LA	DET	det	VOIR
@@ -29449,11 +29371,8 @@ les	PRON	obj	regrettait
 regrettait	VERB	ccomp	supposer
 pas	ADV	advmod	regrettait
 .	PUNCT	punct	est
-                                	SPACE	ROOT	                                
 XV	ADJ	ROOT	XV
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-           	SPACE	ROOT	           
 OÙ	PRON	nmod	SAC
 LE	DET	det	SAC
 SAC	NOUN	ROOT	SAC
@@ -29465,7 +29384,6 @@ S'	PRON	expl:pass	ALLÈGE
 ALLÈGE	PROPN	ROOT	ALLÈGE
 ENCORE	ADV	advmod	ALLÈGE
 DE	ADP	punct	ALLÈGE
-                   	SPACE	ROOT	                   
 QUELQUES	DET	det	MILLIERS
 MILLIERS	NOUN	ROOT	MILLIERS
 DE	ADP	case	LIVRES
@@ -31955,16 +31873,13 @@ allait	VERB	ROOT	allait
 diminuant	ADJ	amod	allait
 toujours	ADV	advmod	diminuant
 .	PUNCT	punct	allait
-                               	SPACE	ROOT	                               
 XVI	NOUN	ROOT	XVI
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-          	SPACE	ROOT	          
-OÙ	X	amod	FIX
+OÙ	PRON	dep	FIX
 FIX	PROPN	ROOT	FIX
-N'	NOUN	ROOT	N'
-A	NOUN	ROOT	A
-PAS	NOUN	nmod	A
+N'	NOUN	nmod	FIX
+A	NOUN	nmod	FIX
+PAS	NOUN	nmod	FIX
 L'	DET	det	AIR
 AIR	NOUN	ROOT	AIR
 DE	ADP	mark	CONNAÎTRE
@@ -31972,9 +31887,8 @@ CONNAÎTRE	VERB	acl	AIR
 DU	ADP	case	TOUT
 TOUT	NOUN	obl:arg	CONNAÎTRE
 LES	DET	ROOT	LES
-                     	SPACE	ROOT	                     
-CHOSES	NOUN	ROOT	CHOSES
-DONT	PRON	nmod	CHOSES
+CHOSES	PROPN	ROOT	CHOSES
+DONT	PRON	nummod	CHOSES
 ON	PROPN	ROOT	ON
 LUI	X	punct	ON
 PARLE	NOUN	flat:foreign	ON
@@ -34187,11 +34101,8 @@ du	ADP	case	Rangoon
 Rangoon	NOUN	nmod	rencontre
 !	PUNCT	punct	buvions
 »	PUNCT	ROOT	»
-                               	SPACE	ROOT	                               
 XVII	NUM	ROOT	XVII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-  	SPACE	ROOT	  
 OÙ	PRON	iobj	QUESTION
 IL	PRON	expl:subj	QUESTION
 EST	AUX	cop	QUESTION
@@ -34204,7 +34115,6 @@ AUTRES	NOUN	conj	CHOSES
 PENDANT	ADP	case	TRAVERSÉE
 LA	DET	det	TRAVERSÉE
 TRAVERSÉE	NOUN	ROOT	TRAVERSÉE
-                     	SPACE	ROOT	                     
 DE	ADP	case	SINGAPORE
 SINGAPORE	PROPN	ROOT	SINGAPORE
 A	NOUN	nmod	SINGAPORE
@@ -36821,22 +36731,18 @@ plus	ADV	advmod	vite
 vite	ADV	advmod	irait
 !	PUNCT	punct	sauterait
 »	PUNCT	ROOT	»
-                              	SPACE	ROOT	                              
 XVIII	NUM	ROOT	XVIII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-           	SPACE	ROOT	           
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	ROOT	LEQUEL
 PHILEAS	ADJ	amod	LEQUEL
-FOGG	PROPN	ROOT	FOGG
+FOGG	PROPN	conj	LEQUEL
 ,	PUNCT	punct	PASSEPARTOUT
 PASSEPARTOUT	PROPN	conj	FOGG
 ,	PUNCT	punct	FIX
 FIX	NOUN	conj	FOGG
-,	PUNCT	punct	FOGG
-              	SPACE	ROOT	              
-CHACUN	NOUN	ROOT	CHACUN
+,	PUNCT	punct	LEQUEL
+CHACUN	PRON	ROOT	CHACUN
 DE	ADP	case	CÔTÉ
 SON	DET	det	CÔTÉ
 CÔTÉ	NOUN	nmod	CHACUN
@@ -38698,19 +38604,15 @@ Hôtel	NOUN	nsubj	quitta
 du	ADP	case	Club
 Club	NOUN	nmod	Hôtel
 .	PUNCT	punct	Passepartout
-                               	SPACE	ROOT	                               
 XIX	PROPN	ROOT	XIX
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-            	SPACE	ROOT	            
-OÙ	PRON	nmod	PASSEPARTOUT
-PASSEPARTOUT	NOUN	ROOT	PASSEPARTOUT
+OÙ	PRON	dep	PASSEPARTOUT
+PASSEPARTOUT	NOUN	nsubj	PREND
 PREND	NOUN	ROOT	PREND
 UN	DET	det	TROP
-TROP	NOUN	ROOT	TROP
+TROP	NOUN	obj	PREND
 VIF	PROPN	ROOT	VIF
 INTÉRÊT	VERB	ROOT	INTÉRÊT
-                 	SPACE	ROOT	                 
 A	NOUN	ROOT	A
 SON	DET	det	MAÎTRE
 MAÎTRE	NOUN	nmod	A
@@ -38719,7 +38621,7 @@ ET	CCONJ	cc	CE
 CE	PRON	conj	A
 QUI	PRON	nmod	CE
 S'	PRON	punct	CE
-ENSUIT	NOUN	ROOT	ENSUIT
+ENSUIT	NOUN	dep	CE
 Hong	PROPN	ROOT	Hong
 -	PROPN	ROOT	-
 Kong	PROPN	nsubj	est
@@ -41668,11 +41570,8 @@ payé	VERB	advcl	sortit
 la	DET	det	dépense
 dépense	NOUN	obj	payé
 .	PUNCT	punct	sortit
-                                	SPACE	ROOT	                                
 XX	NOUN	ROOT	XX
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-          	SPACE	ROOT	          
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	obl:mod	FIX
 FIX	PROPN	ROOT	FIX
@@ -41680,9 +41579,8 @@ ENTRE	ADP	advmod	RELATION
 DIRECTEMENT	ADV	fixed	ENTRE
 EN	ADP	case	RELATION
 RELATION	NOUN	ROOT	RELATION
-                        	SPACE	ROOT	                        
 AVEC	NOUN	case	PHILEAS
-PHILEAS	NOUN	ROOT	PHILEAS
+PHILEAS	ADJ	ROOT	PHILEAS
 FOGG	PROPN	ROOT	FOGG
 Pendant	ADP	case	scène
 cette	DET	det	scène
@@ -44115,29 +44013,25 @@ sur	ADP	case	flots
 les	DET	det	flots
 flots	NOUN	obl:arg	bondissant
 .	PUNCT	punct	élança
-                               	SPACE	ROOT	                               
 XXI	NOUN	ROOT	XXI
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-            	SPACE	ROOT	            
 OÙ	PRON	nmod	PATRON
 LE	DET	det	PATRON
 PATRON	NOUN	ROOT	PATRON
 DE	ADP	case	LA
 LA	DET	nmod	PATRON
-«	NOUN	nmod	LA
+«	NOUN	acl	PATRON
 TANKADÈRE	PROPN	ROOT	TANKADÈRE
 »	PUNCT	punct	TANKADÈRE
 RISQUE	NOUN	ROOT	RISQUE
 FORT	ADV	ROOT	FORT
-             	SPACE	ROOT	             
 DE	ADP	case	PERDRE
 PERDRE	NOUN	ROOT	PERDRE
 UNE	DET	det	PRIME
 PRIME	NOUN	nmod	PERDRE
 DE	ADP	case	DEUX
 DEUX	NUM	nummod	CENTS
-CENTS	NOUN	ROOT	CENTS
+CENTS	NOUN	dep	PERDRE
 LIVRES	NOUN	ROOT	LIVRES
 C'	PRON	nsubj	aventureuse
 était	AUX	cop	aventureuse
@@ -47578,13 +47472,10 @@ dans	ADP	case	air
 l'	DET	det	air
 air	NOUN	nmod	canon
 .	PUNCT	punct	détonation
-                               	SPACE	ROOT	                               
-XXII	NOUN	ROOT	XXII
-                       	SPACE	ROOT	                       
+XXII	ADJ	ROOT	XXII
 --------------------	PUNCT	ROOT	--------------------
-        	SPACE	ROOT	        
-OÙ	PRON	nmod	PASSEPARTOUT
-PASSEPARTOUT	NOUN	ROOT	PASSEPARTOUT
+OÙ	PRON	nummod	PASSEPARTOUT
+PASSEPARTOUT	PROPN	ROOT	PASSEPARTOUT
 VOIT	VERB	amod	PASSEPARTOUT
 BIEN	ADV	ROOT	BIEN
 QUE	SCONJ	dep	BIEN
@@ -47593,7 +47484,6 @@ MÊME	ADV	advmod	ANTIPODES
 AUX	ADP	case	ANTIPODES
 ANTIPODES	PROPN	ROOT	ANTIPODES
 ,	PUNCT	punct	ANTIPODES
-       	SPACE	ROOT	       
 IL	PRON	expl:subj	PRUDENT
 EST	AUX	cop	PRUDENT
 PRUDENT	ADJ	ROOT	PRUDENT
@@ -50346,11 +50236,8 @@ l'	DET	det	Europe
 Europe	PROPN	obl:mod	part
 !	PUNCT	punct	japonaise
 »	PUNCT	ROOT	»
-                              	SPACE	ROOT	                              
 XXIII	NOUN	ROOT	XXIII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-    	SPACE	ROOT	    
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	nmod	ALLONGE
 LE	DET	det	NEZ
@@ -51018,23 +50905,17 @@ libellée	VERB	ROOT	libellée
 en	ADP	case	anglais
 anglais	NOUN	obl:mod	libellée
 :	PUNCT	punct	libellée
-                   	SPACE	ROOT	                   
 TROUPE	NOUN	ROOT	TROUPE
 JAPONAISE	ADJ	ROOT	JAPONAISE
 ACROBATIQUE	VERB	ROOT	ACROBATIQUE
-                                	SPACE	ROOT	                                
 DE	ADP	ROOT	DE
-                   	SPACE	ROOT	                   
 L'	DET	det	HONORABLE
 HONORABLE	NOUN	ROOT	HONORABLE
 WILLIAM	PROPN	appos	HONORABLE
-BATULCAR	NOUN	ROOT	BATULCAR
-                              	SPACE	ROOT	                              
+BATULCAR	NOUN	flat:name	HONORABLE
 ------	PUNCT	ROOT	------
-                    	SPACE	ROOT	                    
 DERNIÈRES	ADJ	amod	REPRÉSENTATIONS
 REPRÉSENTATIONS	NOUN	ROOT	REPRÉSENTATIONS
-         	SPACE	ROOT	         
 Avant	ADP	case	départ
 leur	DET	det	départ
 départ	NOUN	ROOT	départ
@@ -51043,9 +50924,7 @@ les	DET	det	États-Unis
 États-Unis	PROPN	nmod	départ
 d'	ADP	case	Amérique
 Amérique	PROPN	nmod	États-Unis
-                               	SPACE	ROOT	                               
 DES	ADP	ROOT	DES
-                       	SPACE	ROOT	                       
 LONGS	PROPN	ROOT	LONGS
 -	PROPN	ROOT	-
 NEZ	PROPN	ROOT	NEZ
@@ -51053,7 +50932,6 @@ NEZ	PROPN	ROOT	NEZ
 LONGS	PROPN	ROOT	LONGS
 -	PROPN	ROOT	-
 NEZ	NOUN	ROOT	NEZ
-             	SPACE	ROOT	             
 SOUS	ADP	case	INVOCATION
 L'	DET	det	INVOCATION
 INVOCATION	NOUN	ROOT	INVOCATION
@@ -51061,7 +50939,6 @@ DIRECTE	VERB	nmod	INVOCATION
 DU	ADP	case	DIEU
 DIEU	PROPN	nmod	INVOCATION
 TINGOU	VERB	ROOT	TINGOU
-                        	SPACE	ROOT	                        
 Grande	ADJ	amod	Attraction
 Attraction	NOUN	ROOT	Attraction
 !	PUNCT	punct	Attraction
@@ -52855,18 +52732,14 @@ de	ADP	case	visage
 son	DET	det	visage
 visage	NOUN	obl:arg	arracher
 !	PUNCT	punct	Aouda
-                               	SPACE	ROOT	                               
-XXIV	NOUN	ROOT	XXIV
-                       	SPACE	ROOT	                       
+XXIV	NUM	ROOT	XXIV
 --------------------	PUNCT	ROOT	--------------------
-             	SPACE	ROOT	             
 PENDANT	ADP	case	LEQUEL
 LEQUEL	PRON	obl:mod	ACCOMPLIT
 S'	PRON	expl:comp	ACCOMPLIT
 ACCOMPLIT	VERB	ROOT	ACCOMPLIT
 LA	DET	det	TRAVERSÉE
 TRAVERSÉE	NOUN	ROOT	TRAVERSÉE
-                       	SPACE	ROOT	                       
 DE	ADP	case	OCÉAN
 L'	DET	det	OCÉAN
 OCÉAN	NOUN	ROOT	OCÉAN
@@ -55319,11 +55192,8 @@ un	DET	det	jour
 seul	ADJ	amod	jour
 jour	NOUN	obj	perdu
 .	PUNCT	punct	avait
-                               	SPACE	ROOT	                               
-XXV	NOUN	ROOT	XXV
-                       	SPACE	ROOT	                       
+XXV	PROPN	ROOT	XXV
 --------------------	PUNCT	ROOT	--------------------
-         	SPACE	ROOT	         
 OÙ	PRON	iobj	DONNE
 L'	DET	nsubj	DONNE
 ON	PRON	nsubj	DONNE
@@ -55335,7 +55205,6 @@ DE	ADP	case	SAN
 SAN	PROPN	nmod	LÉGER
 FRANCISCO	VERB	flat:name	SAN
 ,	PUNCT	punct	DONNE
-                        	SPACE	ROOT	                        
 UN	DET	det	JOUR
 JOUR	NOUN	ROOT	JOUR
 DE	ADP	case	MEETING
@@ -57991,11 +57860,8 @@ partit	ADJ	amod	train
 toute	DET	det	vapeur
 vapeur	NOUN	nmod	train
 .	PUNCT	punct	monta
-                               	SPACE	ROOT	                               
 XXVI	NOUN	ROOT	XXVI
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-         	SPACE	ROOT	         
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	obl:mod	PREND
 ON	PRON	nsubj	PREND
@@ -58005,9 +57871,8 @@ TRAIN	NOUN	obj	PREND
 EXPRESS	ADJ	amod	TRAIN
 DU	ADP	case	CHEMIN
 CHEMIN	NOUN	nmod	TRAIN
-                       	SPACE	ROOT	                       
 DE	ADP	case	FER
-FER	NOUN	ROOT	FER
+FER	PROPN	ROOT	FER
 DU	ADP	case	PACIFIQUE
 PACIFIQUE	NOUN	nmod	FER
 «	ADJ	ROOT	«
@@ -60283,22 +60148,18 @@ pays	NOUN	appos	région
 des	ADP	case	Mormons
 Mormons	NOUN	nmod	pays
 .	PUNCT	punct	pénétra
-                              	SPACE	ROOT	                              
 XXVII	ADJ	ROOT	XXVII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-        	SPACE	ROOT	        
 DANS	ADP	case	LEQUEL
-LEQUEL	PRON	obl:mod	SUIT
+LEQUEL	PRON	ROOT	LEQUEL
 PASSEPARTOUT	NOUN	nmod	LEQUEL
-SUIT	PROPN	ROOT	SUIT
+SUIT	PROPN	nmod	PASSEPARTOUT
 ,	PUNCT	punct	VITESSE
 AVEC	ADP	case	VITESSE
 UNE	DET	det	VITESSE
-VITESSE	NOUN	conj	SUIT
-DE	ADP	punct	SUIT
-       	SPACE	ROOT	       
-VINGT	ADJ	amod	MILLES
+VITESSE	NOUN	conj	LEQUEL
+DE	ADP	conj	LEQUEL
+VINGT	NUM	amod	MILLES
 MILLES	NOUN	ROOT	MILLES
 A	ADP	nmod	MILLES
 L'	DET	det	HEURE
@@ -62908,20 +62769,16 @@ c'	PRON	nsubj	assez
 assez	ADV	conj	répondit
 !	PUNCT	punct	répondit
 »	PUNCT	ROOT	»
-                              	SPACE	ROOT	                              
-XXVIII	NOUN	ROOT	XXVIII
-                       	SPACE	ROOT	                       
+XXVIII	ADJ	ROOT	XXVIII
 --------------------	PUNCT	ROOT	--------------------
-         	SPACE	ROOT	         
 DANS	ADP	case	LEQUEL
-LEQUEL	PRON	obl:mod	PARVENIR
+LEQUEL	PRON	obl:mod	A
 PASSEPARTOUT	NOUN	nmod	LEQUEL
 NE	ADV	advmod	PUT
 PUT	PROPN	amod	LEQUEL
-PARVENIR	PROPN	ROOT	PARVENIR
+PARVENIR	PROPN	nmod	LEQUEL
 A	AUX	ROOT	A
 FAIRE	VERB	ROOT	FAIRE
-                 	SPACE	ROOT	                 
 ENTENDRE	NOUN	ROOT	ENTENDRE
 LE	DET	det	LANGAGE
 LANGAGE	NOUN	ROOT	LANGAGE
@@ -66339,11 +66196,8 @@ Medicine	PROPN	nmod	rapide
 -	PROPN	nmod	rapide
 Bow	PROPN	nmod	rapide
 .	PUNCT	punct	franchi
-                               	SPACE	ROOT	                               
 XXIX	NOUN	ROOT	XXIX
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-      	SPACE	ROOT	      
 OÙ	PRON	iobj	FAIT
 IL	PRON	nsubj	FAIT
 SERA	AUX	cop	FAIT
@@ -66356,13 +66210,12 @@ DIVERS	PROPN	amod	RÉCIT
 QUI	PRON	nsubj	NE
 NE	ADV	dep	FAIT
 SE	VERB	punct	FAIT
-          	SPACE	ROOT	          
 RENCONTRENT	NOUN	ROOT	RENCONTRENT
 QUE	SCONJ	mark	RAIL
 SUR	ADP	case	RAIL
 LES	DET	det	RAIL
 RAIL	PROPN	ROOT	RAIL
--	PROPN	flat:name	RAIL
+-	PROPN	nmod	RAIL
 ROADS	NOUN	ROOT	ROADS
 DE	ADP	case	UNION
 L'	DET	det	UNION
@@ -69229,11 +69082,8 @@ de	ADP	mark	sauver
 les	PRON	obj	sauver
 sauver	VERB	xcomp	venait
 .	PUNCT	punct	reconnurent
-                               	SPACE	ROOT	                               
 XXX	NOUN	ROOT	XXX
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-     	SPACE	ROOT	     
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	ROOT	LEQUEL
 PHILEAS	ADJ	amod	LEQUEL
@@ -72115,11 +71965,8 @@ l'	DET	det	impassible
 impassible	NOUN	obj	répondit
 gentleman	ADJ	amod	impassible
 .	PUNCT	punct	répondit
-                               	SPACE	ROOT	                               
-XXXI	NOUN	ROOT	XXXI
-                       	SPACE	ROOT	                       
+XXXI	X	ROOT	XXXI
 --------------------	PUNCT	ROOT	--------------------
-       	SPACE	ROOT	       
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	ROOT	LEQUEL
 L'	DET	det	INSPECTEUR
@@ -72128,7 +71975,6 @@ FIX	NOUN	acl	INSPECTEUR
 PREND	DET	ROOT	PREND
 TRÈS	ADV	advmod	SÉRIEUSEMENT
 SÉRIEUSEMENT	ADV	ROOT	SÉRIEUSEMENT
-                   	SPACE	ROOT	                   
 LES	DET	det	INTÉRÊTS
 INTÉRÊTS	NOUN	ROOT	INTÉRÊTS
 DE	ADP	case	PHILEAS
@@ -74644,23 +74490,19 @@ quarante	NUM	nummod	minutes
 cinq	NUM	nummod	minutes
 minutes	NOUN	obl:arg	parti
 !	PUNCT	punct	parti
-                              	SPACE	ROOT	                              
 XXXII	NOUN	ROOT	XXXII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-               	SPACE	ROOT	               
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	ROOT	LEQUEL
-PHILEAS	X	amod	LEQUEL
+PHILEAS	ADJ	amod	LEQUEL
 FOGG	PROPN	ROOT	FOGG
 ENGAGE	VERB	ROOT	ENGAGE
 UNE	DET	ROOT	UNE
-             	SPACE	ROOT	             
-LUTTE	X	ROOT	LUTTE
-DIRECTE	NOUN	nmod	LUTTE
+LUTTE	NOUN	ROOT	LUTTE
+DIRECTE	NOUN	obl:arg	LUTTE
 CONTRE	ADP	case	MAUVAISE
 LA	DET	det	MAUVAISE
-MAUVAISE	PROPN	nmod	LUTTE
+MAUVAISE	PROPN	obl:arg	LUTTE
 CHANCE	NOUN	ROOT	CHANCE
 En	ADP	mark	partant
 partant	VERB	advcl	semblait
@@ -76258,14 +76100,11 @@ bank	PROPN	nmod	manqueraient
 -	NOUN	appos	livres
 notes	NOUN	nmod	livres
 !	PUNCT	punct	arrivant
-                              	SPACE	ROOT	                              
 XXXIII	NUM	ROOT	XXXIII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-     	SPACE	ROOT	     
-OÙ	X	amod	PHILEAS
+OÙ	PRON	nummod	PHILEAS
 PHILEAS	X	ROOT	PHILEAS
-FOGG	PROPN	flat:name	PHILEAS
+FOGG	PROPN	ROOT	FOGG
 SE	PRON	expl:comp	MONTRE
 MONTRE	VERB	ROOT	MONTRE
 A	ADP	obj	MONTRE
@@ -79649,12 +79488,9 @@ vous	PRON	iobj	arrête
 arrête	VERB	ROOT	arrête
 !	PUNCT	punct	arrête
 »	PUNCT	ROOT	»
-                              	SPACE	ROOT	                              
 XXXIV	NOUN	ROOT	XXXIV
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-      	SPACE	ROOT	      
-QUI	PROPN	nsubj	PROCURE
+QUI	PRON	nsubj	PROCURE
 PROCURE	ADJ	ROOT	PROCURE
 A	NOUN	obj	PROCURE
 PASSEPARTOUT	NOUN	ROOT	PASSEPARTOUT
@@ -79664,7 +79500,6 @@ DE	ADP	mark	FAIRE
 FAIRE	VERB	nmod	OCCASION
 UN	DET	det	JEU
 JEU	NOUN	obj	FAIRE
-              	SPACE	ROOT	              
 DE	ADP	case	MOTS
 MOTS	NOUN	ROOT	MOTS
 ATROCE	PROPN	flat:name	MOTS
@@ -81001,24 +80836,20 @@ Il	PRON	nsubj	perdu
 avait	AUX	aux:tense	perdu
 perdu	NOUN	ROOT	perdu
 .	PUNCT	punct	perdu
-                               	SPACE	ROOT	                               
 XXXV	NUM	ROOT	XXXV
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-         	SPACE	ROOT	         
 DANS	ADP	case	LEQUEL
-LEQUEL	PRON	ROOT	LEQUEL
+LEQUEL	PRON	obl:mod	RÉPÉTER
 PASSEPARTOUT	NOUN	nmod	LEQUEL
-NE	ADV	ROOT	NE
+NE	ADV	nmod	LEQUEL
 SE	VERB	iobj	FAIT
 FAIT	NOUN	xcomp	NE
-PAS	ADV	advmod	RÉPÉTER
+PAS	ADV	conj	LEQUEL
 RÉPÉTER	VERB	ROOT	RÉPÉTER
-            	SPACE	ROOT	            
 DEUX	NUM	nummod	FOIS
 FOIS	NOUN	ROOT	FOIS
 L'	DET	det	ORDRE
-ORDRE	NOUN	ROOT	ORDRE
+ORDRE	NOUN	nmod	FOIS
 QUE	SCONJ	mark	DONNE
 SON	DET	det	MAÎTRE
 MAÎTRE	NOUN	nsubj	DONNE
@@ -83135,11 +82966,8 @@ sortit	ADJ	fixed	Passepartout
 tout	DET	advmod	courant
 courant	NOUN	ROOT	courant
 .	PUNCT	punct	courant
-                              	SPACE	ROOT	                              
 XXXVI	NOUN	ROOT	XXXVI
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-             	SPACE	ROOT	             
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	ROOT	LEQUEL
 PHILEAS	ADJ	amod	LEQUEL
@@ -83147,11 +82975,10 @@ FOGG	PROPN	ROOT	FOGG
 FAIT	NOUN	ROOT	FAIT
 DE	ADP	case	NOUVEAU
 NOUVEAU	ADJ	nmod	FAIT
-                       	SPACE	ROOT	                       
 PRIME	PROPN	ROOT	PRIME
 SUR	ADP	case	MARCHÉ
 LE	DET	det	MARCHÉ
-MARCHÉ	NOUN	ROOT	MARCHÉ
+MARCHÉ	NOUN	nmod	PRIME
 Il	PRON	expl:subj	temps
 est	AUX	cop	temps
 temps	ADV	ROOT	temps
@@ -84596,11 +84423,8 @@ messieurs	NOUN	ROOT	messieurs
 disait	VERB	ROOT	disait
 -il	PRON	xcomp	disait
 .	PUNCT	punct	disait
-                              	SPACE	ROOT	                              
-XXXVII	NUM	ROOT	XXXVII
-                       	SPACE	ROOT	                       
+XXXVII	PROPN	ROOT	XXXVII
 --------------------	PUNCT	ROOT	--------------------
-       	SPACE	ROOT	       
 DANS	ADP	case	LEQUEL
 LEQUEL	PRON	obl:mod	PROUVÉ
 IL	PRON	nsubj:pass	PROUVÉ
@@ -84612,7 +84436,6 @@ FOGG	PROPN	ROOT	FOGG
 N'	ADV	ROOT	N'
 A	NOUN	punct	N'
 RIEN	PROPN	ROOT	RIEN
-      	SPACE	ROOT	      
 GAGNÉ	NOUN	ROOT	GAGNÉ
 A	AUX	nmod	GAGNÉ
 FAIRE	VERB	ROOT	FAIRE
@@ -85909,15 +85732,11 @@ Tour	NOUN	appos	cela
 du	ADP	case	Monde
 Monde	PROPN	nmod	Tour
 ?	PUNCT	punct	ferait
-                               	SPACE	ROOT	                               
 FIN	NOUN	ROOT	FIN
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                        	SPACE	ROOT	                        
 TABLE	NOUN	ROOT	TABLE
 DES	ADP	case	MATIÈRES
 MATIÈRES	NOUN	nmod	TABLE
-                            	SPACE	ROOT	                            
 Chapitres	NOUN	ROOT	Chapitres
 I.	NOUN	ROOT	I.
 Dans	ADP	case	lequel
@@ -85926,8 +85745,7 @@ Phileas	PROPN	ROOT	Phileas
 Fogg	PROPN	flat:name	Phileas
 et	CCONJ	cc	Passepartout
 Passepartout	ADV	conj	Phileas
- 	SPACE	ROOT	 
-s'	PRON	expl:comp	acceptent
+s'	PRON	expl:pass	acceptent
 acceptent	VERB	ROOT	acceptent
 réciproquement	ADV	advmod	acceptent
 ,	PUNCT	punct	acceptent
@@ -85936,9 +85754,8 @@ un	PRON	nmod	acceptent
 comme	ADP	case	maître
 maître	NOUN	nmod	un
 ,	PUNCT	punct	un
- 	SPACE	ROOT	 
 l'	DET	det	autre
-autre	ADJ	ROOT	autre
+autre	PRON	ROOT	autre
 comme	ADP	case	domestique
 domestique	ADJ	amod	autre
 II	ADJ	ROOT	II
@@ -85951,7 +85768,6 @@ qu'	SCONJ	mark	a
 il	PRON	nsubj	a
 a	AUX	ccomp	convaincu
 enfin	ADV	advmod	a
- 	SPACE	ROOT	 
 trouvé	VERB	ROOT	trouvé
 son	DET	det	idéal
 idéal	NOUN	obj	trouvé
@@ -85964,7 +85780,6 @@ une	DET	det	conversation
 conversation	NOUN	obj	engage
 qui	PRON	nsubj	pourra
 pourra	VERB	acl:relcl	conversation
- 	SPACE	ROOT	 
 coûter	VERB	ROOT	coûter
 cher	ADJ	xcomp	coûter
 à	ADP	case	Phileas
@@ -85977,7 +85792,6 @@ lequel	PRON	det	Phileas
 Phileas	PROPN	ROOT	Phileas
 Fogg	PROPN	nsubj	stupéfie
 stupéfie	VERB	ROOT	stupéfie
- 	SPACE	ROOT	 
 Passepartout	ADV	ROOT	Passepartout
 ,	PUNCT	punct	Passepartout
 son	DET	det	domestique
@@ -85991,7 +85805,6 @@ valeur	NOUN	nsubj	apparaît
 apparaît	VERB	acl:relcl	V.
 sur	ADP	punct	V.
 la	DET	punct	V.
- 	SPACE	ROOT	 
 place	NOUN	ROOT	place
 de	ADP	case	Londres
 Londres	PROPN	nmod	place
@@ -86005,9 +85818,8 @@ Fix	PROPN	ROOT	Fix
 montre	VERB	amod	Fix
 une	DET	det	impatience
 impatience	NOUN	obj	montre
- 	SPACE	ROOT	 
 bien	ADV	advmod	légitime
-légitime	NOUN	ROOT	légitime
+légitime	ADJ	ROOT	légitime
 VII	NOUN	ROOT	VII
 .	PUNCT	punct	VII
 Qui	PRON	nsubj	témoigne
@@ -86019,7 +85831,6 @@ plus	ADV	advmod	l'
 de	ADP	fixed	plus
 l'	DET	det	inutilité
 inutilité	NOUN	nmod	fois
- 	SPACE	ROOT	 
 des	DET	det	passeports
 passeports	NOUN	ROOT	passeports
 en	ADP	case	matière
@@ -86035,10 +85846,9 @@ parle	VERB	ROOT	parle
 un	DET	ROOT	un
 peu	ADV	advmod	plus
 plus	ADV	fixed	un
- 	SPACE	ROOT	 
 peut-être	ADV	ROOT	peut-être
 qu'	SCONJ	mark	conviendrait
-il	PRON	nsubj	conviendrait
+il	PRON	expl:subj	conviendrait
 ne	ADV	advmod	conviendrait
 conviendrait	VERB	ROOT	conviendrait
 IX	ADJ	ROOT	IX
@@ -86053,13 +85863,12 @@ mer	NOUN	conj	Rouge
 des	DET	case	Indes
 Indes	NOUN	nmod	mer
 se	PRON	punct	Où
- 	SPACE	ROOT	 
-montrent	VERB	advmod	Phileas
+montrent	VERB	ROOT	montrent
 propices	NOUN	obj	montrent
 aux	ADP	case	desseins
-desseins	NOUN	obl:arg	montrent
+desseins	NOUN	obl:arg	propices
 de	ADP	case	Phileas
-Phileas	PROPN	ROOT	Phileas
+Phileas	PROPN	nmod	desseins
 Fogg	PROPN	ROOT	Fogg
 X.	PROPN	ROOT	X.
 Où	ADV	advmod	heureux
@@ -86070,8 +85879,7 @@ heureux	ADJ	ROOT	heureux
 d'	ADP	mark	en
 en	PRON	punct	heureux
 être	AUX	dep	heureux
- 	SPACE	ROOT	 
-quitte	NOUN	ROOT	quitte
+quitte	ADJ	ROOT	quitte
 en	ADP	mark	perdant
 perdant	VERB	advcl	quitte
 sa	DET	det	chaussure
@@ -86087,7 +85895,6 @@ monture	NOUN	obj	achète
 à	ADP	case	prix
 un	DET	det	prix
 prix	NOUN	obl:mod	achète
- 	SPACE	ROOT	 
 fabuleux	ADJ	ROOT	fabuleux
 XII	NOUN	ROOT	XII
 .	PUNCT	ROOT	.
@@ -86097,7 +85904,6 @@ Fogg	PROPN	ROOT	Fogg
 et	CCONJ	cc	compagnons
 ses	DET	det	compagnons
 compagnons	NOUN	conj	Fogg
- 	SPACE	ROOT	 
 s'	PRON	expl:comp	aventurent
 aventurent	VERB	ROOT	aventurent
 à	ADP	case	forêts
@@ -86109,7 +85915,6 @@ l'	DET	det	Inde
 Inde	PROPN	nmod	forêts
 ,	PUNCT	punct	aventurent
 et	CCONJ	dep	aventurent
- 	SPACE	ROOT	 
 ce	PRON	ROOT	ce
 qui	PRON	nsubj	ensuit
 s'	PRON	expl:comp	ensuit
@@ -86123,7 +85928,6 @@ prouve	VERB	ROOT	prouve
 une	DET	det	fois
 fois	NOUN	obj	prouve
 de	ADP	ROOT	de
- 	SPACE	ROOT	 
 plus	ADV	mark	sourit
 que	SCONJ	mark	sourit
 la	DET	det	fortune
@@ -86139,7 +85943,6 @@ Phileas	PROPN	ROOT	Phileas
 Fogg	PROPN	nsubj	descend
 descend	VERB	ROOT	descend
 toute	ADJ	ROOT	toute
- 	SPACE	ROOT	 
 l'	DET	det	admirable
 admirable	NOUN	ROOT	admirable
 vallée	NOUN	amod	admirable
@@ -86149,7 +85952,6 @@ sans	ADP	mark	songer
 même	ADV	advmod	songer
 songer	VERB	acl	admirable
 à	ADP	punct	admirable
- 	SPACE	ROOT	 
 la	PRON	obj	voir
 voir	VERB	ROOT	voir
 XV	ADJ	ROOT	XV
@@ -86165,7 +85967,6 @@ s'	PRON	expl:comp	allège
 allège	VERB	ROOT	allège
 encore	ADV	advmod	allège
 de	ADP	punct	allège
- 	SPACE	ROOT	 
 quelques	DET	det	milliers
 milliers	NOUN	ROOT	milliers
 de	ADP	case	livres
@@ -86184,7 +85985,6 @@ connaître	VERB	xcomp	a
 du	ADP	case	tout
 tout	ADJ	obl:arg	connaître
 les	DET	punct	a
- 	SPACE	ROOT	 
 choses	NOUN	ROOT	choses
 dont	PRON	iobj	parle
 on	PRON	nsubj	parle
@@ -86201,7 +86001,6 @@ choses	NOUN	obl:arg	question
 et	CCONJ	cc	autres
 d'	DET	det	autres
 autres	ADJ	conj	question
- 	SPACE	ROOT	 
 pendant	ADP	case	traversée
 la	DET	det	traversée
 traversée	NOUN	ROOT	traversée
@@ -86220,15 +86019,14 @@ Fogg	PROPN	flat:name	Phileas
 ,	PUNCT	punct	Phileas
 Passepartout	ADV	nmod	Phileas
 ,	PUNCT	punct	Phileas
- 	SPACE	ROOT	 
-Fix	PROPN	nsubj	va
+Fix	PROPN	ROOT	Fix
 ,	PUNCT	punct	Fix
 chacun	PRON	nmod	Fix
 de	ADP	case	côté
 son	DET	det	côté
 côté	NOUN	nmod	chacun
 ,	PUNCT	punct	Fix
-va	VERB	ROOT	va
+va	VERB	amod	Fix
 à	ADP	case	affaires
 ses	DET	det	affaires
 affaires	NOUN	obl:arg	va
@@ -86242,7 +86040,6 @@ trop	ADV	amod	vif
 vif	NOUN	obj	prend
 intérêt	ADJ	advmod	prend
 à	ADP	punct	prend
- 	SPACE	ROOT	 
 son	DET	det	maître
 maître	NOUN	ROOT	maître
 ,	PUNCT	punct	maître
@@ -86260,7 +86057,6 @@ entre	ADP	advmod	relation
 directement	ADV	fixed	entre
 en	ADP	case	relation
 relation	NOUN	ROOT	relation
- 	SPACE	ROOT	 
 avec	ADP	case	Phileas
 Phileas	PROPN	ROOT	Phileas
 Fogg	PROPN	flat:name	Phileas
@@ -86274,15 +86070,14 @@ la	DET	det	Tankadère
 Tankadère	NOUN	nmod	patron
 risque	VERB	ROOT	risque
 fort	ADV	advmod	risque
- 	SPACE	ROOT	 
 de	ADP	mark	perdre
-perdre	VERB	dep	 
+perdre	VERB	ROOT	perdre
 une	DET	det	prime
 prime	NOUN	obj	perdre
 de	ADP	case	cents
 deux	NUM	nummod	cents
 cents	NOUN	nmod	prime
-livres	NOUN	ROOT	livres
+livres	NOUN	conj	perdre
 XXII	PROPN	ROOT	XXII
 .	PUNCT	punct	XXII
 Où	ADV	advmod	voit
@@ -86293,7 +86088,6 @@ que	SCONJ	fixed	bien
 ,	PUNCT	punct	voit
 même	ADV	advmod	voit
 aux	ADP	fixed	même
- 	SPACE	ROOT	 
 antipodes	NOUN	ROOT	antipodes
 ,	PUNCT	punct	prudent
 il	PRON	expl:subj	prudent
@@ -86302,7 +86096,6 @@ prudent	ADJ	ROOT	prudent
 d'	ADP	mark	avoir
 avoir	VERB	dep	prudent
 quelque	DET	punct	prudent
- 	SPACE	ROOT	 
 argent	NOUN	ROOT	argent
 dans	ADP	case	poche
 sa	DET	det	poche
@@ -86315,9 +86108,8 @@ le	DET	det	nez
 nez	NOUN	ROOT	nez
 de	ADP	case	Passepartout
 Passepartout	PROPN	nmod	nez
- 	SPACE	ROOT	 
 s'	PRON	expl:comp	allonge
-allonge	NOUN	nsubj	démesurément
+allonge	NOUN	ROOT	allonge
 démesurément	VERB	ROOT	démesurément
 XXIV	NOUN	ROOT	XXIV
 .	PUNCT	ROOT	.
@@ -86328,7 +86120,6 @@ accomplit	VERB	ROOT	accomplit
 la	DET	det	traversée
 traversée	NOUN	obj	accomplit
 de	ADP	punct	accomplit
- 	SPACE	ROOT	 
 l'	DET	det	océan
 océan	NOUN	ROOT	océan
 Pacifique	ADJ	amod	océan
@@ -86343,7 +86134,6 @@ léger	NOUN	obj	donne
 aperçu	ADJ	amod	léger
 de	ADP	case	San
 San	PROPN	nmod	léger
- 	SPACE	ROOT	 
 Francisco	PROPN	ROOT	Francisco
 ,	PUNCT	punct	jour
 un	DET	det	jour
@@ -86360,7 +86150,6 @@ le	DET	det	train
 train	NOUN	obj	prend
 express	VERB	acl	train
 du	ADP	punct	prend
- 	SPACE	ROOT	 
 chemin	NOUN	ROOT	chemin
 de	ADP	case	fer
 fer	NOUN	nmod	chemin
@@ -86375,21 +86164,19 @@ suit	VERB	ROOT	suit
 ,	PUNCT	punct	suit
 avec	ADP	ROOT	avec
 une	DET	fixed	avec
- 	SPACE	ROOT	 
 vitesse	NOUN	ROOT	vitesse
 de	ADP	case	milles
 vingt	NUM	nummod	milles
 milles	NOUN	nmod	vitesse
 à	ADP	case	heure
 l'	DET	det	heure
-heure	NOUN	nmod	vitesse
+heure	NOUN	nmod	milles
 ,	PUNCT	punct	vitesse
 un	DET	det	cours
 cours	NOUN	nmod	vitesse
- 	SPACE	ROOT	 
 d'	ADP	case	histoire
 histoire	NOUN	ROOT	histoire
-mormone	NOUN	amod	histoire
+mormone	NOUN	ROOT	mormone
 XXVIII	ADJ	ROOT	XXVIII
 .	PUNCT	punct	XXVIII
 Dans	ADP	case	lequel
@@ -86399,7 +86186,6 @@ ne	ADV	advmod	parvenir
 put	PRON	dep	parvenir
 parvenir	VERB	nsubj	Passepartout
 à	ADP	punct	lequel
- 	SPACE	ROOT	 
 faire	AUX	ROOT	faire
 entendre	VERB	xcomp	faire
 le	DET	det	langage
@@ -86418,7 +86204,6 @@ récit	NOUN	obj	fait
 d'	ADP	case	incidents
 incidents	NOUN	nmod	récit
 divers	ADJ	amod	incidents
- 	SPACE	ROOT	 
 qui	PRON	nsubj	rencontrent
 ne	ADV	advmod	rencontrent
 se	PRON	expl:comp	rencontrent
@@ -86429,7 +86214,6 @@ les	DET	det	rails
 rails	NOUN	dep	rencontrent
 -	NOUN	nmod	rails
 roads	NOUN	obl:mod	rencontrent
- 	SPACE	ROOT	 
 de	ADP	case	Union
 l'	DET	det	Union
 Union	PROPN	ROOT	Union
@@ -86442,7 +86226,6 @@ Fogg	PROPN	nsubj	fait
 fait	VERB	ROOT	fait
 tout	ADV	advmod	simplement
 simplement	ADV	advmod	fait
- 	SPACE	ROOT	 
 son	DET	det	devoir
 devoir	NOUN	ROOT	devoir
 XXXI	PROPN	ROOT	XXXI
@@ -86454,7 +86237,6 @@ inspecteur	NOUN	nsubj	prend
 Fix	NOUN	nmod	inspecteur
 prend	VERB	ROOT	prend
 très	ADV	advmod	prend
- 	SPACE	ROOT	 
 sérieusement	ADV	ROOT	sérieusement
 les	DET	det	intérêts
 intérêts	NOUN	ROOT	intérêts
@@ -86470,7 +86252,6 @@ Fogg	PROPN	nsubj	engage
 engage	VERB	ROOT	engage
 une	DET	det	lutte
 lutte	NOUN	obj	engage
- 	SPACE	ROOT	 
 directe	NOUN	ROOT	directe
 contre	ADP	case	chance
 la	DET	det	chance
@@ -86487,7 +86268,6 @@ montre	VERB	ROOT	montre
 la	DET	det	hauteur
 hauteur	NOUN	obl:arg	montre
 des	ADP	punct	montre
- 	SPACE	ROOT	 
 circonstances	NOUN	ROOT	circonstances
 XXXIV	ADJ	ROOT	XXXIV
 .	PUNCT	punct	XXXIV
@@ -86498,7 +86278,6 @@ Passepartout	PROPN	obl:mod	procure
 l'	DET	det	occasion
 occasion	NOUN	obj	procure
 de	ADP	ROOT	de
- 	SPACE	ROOT	 
 faire	VERB	ROOT	faire
 un	DET	det	jeu
 jeu	NOUN	obj	faire
@@ -86508,7 +86287,6 @@ atroce	ADJ	amod	mots
 ,	PUNCT	punct	faire
 mais	CCONJ	dep	faire
 peut-être	ADV	conj	mais
- 	SPACE	ROOT	 
 inédit	NOUN	ROOT	inédit
 XXXV	NUM	ROOT	XXXV
 .	PUNCT	punct	XXXV
@@ -86519,10 +86297,9 @@ ne	ADV	advmod	fait
 se	PRON	expl:comp	fait
 fait	VERB	ROOT	fait
 pas	ADV	advmod	fait
- 	SPACE	ROOT	 
 répéter	VERB	ROOT	répéter
 deux	NUM	nummod	fois
-fois	NOUN	obj	répéter
+fois	NOUN	obl:mod	répéter
 l'	DET	det	ordre
 ordre	NOUN	obj	répéter
 que	SCONJ	nmod	ordre
@@ -86530,7 +86307,6 @@ son	DET	det	maître
 maître	NOUN	dep	que
 lui	PRON	nmod	maître
 a	AUX	ROOT	a
- 	SPACE	ROOT	 
 donné	VERB	ROOT	donné
 XXXVI	PROPN	ROOT	XXXVI
 .	PUNCT	punct	XXXVI
@@ -86541,8 +86317,7 @@ Fogg	PROPN	nsubj	fait
 fait	VERB	ROOT	fait
 de	ADP	punct	fait
 nouveau	ADJ	fixed	de
- 	SPACE	ROOT	 
-prime	NOUN	ROOT	prime
+prime	ADJ	ROOT	prime
 sur	ADP	case	marché
 le	DET	det	marché
 marché	NOUN	nmod	prime
@@ -86556,21 +86331,19 @@ prouvé	VERB	ROOT	prouvé
 que	SCONJ	mark	Phileas
 Phileas	PROPN	dep	prouvé
 Fogg	PROPN	ROOT	Fogg
- 	SPACE	ROOT	 
-n'	ADV	advmod	gagné
-a	AUX	aux:tense	gagné
+n'	ADV	advmod	a
+a	VERB	ROOT	a
 rien	PRON	nsubj	gagné
-gagné	ADJ	ROOT	gagné
+gagné	ADJ	obj	a
 à	ADP	mark	faire
-faire	VERB	xcomp	gagné
+faire	VERB	acl	gagné
 ce	DET	det	tour
 tour	NOUN	obj	faire
 du	ADP	case	monde
 monde	NOUN	nmod	tour
-,	PUNCT	punct	gagné
-si	SCONJ	mark	ce
+,	PUNCT	punct	a
+si	SCONJ	ROOT	si
 ce	DET	ROOT	ce
- 	SPACE	ROOT	 
 n'	ADV	advmod	bonheur
 est	AUX	cop	bonheur
 le	DET	det	bonheur

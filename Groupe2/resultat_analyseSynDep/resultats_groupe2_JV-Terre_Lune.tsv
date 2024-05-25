@@ -49,11 +49,8 @@ Minutes	NOUN	nmod	Heures
 =	X	ROOT	=
 =	PRON	ROOT	=
 =	VERB	ROOT	=
-                                	SPACE	ROOT	                                
 I	NOUN	ROOT	I
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                           	SPACE	ROOT	                           
 LE	DET	det	GUN
 GUN	PROPN	ROOT	GUN
 -	PROPN	ROOT	-
@@ -2899,10 +2896,9 @@ en	ADP	case	termes
 ces	DET	det	termes
 termes	NOUN	obl:mod	recevait
 :	PUNCT	punct	recevait
-                                       	SPACE	ROOT	                                       
 Baltimore	PROPN	ROOT	Baltimore
 ,	PUNCT	punct	Baltimore
-3	NUM	nmod	Baltimore
+3	NUM	nummod	Baltimore
 octobre	NOUN	nmod	3
 .	PUNCT	punct	Baltimore
 Le	DET	det	président
@@ -2962,21 +2958,16 @@ par	ADP	case	présente
 la	DET	det	présente
 présente	NOUN	obl:agent	faite
 .	PUNCT	punct	rendre
-                                      	SPACE	ROOT	                                      
 Très	ADV	advmod	cordialement
 cordialement	ADV	ROOT	cordialement
 leur	DET	ROOT	leur
-                                      	SPACE	ROOT	                                      
 IMPEY	NOUN	ROOT	IMPEY
-BARBICANE	VERB	ROOT	BARBICANE
+BARBICANE	ADJ	ROOT	BARBICANE
 ,	PUNCT	punct	BARBICANE
 P.	PROPN	obl:mod	BARBICANE
 G.-C.	PROPN	flat:name	P.
-                                	SPACE	ROOT	                                
 II	NUM	ROOT	II
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-               	SPACE	ROOT	               
 COMMUNICATION	NOUN	ROOT	COMMUNICATION
 DU	ADP	case	PRÉSIDENT
 PRÉSIDENT	NOUN	nmod	COMMUNICATION
@@ -5869,16 +5860,13 @@ petite	ADJ	amod	expérience
 expérience	NOUN	obj	tenter
 !	PUNCT	punct	ai
 »	PUNCT	ROOT	»
-                               	SPACE	ROOT	                               
-III	NOUN	ROOT	III
-                       	SPACE	ROOT	                       
+III	ADJ	ROOT	III
 --------------------	PUNCT	ROOT	--------------------
-               	SPACE	ROOT	               
 EFFET	NOUN	ROOT	EFFET
 DE	ADP	case	COMMUNICATION
 LA	DET	det	COMMUNICATION
 COMMUNICATION	NOUN	nmod	EFFET
-BARBICANE	VERB	acl	EFFET
+BARBICANE	VERB	acl	COMMUNICATION
 Il	PRON	expl:subj	impossible
 est	AUX	cop	impossible
 impossible	ADJ	ROOT	impossible
@@ -7516,11 +7504,8 @@ des	DET	det	recettes
 recettes	NOUN	obl:arg	fit
 phénoménales	ADJ	amod	recettes
 .	PUNCT	punct	fit
-                                	SPACE	ROOT	                                
-IV	ADJ	ROOT	IV
-                       	SPACE	ROOT	                       
+IV	NOUN	ROOT	IV
 --------------------	PUNCT	ROOT	--------------------
-              	SPACE	ROOT	              
 RÉPONSE	NOUN	ROOT	RÉPONSE
 DE	ADP	case	OBSERVATOIRE
 L'	DET	det	OBSERVATOIRE
@@ -7748,8 +7733,7 @@ Club	PROPN	nmod	Président
 à	ADP	case	Baltimore
 Baltimore	PROPN	nmod	Directeur
 .	PUNCT	punct	Directeur
-                                           	SPACE	ROOT	                                           
-«	NOUN	ROOT	«
+«	PUNCT	ROOT	«
 Cambridge	PROPN	ROOT	Cambridge
 ,	PUNCT	punct	Cambridge
 7	NUM	nmod	Cambridge
@@ -9451,13 +9435,11 @@ Pour	ADP	case	bureau
 le	DET	det	bureau
 bureau	NOUN	ROOT	bureau
 :	PUNCT	punct	bureau
-                                                  	SPACE	ROOT	                                                  
-«	NOUN	ROOT	«
+«	PUNCT	ROOT	«
 J.-M.	PROPN	ROOT	J.-M.
 BELFAST	PROPN	flat:name	J.-M.
 ,	PUNCT	punct	J.-M.
-                    	SPACE	ROOT	                    
-«	ADJ	ROOT	«
+«	PUNCT	ROOT	«
 Directeur	NOUN	ROOT	Directeur
 de	ADP	case	Observatoire
 l'	DET	det	Observatoire
@@ -9466,11 +9448,8 @@ de	ADP	case	Cambridge
 Cambridge	PROPN	nmod	Observatoire
 .	PUNCT	punct	Directeur
 »	PUNCT	ROOT	»
-                                	SPACE	ROOT	                                
 V	NOUN	ROOT	V
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                       	SPACE	ROOT	                       
 LE	DET	det	ROMAN
 ROMAN	NOUN	ROOT	ROMAN
 DE	ADP	case	LUNE
@@ -11889,11 +11868,8 @@ politiques	ADJ	conj	cosmographiques
 et	CCONJ	cc	moraux
 moraux	ADJ	conj	cosmographiques
 .	PUNCT	punct	état
-                                	SPACE	ROOT	                                
 VI	NUM	ROOT	VI
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-     	SPACE	ROOT	     
 CE	PRON	ROOT	CE
 QU'	PRON	det	IL
 IL	PRON	nmod	CE
@@ -11909,7 +11885,6 @@ QU'	SCONJ	det	IL
 IL	PRON	dep	CE
 N'	ADV	ROOT	N'
 EST	AUX	fixed	N'
-            	SPACE	ROOT	            
 PLUS	ADV	advmod	PERMIS
 PERMIS	VERB	ROOT	PERMIS
 DE	ADP	case	CROIRE
@@ -13950,11 +13925,8 @@ des	ADP	case	États-Unis
 d'	ADP	case	Amérique
 Amérique	PROPN	nmod	États-Unis
 .	PUNCT	punct	eurent
-                               	SPACE	ROOT	                               
 VII	NOUN	ROOT	VII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                        	SPACE	ROOT	                        
 L'	DET	det	HYMNE
 HYMNE	NOUN	ROOT	HYMNE
 DU	ADP	case	BOULET
@@ -17312,11 +17284,8 @@ la	DET	det	Terre
 Terre	NOUN	nmod	habitants
 »	PUNCT	punct	habitants
 !	PUNCT	punct	résolue
-                               	SPACE	ROOT	                               
-VIII	NOUN	ROOT	VIII
-                       	SPACE	ROOT	                       
+VIII	ADJ	ROOT	VIII
 --------------------	PUNCT	ROOT	--------------------
-                       	SPACE	ROOT	                       
 L'	DET	det	HISTOIRE
 HISTOIRE	NOUN	ROOT	HISTOIRE
 DU	ADP	case	CANON
@@ -19455,11 +19424,8 @@ sa	DET	det	séance
 troisième	ADJ	amod	séance
 séance	NOUN	obj	soir
 .	PUNCT	punct	sépara
-                                	SPACE	ROOT	                                
-IX	ADJ	ROOT	IX
-                       	SPACE	ROOT	                       
+IX	NOUN	ROOT	IX
 --------------------	PUNCT	ROOT	--------------------
-                     	SPACE	ROOT	                     
 LA	DET	det	QUESTION
 QUESTION	NOUN	ROOT	QUESTION
 DES	ADP	case	POUDRES
@@ -21916,11 +21882,8 @@ découverte	NOUN	nmod	honneur
 J.	PROPN	ROOT	J.
 V.	PROPN	flat:name	J.
 ]	PUNCT	punct	J.
-                                	SPACE	ROOT	                                
 X	NOUN	ROOT	X
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-             	SPACE	ROOT	             
 UN	DET	det	ENNEMI
 ENNEMI	NOUN	ROOT	ENNEMI
 SUR	ADP	case	MILLIONS
@@ -23952,7 +23915,6 @@ nécessaires	ADJ	amod	fonds
 à	ADP	case	entreprise
 l'	DET	det	entreprise
 entreprise	NOUN	nmod	fonds
-   	SPACE	ROOT	   
 du	ADP	case	Gun
 Gun	PROPN	ROOT	Gun
 -	PROPN	ROOT	-
@@ -23962,11 +23924,10 @@ seraient	AUX	cop	faits
 pas	ADV	advmod	faits
 faits	VERB	ROOT	faits
 ,	PUNCT	punct	faits
-ci	NOUN	dep	,
+ci	NOUN	conj	faits
 ...	PUNCT	punct	dollars
- 	SPACE	dep	...
 1000	NUM	nummod	dollars
-dollars	NOUN	conj	faits
+dollars	NOUN	nmod	ci
 2	NUM	nummod	°
 °	NOUN	ROOT	°
 Que	SCONJ	ROOT	Que
@@ -23978,23 +23939,20 @@ fonte	NOUN	nmod	opération
 d'	ADP	case	canon
 un	DET	det	canon
 canon	NOUN	nmod	opération
-   	SPACE	ROOT	   
 de	ADP	case	cents
 neuf	ADJ	amod	cents
-cents	NOUN	ROOT	cents
+cents	NOUN	nsubj	impraticable
 pieds	ADJ	amod	cents
 était	AUX	cop	impraticable
 impraticable	ADJ	ROOT	impraticable
-   	SPACE	ROOT	   
 et	CCONJ	cc	réussirait
 ne	ADV	advmod	réussirait
 réussirait	VERB	ROOT	réussirait
 pas	ADV	advmod	réussirait
-,	PUNCT	punct	..............
-ci	NOUN	nsubj	..............
-..............	VERB	ROOT	..............
-   	SPACE	dep	..............
-2000	NUM	nummod	..............
+,	PUNCT	punct	ci
+ci	NOUN	ROOT	ci
+..............	PUNCT	punct	ci
+2000	NUM	nmod	..............
 --	PUNCT	ROOT	--
 3	NUM	nummod	°
 °	NOUN	ROOT	°
@@ -24005,7 +23963,6 @@ impossible	NOUN	ROOT	impossible
 de	ADP	mark	charger
 charger	VERB	dep	impossible
 la	DET	punct	impossible
-   	SPACE	ROOT	   
 Columbiad	PROPN	ROOT	Columbiad
 ,	PUNCT	punct	Columbiad
 et	CCONJ	cc	prendrait
@@ -24013,7 +23970,6 @@ que	SCONJ	mark	prendrait
 le	DET	det	pyroxyle
 pyroxyle	NOUN	nsubj	prendrait
 prendrait	VERB	conj	Columbiad
-   	SPACE	ROOT	   
 feu	NOUN	ROOT	feu
 de	ADP	case	lui-même
 lui-même	PRON	dep	feu
@@ -24021,13 +23977,11 @@ sous	ADP	case	pression
 la	DET	det	pression
 pression	NOUN	nmod	feu
 du	ADP	ROOT	du
-   	SPACE	ROOT	   
 projectile	NOUN	ROOT	projectile
-,	PUNCT	punct	3000
-ci	NOUN	nsubj	3000
-......................	PRON	punct	3000
-     	SPACE	dep	......................
-3000	NUM	ROOT	3000
+,	PUNCT	punct	ci
+ci	NOUN	ROOT	ci
+......................	PUNCT	punct	3000
+3000	NUM	nummod	ci
 --	PUNCT	ROOT	--
 4	NUM	nummod	°
 °	NOUN	ROOT	°
@@ -24037,13 +23991,11 @@ Columbiad	ADJ	amod	éclaterait
 éclaterait	VERB	ROOT	éclaterait
 au	ADP	case	premier
 premier	ADJ	obl:arg	éclaterait
-   	SPACE	ROOT	   
 coup	NOUN	ROOT	coup
-,	PUNCT	punct	...............................
-ci	NOUN	nsubj	...............................
-...............................	NOUN	ROOT	...............................
-  	SPACE	dep	...............................
-4000	NUM	nummod	...............................
+,	PUNCT	punct	ci
+ci	NOUN	ROOT	ci
+...............................	NOUN	nsubj	ci
+4000	NUM	nmod	...............................
 --	PUNCT	ROOT	--
 5	NUM	ROOT	5
 °	NOUN	nmod	5
@@ -24055,23 +24007,20 @@ irait	VERB	ROOT	irait
 pas	ADV	advmod	irait
 seulement	ADV	advmod	irait
 à	ADP	punct	irait
-   	SPACE	ROOT	   
 six	NUM	nummod	milles
 milles	NOUN	ROOT	milles
 et	CCONJ	cc	retomberait
 retomberait	VERB	conj	milles
 quelques	DET	ROOT	quelques
-   	SPACE	ROOT	   
-secondes	NOUN	ROOT	secondes
+secondes	ADJ	ROOT	secondes
 après	ADP	mark	lancé
 avoir	AUX	aux:tense	lancé
 été	AUX	aux:pass	lancé
 lancé	VERB	advcl	secondes
 ,	PUNCT	punct	lancé
-si	SCONJ	mark	5000
+si	SCONJ	dep	lancé
 ...	PUNCT	punct	5000
-    	SPACE	dep	...
-5000	NUM	obl:mod	lancé
+5000	NUM	punct	lancé
 --	PUNCT	ROOT	--
 On	PRON	nsubj	somme
 le	DET	det	voit
@@ -24132,7 +24081,6 @@ en	ADP	case	termes
 ces	DET	det	termes
 termes	NOUN	obl:mod	conçu
 :	PUNCT	punct	reçut
-                                     	SPACE	ROOT	                                     
 Baltimore	PROPN	ROOT	Baltimore
 ,	PUNCT	punct	Baltimore
 18	NUM	ROOT	18
@@ -24140,14 +24088,10 @@ octobre	NOUN	nmod	18
 .	PUNCT	ROOT	.
 Tenu	PROPN	ROOT	Tenu
 .	PUNCT	punct	Tenu
-                                         	SPACE	ROOT	                                         
-BARBICANE	NOUN	ROOT	BARBICANE
+BARBICANE	VERB	ROOT	BARBICANE
 .	PUNCT	punct	BARBICANE
-                                	SPACE	ROOT	                                
 XI	NOUN	ROOT	XI
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                         	SPACE	ROOT	                         
 FLORIDE	NOUN	ROOT	FLORIDE
 ET	CCONJ	cc	TEXAS
 TEXAS	PROPN	conj	FLORIDE
@@ -26474,11 +26418,8 @@ des	ADP	case	temps
 temps	NOUN	nmod	laconisme
 antiques	ADJ	amod	temps
 .	PUNCT	punct	répondirent
-                               	SPACE	ROOT	                               
 XII	NOUN	ROOT	XII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                           	SPACE	ROOT	                           
 URBI	NOUN	ROOT	URBI
 ET	CCONJ	cc	ORBI
 ORBI	PROPN	conj	URBI
@@ -28397,7 +28338,6 @@ Souscriptions	NOUN	ROOT	Souscriptions
 .......	PUNCT	punct	dollars
 1,446,675	NUM	nummod	dollars
 dollars	NOUN	conj	Souscriptions
-                               	SPACE	ROOT	                               
 -----------------	PUNCT	ROOT	-----------------
 Total	NOUN	ROOT	Total
 ..........................	PUNCT	ROOT	..........................
@@ -28756,11 +28696,8 @@ et	CCONJ	cc	autre
 d'	ADP	case	autre
 autre	PRON	conj	part
 .	PUNCT	punct	signé
-                               	SPACE	ROOT	                               
 XIII	ADJ	ROOT	XIII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                           	SPACE	ROOT	                           
 STONE'	PROPN	ROOT	STONE'
 S	NOUN	ROOT	S
 -	PROPN	ROOT	-
@@ -31257,11 +31194,8 @@ du	ADP	case	monde
 monde	NOUN	nmod	espaces
 solaire	ADJ	amod	monde
 !	PUNCT	punct	est
-                               	SPACE	ROOT	                               
 XIV	NOUN	ROOT	XIV
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                        	SPACE	ROOT	                        
 PIOCHE	PROPN	ROOT	PIOCHE
 ET	CCONJ	cc	TRUELLE
 TRUELLE	NOUN	conj	PIOCHE
@@ -33807,11 +33741,8 @@ francs	NOUN	obj	compte
 de	ADP	case	travaux
 travaux	NOUN	nmod	francs
 .	PUNCT	punct	dépassa
-                                	SPACE	ROOT	                                
 XV	ADJ	ROOT	XV
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                       	SPACE	ROOT	                       
 LA	DET	det	FÊTE
 FÊTE	NOUN	ROOT	FÊTE
 DE	ADP	case	FONTE
@@ -35604,11 +35535,8 @@ métal	ADJ	conj	trépidations
 en	ADP	case	fusion
 fusion	NOUN	nmod	métal
 .	PUNCT	punct	créé
-                               	SPACE	ROOT	                               
 XVI	NOUN	ROOT	XVI
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                           	SPACE	ROOT	                           
 LA	DET	ROOT	LA
 COLUMBIAD	ADP	acl	LA
 L'	DET	det	opération
@@ -38183,11 +38111,8 @@ espaces	NOUN	obl:mod	dû
 planétaires	ADJ	amod	espaces
 »	PUNCT	punct	dû
 .	PUNCT	punct	donné
-                               	SPACE	ROOT	                               
 XVII	NUM	ROOT	XVII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                      	SPACE	ROOT	                      
 UNE	DET	det	DÉPÊCHE
 DÉPÊCHE	NOUN	ROOT	DÉPÊCHE
 TÉLÉGRAPHIQUE	VERB	acl	DÉPÊCHE
@@ -38455,7 +38380,6 @@ Gun	PROPN	nmod	archives
 -	PROPN	nmod	archives
 Club	PROPN	nmod	archives
 :	PUNCT	punct	figure
-                          	SPACE	ROOT	                          
 FRANCE	PROPN	ROOT	FRANCE
 ,	PUNCT	punct	PARIS
 PARIS	PROPN	conj	FRANCE
@@ -38468,16 +38392,14 @@ septembre	NOUN	nmod	30
 h	NOUN	nmod	_
 matin	NOUN	nmod	h
 .	PUNCT	ROOT	.
-                                       	SPACE	ROOT	                                       
-Barbicane	NOUN	ROOT	Barbicane
+Barbicane	PROPN	ROOT	Barbicane
 ,	PUNCT	punct	Tampa
 Tampa	PROPN	conj	Barbicane
 ,	PUNCT	punct	Floride
 Floride	NOUN	conj	Barbicane
 ,	PUNCT	punct	Barbicane
-                                                      	SPACE	ROOT	                                                      
 États-Unis	PROPN	ROOT	États-Unis
-.	PUNCT	punct	États-Unis
+.	PUNCT	ROOT	.
 Remplacez	PROPN	ROOT	Remplacez
 obus	ADJ	amod	Remplacez
 sphérique	ADJ	amod	Remplacez
@@ -38496,15 +38418,11 @@ steamer	VERB	ROOT	steamer
 _	NOUN	obj	steamer
 Atlanta	PROPN	nmod	_
 .	PUNCT	punct	steamer
-                                                    	SPACE	ROOT	                                                    
 MICHEL	PROPN	ROOT	MICHEL
 ARDAN	PROPN	flat:name	MICHEL
-.	PUNCT	ROOT	.
-                              	SPACE	ROOT	                              
+.	PUNCT	punct	MICHEL
 XVIII	NUM	ROOT	XVIII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                     	SPACE	ROOT	                     
 LE	DET	det	PASSAGER
 PASSAGER	NOUN	ROOT	PASSAGER
 DE	ADP	case	L'«ATLANTA
@@ -42122,11 +42040,8 @@ le	DET	det	président
 président	NOUN	obj	tutoyait
 Barbicane	PROPN	flat:name	président
 .	PUNCT	punct	serraient
-                               	SPACE	ROOT	                               
 XIX	PROPN	ROOT	XIX
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                            	SPACE	ROOT	                            
 UN	DET	det	MEETING
 MEETING	NOUN	ROOT	MEETING
 Le	DET	det	lendemain
@@ -45761,11 +45676,8 @@ Gun	PROPN	nmod	secrétaire
 -	PROPN	nmod	secrétaire
 Club	NOUN	nmod	secrétaire
 .	PUNCT	punct	suspendue
-                                	SPACE	ROOT	                                
 XX	NOUN	ROOT	XX
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                        	SPACE	ROOT	                        
 ATTAQUE	NOUN	ROOT	ATTAQUE
 ET	CCONJ	cc	RIPOSTE
 RIPOSTE	PROPN	conj	ATTAQUE
@@ -49022,11 +48934,8 @@ discussion	NOUN	obl:mod	posé
 du	ADP	case	meeting
 meeting	NOUN	nmod	discussion
 .	PUNCT	punct	revint
-                               	SPACE	ROOT	                               
 XXI	NOUN	ROOT	XXI
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-             	SPACE	ROOT	             
 COMMENT	ADV	advmod	ARRANGE
 UN	DET	det	FRANÇAIS
 FRANÇAIS	NOUN	nsubj	ARRANGE
@@ -52078,11 +51987,8 @@ Allons	NOUN	ROOT	Allons
 déjeuner	ADJ	amod	Allons
 .	PUNCT	punct	Allons
 »	PUNCT	ROOT	»
-                               	SPACE	ROOT	                               
-XXII	NOUN	ROOT	XXII
-                       	SPACE	ROOT	                       
+XXII	ADJ	ROOT	XXII
 --------------------	PUNCT	ROOT	--------------------
-                	SPACE	ROOT	                
 LE	DET	det	NOUVEAU
 NOUVEAU	ADJ	ROOT	NOUVEAU
 CITOYEN	NOUN	ROOT	CITOYEN
@@ -54360,11 +54266,8 @@ des	ADP	case	États-Unis
 d'	ADP	case	Amérique
 Amérique	PROPN	nmod	États-Unis
 .	PUNCT	punct	décernait
-                              	SPACE	ROOT	                              
 XXIII	NOUN	ROOT	XXIII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                       	SPACE	ROOT	                       
 LE	DET	det	WAGON-PROJECTILE
 WAGON-PROJECTILE	NOUN	ROOT	WAGON-PROJECTILE
 Après	ADP	case	achèvement
@@ -57076,11 +56979,8 @@ Il	PRON	expl:subj	engraissé
 avait	AUX	aux:tense	engraissé
 engraissé	VERB	ROOT	engraissé
 !	PUNCT	punct	engraissé
-                               	SPACE	ROOT	                               
-XXIV	NOUN	ROOT	XXIV
-                       	SPACE	ROOT	                       
+XXIV	NUM	ROOT	XXIV
 --------------------	PUNCT	ROOT	--------------------
-               	SPACE	ROOT	               
 LE	DET	det	TÉLESCOPE
 TÉLESCOPE	NOUN	ROOT	TÉLESCOPE
 DES	ADP	case	MONTAGNES
@@ -59409,11 +59309,8 @@ jamais	ADV	advmod	pu
 pu	VERB	acl:relcl	Taureau
 réduire	VERB	xcomp	pu
 .	PUNCT	punct	Taureau
-                               	SPACE	ROOT	                               
-XXV	NOUN	ROOT	XXV
-                       	SPACE	ROOT	                       
+XXV	PROPN	ROOT	XXV
 --------------------	PUNCT	ROOT	--------------------
-                         	SPACE	ROOT	                         
 DERNIERS	DET	det	DÉTAILS
 DÉTAILS	ADJ	ROOT	DÉTAILS
 On	PRON	expl:subj	22
@@ -61815,12 +61712,9 @@ en	ADP	case	route
 route	NOUN	obl:arg	rester
 .	PUNCT	punct	serons
 »	PUNCT	ROOT	»
-                               	SPACE	ROOT	                               
 XXVI	NOUN	ROOT	XXVI
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                               	SPACE	ROOT	                               
-FEU	NOUN	ROOT	FEU
+FEU	PROPN	ROOT	FEU
 !	PUNCT	punct	FEU
 Le	DET	det	jour
 premier	ADJ	amod	jour
@@ -63851,11 +63745,8 @@ des	ADP	case	flamboyantes
 vapeurs	NOUN	amod	flamboyantes
 flamboyantes	NOUN	nmod	milieu
 .	PUNCT	punct	souleva
-                              	SPACE	ROOT	                              
 XXVII	ADJ	ROOT	XXVII
-                       	SPACE	ROOT	                       
 --------------------	PUNCT	ROOT	--------------------
-                          	SPACE	ROOT	                          
 TEMPS	NOUN	nsubj	COUVERT
 COUVERT	VERB	ROOT	COUVERT
 Au	ADP	case	moment
@@ -65557,13 +65448,10 @@ constellations	NOUN	nmod	limpides
 du	ADP	case	ciel
 ciel	NOUN	nmod	limpides
 .	PUNCT	punct	passa
-                              	SPACE	ROOT	                              
-XXVIII	NOUN	ROOT	XXVIII
-                       	SPACE	ROOT	                       
+XXVIII	ADJ	ROOT	XXVIII
 --------------------	PUNCT	ROOT	--------------------
-                         	SPACE	ROOT	                         
 UN	DET	det	NOUVEL
-NOUVEL	ADJ	ROOT	NOUVEL
+NOUVEL	NOUN	ROOT	NOUVEL
 ASTRE	AUX	ROOT	ASTRE
 Cette	DET	det	nuit
 nuit	NOUN	obl:mod	éclata
@@ -65653,11 +65541,10 @@ Gun	PROPN	nmod	expérience
 -	PROPN	nmod	expérience
 Club	NOUN	nmod	expérience
 .	PUNCT	punct	renferme
-                                	SPACE	ROOT	                                
-Longs'	PROPN	ROOT	Longs'
+Longs'	SCONJ	ROOT	Longs'
 s	PRON	dep	Longs'
 -	PROPN	dep	Longs'
-Peak	PROPN	flat:name	Longs'
+Peak	PROPN	dep	Longs'
 ,	PUNCT	punct	12
 12	NUM	conj	Longs'
 décembre	NOUN	nmod	12
@@ -65943,7 +65830,6 @@ système	NOUN	obj	astre
 solaire	ADJ	amod	système
 .	PUNCT	punct	ce
 _	NOUN	ROOT	_
-                                                  	SPACE	ROOT	                                                  
 J.-M.	NOUN	det	BELFAST
 BELFAST	PROPN	ROOT	BELFAST
 .	PUNCT	punct	BELFAST
