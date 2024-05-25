@@ -100,9 +100,19 @@ Il n'y a pas eu de problèmes particulièrement compliqués pendant l'écriture 
 
 ## III. La compléxité empirique du module en temps et en espace
 
-S'agissant de la complexité du modèle de reconnaissance d'EN de Spacy, nous n'avons pas trouvé de référence à une annonce de complexité dans un article (recherche dans *Google Scholars*). Nous apprenons seulement sur leur site qu'il s'appuie sur un algorithme basé sur les transitions (*transition-based algorithm*) et qu'il recherche des empans de tokens "*qui ne se chevauchent pas*" ([EntityRecognizer · spaCy API Documentation]([EntityRecognizer · spaCy API Documentation](https://spacy.io/api/entityrecognizer))).
+S'agissant de la complexité du modèle de reconnaissance d'EN de Spacy, nous n'avons pas trouvé de référence à une annonce de complexité dans un article. Nous apprenons seulement sur leur site qu'il s'appuie sur un algorithme basé sur les transitions (*transition-based algorithm*) et qu'il recherche des empans de tokens "qui ne se chevauchent pas" ([cf. la documentation spacy](https://spacy.io/api/entityrecognizer)).
 
-### Complexité du script *groupe3.py*
+### Complexité empirique en espace
+
+Nous avons utilisé le compteur `cpt_espace` pour savoir combien d'éléments au maximum se trouvaient dans les listes et dictionnaires pendant l'exécution du module. Dans la fonction *preprocess_file()*, on calcule le nombre de phrases dans la variable `texte`. Dans la fonction *analyse_spacy()*, on ajoute le nombre de Token de chaque SpacyDoc se trouvant dans la variable `docs`. Dans la fonction *process_file()*, à chaque appel de la fonction, on vérifie le nombre d'éléments dans la liste `docs`, dans le dictionnaire `dicos` et on modifie `cpt_espace` s'il est plus petit que `cpt_def` pour garder la plus grande valeur.
+
+### Complexité empirique en temps
+
+Nous avons de compteurs pour cette complexité. Avec le module `time`, on obtient le temps d'exécution du module à chaque annotation d'un fichier. Cependant, à chaque appel de la fonction *get_complexities()*, le résultat de la mesure n'est pas identique celui fait précédemment car le temps d'exécution est influencé beaucoup d'autres facteurs : le nombre de tâches en arrière-plan, le type de machine utilisé, ordre de grandeurs très différent au compteur `cpt_espace`, etc.
+
+Nous avons donc cherché une autre mesure et nous avons choisi de calculer le nombre d'appels de fonctions à chaque exécution du module à l'aide du compteur `cpt_temps`. C'était d'autant plus intéressant que notre module était récursif.
+
+### Analyse des complexités
 
 | corpus               | nb tokens | espace (nb éléments) | temps (sec.) | temps (nb appels) |
 | -------------------- | --------- | -------------------- | ------------ | ----------------- |
@@ -113,29 +123,16 @@ S'agissant de la complexité du modèle de reconnaissance d'EN de Spacy, nous n'
 | JV-Forceurs_blocus   | 23525     | 24606                | 6.646        | 24932             |
 | JV-Robur             | 73354     | 75576                | 25.532       | 76601             |
 | JV-Begum             | 64440     | 66132                | 19.266       | 66949             |
+*tableau des compteurs pour chaque fichier du corpus*
 
-On peut déjà observer avec notre corpus de 7 textes que les ordres de grandeurs des variables du calcul de complexité (ici le nbre de tokens, le nombre d'élements et le nombre d'appels) sont similaires.
-
-#### Complexité empirique en espace
-
-Nous avons utilisé le compteur `cpt_espace` pour savoir combien d'éléments au maximum se trouvaient dans les listes et dictionnaires pendant l'exécution du module. Dans la fonction *preprocess_file()*, on calcule le nombre de phrases dans la variable `texte`. Dans la fonction *analyse_spacy()*, on ajoute le nombre de Token de chaque SpacyDoc se trouvant dans la variable `docs`. Dans la fonction *process_file()*, à chaque appel de la fonction, on vérifie le nombre d'éléments dans la liste `docs`, dans le dictionnaire `dicos` et on modifie `cpt_espace` s'il est plus petit que `cpt_def` pour garder la plus grande valeur.
-
-#### Complexité empirique en temps
-
-Nous avons de compteurs pour cette complexité. Avec le module `time`, on obtient le temps d'exécution du module à chaque annotation d'un fichier. Cependant, à chaque appel de la fonction *get_complexities()*, le résultat de la mesure n'est pas identique celui fait précédemment car le temps d'exécution est influencé beaucoup d'autres facteurs : le nombre de tâches en arrière-plan, le type de machine utilisé, ordre de grandeurs très différent au compteur `cpt_espace`, etc.
-
-Nous avons donc cherché une autre mesure et nous avons choisi de calculer le nombre d'appels de fonctions à chaque exécution du module à l'aide du compteur `cpt_temps`. C'était d'autant plus intéressant que notre module était récursif.
-
-#### Analyse des complexités
+On peut déjà observer avec notre corpus de 7 textes que les ordres de grandeurs des variables du calcul de complexité (ici le nbre de tokens, le nombre d'éléments et le nombre d'appels) sont similaires.
 
 ![Complexité empirique avec le compteur time](https://github.com/AgatheWallet/Projet_M2S2_Pap/blob/main/Groupe3/images/plot_temps_espace.png/ "Complexité empirique avec le compteur time")
 
 ![Complexité empirique avec le compteur cpt_temps](https://github.com/AgatheWallet/Projet_M2S2_Pap/blob/main/Groupe3/images/plot_appels_espace.png "Complexité empirique avec le compteur cp_temps")
 
-L'espace mémoire et le nombre d'appels des fonctions augmentent de manière corrélée et linéaire à mesure de l'augmentation du nombre de tokens. 
+L'espace mémoire maximal et le nombre d'appels des fonctions augmentent de manière corrélée et linéaire à mesure de l'augmentation du nombre de tokens. 
 
-Le temps d'éxécution mesuré en seconde par le module *time* est sensible à la quantité de tokens traitée par le script. Sa courbe présente une petite cassure. Elle est liée au fait que deux textes : le texte *JV-Terre_Lune* (4ième point) et *JV-Begum* (5ième point) ont des tailles proches en nombre de tokens (66352 et 64440 respectivement) et sont donc proches en temps d'exécution environ 22 et 24 sec.
+Le temps d'exécution mesuré en seconde par le module *time* est sensible à la quantité de tokens traitée par le script. Sa courbe présente une petite cassure. Elle est liée au fait que deux textes : le texte *JV-Terre_Lune* (4e point) et *JV-Begum* (5e point) ont des tailles proches en nombre de tokens (66352 et 64440 respectivement) et sont donc proches en temps d'exécution environ 22 et 24 secondes. Nous ne pouvons pas en tirer de conclusions sur ce compteur. Peut-être aurions-nous dû faire comme le groupe 5 et normaliser nos mesures avant de créer nos graphes et d'analyser les résultats.
 
-La tendance des courbes des plots est quasi-linéaire, cela nous laisse penser que l'on a une complexité empirique de l'ordre de **O(*n*)**.
-
-### 
+Cependant, la tendance des courbes des plots est quasi-linéaire, cela nous laisse penser que l'on a une complexité empirique de l'ordre de **O(*n*)**.
