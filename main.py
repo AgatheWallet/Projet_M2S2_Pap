@@ -314,7 +314,7 @@ def get_pipe_complexity(cpx_gp1:list, cpx_gp2:list, cpx_gp3:list, cpx_gp4:list):
 	return n_tokens, total_time_cpx, total_space_cpx
 	
 	
-def plot_complexities(list_x_y1_y2:list):
+def plot_complexities(list_x_y1_y2:list, output_filename:str="plot_time_space_complexities.png"):
 	"""
 	Cette fonction crée un graphique pour représenter la complexité en temps et en espace mémoire par rapport au nombre de tokens.
 
@@ -371,7 +371,7 @@ def plot_complexities(list_x_y1_y2:list):
 	plt.grid()
 	plt.legend()
 	plt.subplots_adjust(top=0.9)  # Ajuster pour donner plus d'espace au titre
-	plt.savefig("plot_time_space_complexities.png", bbox_inches='tight')
+	plt.savefig(output_filename, bbox_inches='tight')
 	plt.show()
 
 
@@ -382,19 +382,22 @@ if __name__=="__main__":
 	sys.stdout = sys_stdout
 	print("Retour des affichages...")
 
-	list_n_tokens = cpx_gp2[0]
  
 	print("1:", cpx_gp1)
 	print("2:", cpx_gp2)
 	print("3:", cpx_gp3)
 	print("4:", cpx_gp4)
  
-	# plot_complexities([list_n_tokens, cpx_gp1[0], cpx_gp1[1]])
-	# plot_complexities(cpx_gp2)
-	# plot_complexities(cpx_gp3)
-	plot_complexities(get_pipe_complexity(cpx_gp1, cpx_gp2, cpx_gp3, cpx_gp4))
+	list_n_tokens = cpx_gp2[0]
+	plot_complexities([list_n_tokens, cpx_gp1[0], cpx_gp1[1]], 'plot_time_space_complexities_gp1.png')
+	plot_complexities(cpx_gp2, 'plot_time_space_complexities_gp2.png')
+	plot_complexities(cpx_gp3, 'plot_time_space_complexities_gp3.png')
+ 
+	g4_t_cpx = [cpx["temps_complexite"] for cpx in cpx_gp4]
+	g4_s_cpx = [cpx["espace_complexite"] for cpx in cpx_gp4]
 
-	
+	plot_complexities([list_n_tokens, g4_t_cpx, g4_s_cpx], 'plot_time_space_complexities_gp4.png')
+	plot_complexities(get_pipe_complexity(cpx_gp1, cpx_gp2, cpx_gp3, cpx_gp4), 'plot_time_space_complexities_all.png')
 
 	# print(dico)
 	build_conll(dico, sys.argv[2])
