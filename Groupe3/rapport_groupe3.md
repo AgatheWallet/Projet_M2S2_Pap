@@ -21,6 +21,7 @@ L'entraînement du modèle de reconnaissance des EN de Sapcy a été réalisé a
 #### L'annotation BIO
 
 On peut récupérer, à partir du token d'un objet SpacyDoc, les informations suivantes : 
+
 - la forme : *token*.text
 - l'étiquette IOB : *token*.ent_iob_
 - le type d'EN, soit l'étiquette : *token*.ent_type_
@@ -40,6 +41,7 @@ La variable docs est une liste de SpacyDoc (spacy.tokens.doc.Doc). Chaque élém
 Le script du Groupe 5 qui est en charge d'intégrer les différentes modules, prend la sortie de notre script : `from Groupe3.groupe3 import get_complexities`
 
 La fonction `get_complexities() `retourne une liste de 4 listes, dont les 3 premières seront utilisées afin qu'il puisse calculer la complexité moyenne en temps et en espace de chaque module : 
+
 - la liste du nombre de tokens par texte
 - la liste du temps d'exécution en sec par texte
 - la liste des compteurs de la complexité empirique en espace mémoire. 
@@ -130,4 +132,20 @@ S'il est réitéré, le calcul ne renvoie jamais la même mesure, le temps d'ex�
 
 Compte tenu du fait que nos fonctions sont récursives, il est intéressant de se concentrer sur le nombre d'appels de fonctions pour mesurer la complexité en temps. C'est ce que nous avons fait en incrémentant un compteur dans l'appel de la fonction dans le return.
 
-La tendance de la courbe des plots est quasi-linéaire, cela nous laisse penser que l'on a une complexité empirique de l'ordre de O(N).
+La tendance de la courbe des plots est quasi-linéaire, cela nous laisse penser que l'on a une complexité empirique de l'ordre de O(N).Complexité empirique en temps
+
+###### Au moyen du module Python *time*
+
+On calcule le temps d'exécution des cinq fonctions du script, donc pour le traitement d'un fichier.
+
+S'il est réitéré, le calcul ne renvoie jamais la même mesure, le temps d'exécution est influencé par le nombre de tâches en arrière-plan dans la machine et il peut donner pour un même script et pour les mêmes données, un résultat différent selon le système d'exploitation, la machine etc.
+
+###### Au moyen du calcul du nombre d'appels de fonctions
+
+Compte tenu du fait que nos fonctions sont récursives, il est intéressant de se concentrer sur le nombre d'appels de fonctions pour mesurer la complexité en temps. C'est ce que nous avons fait en incrémentant un compteur dans l'appel de la fonction dans le return.
+
+La tendance de la courbe des plots est quasi-linéaire, cela nous laisse penser que l'on a une complexité empirique de l'ordre de **O(*n*)**.
+
+###### Annonce de complexité de l'algorithme utilisé
+
+Nous n'avons pas trouvé de référence à une annonce de complexité modèle de reconnaissance d'EN de Spacy dans un article (recherche dans *Google Scholars*). Nous savons qu'il s'appuie sur un algorithme basé sur les transitions (*transition-based algorithm*) et qu'il recherche des empans de tokens "*qui ne se chevauchent pas*" ([EntityRecognizer · spaCy API Documentation]([EntityRecognizer · spaCy API Documentation](https://spacy.io/api/entityrecognizer))).
