@@ -114,7 +114,7 @@ S'agissant de la complexité du modèle de reconnaissance d'EN de Spacy, nous n'
 | JV-Robur             | 73354     | 75576                | 25.532       | 76601             |
 | JV-Begum             | 64440     | 66132                | 19.266       | 66949             |
 
-On peut déjà observer avec notre petit corpus de 7 textes que les ordres de grandeurs des variables du calcul de complexité sont similaires.
+On peut déjà observer avec notre corpus de 7 textes que les ordres de grandeurs des variables du calcul de complexité (ici le nbre de tokens, le nombre d'élements et le nombre d'appels) sont similaires.
 
 #### Complexité empirique en espace
 
