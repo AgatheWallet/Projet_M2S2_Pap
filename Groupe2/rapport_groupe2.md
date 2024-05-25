@@ -50,8 +50,6 @@ Etant donné la simplicité du résultat l'analyse syntaxique, notamment le fait
 
 La fonction `time_and_memory_wrapper` est un décorateur qui permet de mesurer le temps d'exécution et la mémoire utilisée par une fonction donnée. En enveloppant une fonction avec ce décorateur, on obtient des informations sur les performances à chaque éxecution. Le décorateur utilise le module `tracemalloc` pour mesurer la mémoire utilisée (en octets) avant et après l'exécution de la fonction, et le module `time` pour mesurer le temps écoulé. Les résultats sont ensuite stockés dans les listes globales `time_data` et `memory_data`, permettant l'analyse, l'import et la visualisation ultérieurs.
 
-#### [Liza] tu peux rajouter qqs lignes pour la fonction, pour expliquer la continuité du groupe 1 et comment ça sert les groupe 4 stp?
-
 #### `plot_complexity()`
 
 `plot_complexity` génère un graphique représentant l'évolution de la complexité en fonction du nombre de tokens. Elle utilise les données collectées sur le nombre de tokens, le temps d'exécution et la mémoire utilisée pour chaque exécution de fonction. Ce graphique permet une visualisation claire des tendances de performance du en fonction de la charge de traitement. L'axe x représente le nombre de tokens, tandis que l'axe y représente à la fois le temps d'exécution et la mémoire utilisée. Cette fonction est essentielle pour détecter les éventuelless déficience et optimiser les performances globales du système.
@@ -105,7 +103,6 @@ Contrairement, au projet réalisé lors du 1er semestre, pour le projet actuel n
 ## Conclusion
 
 Ce rapport présente une analyse approfondie des performances des fonctions de traitement NLP, en mettant l'accent sur la mesure du temps d'exécution et de l'utilisation de la mémoire. En utilisant des outils de mesure appropriés et des visualisations graphiques, nous avons pu identifier les zones d'amélioration potentielles et guider le processus d'optimisation du système NLP. Ces informations sont essentielles pour assurer des performances optimales dans des environnements de traitement de texte à grande échelle.
-<br>
 
 ---
 
