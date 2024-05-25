@@ -1,6 +1,32 @@
 # Rapport Projet Groupe 5 - Florian Jacquot et Agathe Wallet
 
----
+## Table des matières
+
+1. [Utilisation](#utilisation)  
+
+2. [Présentation du corpus](#présentation-du-corpus)  
+
+3. [Description des modules](#description-des-modules)  
+    3.1. [Partie annotation](#partie-annotation)  
+    - [Module 1](#module-1)  
+    - [Module 2](#module-2)  
+    - [Module 3](#module-3)  
+    - [Module 4](#module-4)  
+
+    3.2. [Partie calcul de complexité](#partie-calcul-de-complexité)  
+    - [Module 1](#module-1-1)  
+    - [Module 2](#module-2-1)  
+    - [Module 3](#module-3-1)  
+    - [Module 4](#module-4-1)  
+
+4. [Description de `main.py`](#description-de-mainpy)  
+
+5. [Analyse de complexités](#analyse-de-complexités)  
+
+6. [Les difficultés rencontrées et les tentatives de solutions](#les-difficultés-rencontrées-et-les-tentatives-de-solutions)  
+    6.1  [Difficultés générales](#difficultés-générales)  
+    6.2  [Difficultés par rapport aux calculs de complexités](#difficultés-par-rapport-aux-calculs-de-complexités)
+---------------------------------------------------------------
 
 Notre mission était un peu différente de celle des autres groupes puisque nous n'avions pas pour objectif de créer un module mais de rassembler les modules faits par les autres équipes pour pouvoir traiter le corpus de A à Z. Aussi, nous n'avons pas réellement de recherches préalables à notre travail à vous présenter.
 
@@ -161,7 +187,7 @@ Ce module présente une complexité empirique en espace parfaitement en accord a
 
 ![Complexité empirique du module 1](plot_time_space_complexities_gp4.png "Complexité empirique du module 1")
 
-Encore une fois, la complexité en temps semble être entre $O(x)$ et $O(xlog(x))$. En revanche, la courbe pour la complexité spatiale n'est pas vraiment interprétable. Il semble que les mesures faite par le module `psutil` ne sont pas fiables ici.
+Encore une fois, la complexité en temps semble être entre $O(x)$ et $O(xlog(x))$. En revanche, la courbe pour la complexité spatiale n'est pas vraiment interprétable. Il semble que les mesures faites par le module `psutil` ne sont pas fiables ici.
 
 **Complexité de la chaîne complète**
 
