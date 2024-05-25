@@ -114,38 +114,26 @@ On peut déjà observer avec notre petit corpus de 7 textes que les ordres de gr
 
 ### Complexité empirique en espace
 
-La complexité empirique en espace mémoire est calculée à partir du nombre d'éléments de toutes les séquences, tous les dictionnaires et les SpacyDoc. L'idée est de compter les éléments par fichier texte et de garder la valeur la plus grande du décompte.
-
-Le nombre des éléments pris en compte est représentés par les len() et les sum() suivants :
-
-- dans *def preprocess_file()* : `len(texte)` le nombre des phrases dans un texte
-- dans *def analyse_spacy()* : `sum([len(doc) for doc in docs])` la somme du nombre de Token de chaque chaque SpacyDoc.
-- dans *def process_file()* : `(len(dicos) + len(docs)-1) + sum([len(doc) for doc in docs]) + sum([1 for dico in dicos for token in dico.keys()])` : le nombre de dictionnaires, le nombre de SpacyDoc
+Nous avons utilisé le compteur `cpt_espace` pour savoir combien d'éléments au maximum se trouvaient dans les listes et dictionnaires pendant l'exécution du module. Dans la fonction *preprocess_file()*, on calcule le nombre de phrases dans la variable `texte`. Dans la fonction *danalyse_spacy()*, on ajoute le nombre de Token de chaque SpacyDoc se trouvant dans la variable `docs`. Dans la fonction *process_file()*, à chaque appel de la fonction, on vérifie le nombre d'éléments dans la liste `docs`, dans le dictionnaire `dicos` et on modifie `cpt_espace` s'il est plus petit que `cpt_def` pour garder la plus grande valeur.
 
 ### Complexité empirique en temps
 
-###### Au moyen du module Python *time*
+Nous avons de compteurs pour cette complexité. Avec le module `time`, on obtient le temps d'exécution du module à chaque annotation d'un fichier. Cependant, à chaque appel de la fonction *get_complexities*, le résultat de la mesure n'est pas identique celui fait précédemment car le temps d'exécution est influencé beaucoup d'autres facteurs : le nombre de tâches en arrière-plan, le type de machine utilisé, ordre de grandeurs très différent au compteur `cpt_espace`, etc.
 
-On calcule le temps d'exécution des cinq fonctions du script, donc pour le traitement d'un fichier.
+Nous avons donc cherché une autre mesure et nous avons choisi de calculer le nombre d'appels de fonctions à chaque exécution du module à l'aide du compteur `cpt_temps`. C'était d'autant plus intéressant que notre module était récursif.
 
-S'il est réitéré, le calcul ne renvoie jamais la même mesure, le temps d'exécution est influencé par le nombre de tâches en arrière-plan dans la machine et il peut  donner pour un même script et pour les mêmes données, un résultat différent selon le système d'exploitation, la machine etc.
+### Analyse des complexités
 
-Compte tenu du fait que nos fonctions sont récursives, il est intéressant de se concentrer sur le nombre d'appels de fonctions pour mesurer la complexité en temps. C'est ce que nous avons fait en incrémentant un compteur dans l'appel de la fonction dans le return.
 
-La tendance de la courbe des plots est quasi-linéaire, cela nous laisse penser que l'on a une complexité empirique de l'ordre de O(N).Complexité empirique en temps
+![Complexité empirique avec le compteur time](https://github.com/AgatheWallet/Projet_M2S2_Pap/blob/main/Groupe3/images/plot_temps_espace.png/ "Complexité empirique avec le compteur time")
 
-###### Au moyen du module Python *time*
-
-On calcule le temps d'exécution des cinq fonctions du script, donc pour le traitement d'un fichier.
-
-S'il est réitéré, le calcul ne renvoie jamais la même mesure, le temps d'exécution est influencé par le nombre de tâches en arrière-plan dans la machine et il peut donner pour un même script et pour les mêmes données, un résultat différent selon le système d'exploitation, la machine etc.
-
-###### Au moyen du calcul du nombre d'appels de fonctions
-
-Compte tenu du fait que nos fonctions sont récursives, il est intéressant de se concentrer sur le nombre d'appels de fonctions pour mesurer la complexité en temps. C'est ce que nous avons fait en incrémentant un compteur dans l'appel de la fonction dans le return.
+![Complexité empirique avec le compteur cpt_temps](https://github.com/AgatheWallet/Projet_M2S2_Pap/blob/main/Groupe3/images/plot_appels_espace.png "Complexité empirique avec le compteur cp_temps")
 
 La tendance de la courbe des plots est quasi-linéaire, cela nous laisse penser que l'on a une complexité empirique de l'ordre de **O(*n*)**.
 
-###### Annonce de complexité de l'algorithme utilisé
+
+# Laura : je ne pense pas que ce paragraphe soit nécessaire, il est trop flou, trop de on ne sait pas, de toute manière il est normal que ce ne soit écrit nule part, la complexité n'est pas un indicatif très populaire (comparé à p-value, calcul d'accuracy, f-mesure...)
+# Et personne n'en parle
+### Annonce de complexité de l'algorithme utilisé
 
 Nous n'avons pas trouvé de référence à une annonce de complexité modèle de reconnaissance d'EN de Spacy dans un article (recherche dans *Google Scholars*). Nous savons qu'il s'appuie sur un algorithme basé sur les transitions (*transition-based algorithm*) et qu'il recherche des empans de tokens "*qui ne se chevauchent pas*" ([EntityRecognizer · spaCy API Documentation]([EntityRecognizer · spaCy API Documentation](https://spacy.io/api/entityrecognizer))).
