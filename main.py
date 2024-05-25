@@ -13,7 +13,7 @@ Ce script est conçu pour traiter un corpus de texte et générer un fichier de 
 Il utilise les scripts des groupes 1 à 4 pour effectuer différentes tâches de traitement automatique des langues.
 
 Les étapes principales sont les suivantes :
-1. Prétraitement du corpus (groupe 1 : Sandra JAGODZINSKA et Valentina OSETROV)
+1. Étiquetage en partie du discours (groupe 1 : Sandra JAGODZINSKA et Valentina OSETROV)
 2. Analyse syntaxique et sémantique (groupe 2 : Kenza AHMIA, Liza FRETEL et Shami THIRION SEN)
 3. Reconnaissance des entités nommées (groupe 3 : Laura DARENNE et Alice WALLARD)
 4. Analyse des groupes nominaux (groupe 4 : Fanny BACHEY, Clément BUON et Tifanny NGUYEN)
