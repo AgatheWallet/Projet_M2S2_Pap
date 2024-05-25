@@ -1,4 +1,4 @@
-## Analyse syntaxique en dépendance
+## Analyse syntaxique en dépendances
 
 **Auteurs**: Liza FRETEL, Kenza AHMIA, Shami THIRION SEN
 
