@@ -11,7 +11,7 @@
 
 ### Groupe 3:
 - Laura DARENNE
-- Alice
+- Alice WALLARD
 
 ### Groupe 4:
 - Clément BUON
